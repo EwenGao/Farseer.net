@@ -1,7 +1,0 @@
-E:\公司\优教网V2\Development\trunk\1_公共层\Farseer\Framework\V0.2\Source\bin\x86\Release\Farseer.Net.dll
-E:\公司\优教网V2\Development\trunk\1_公共层\Farseer\Framework\V0.2\Source\bin\x86\Release\Farseer.Net.pdb
-E:\公司\优教网V2\Development\trunk\1_公共层\Farseer\Framework\V0.2\Source\obj\x86\Release\FS.Utils.Form.DynamicHtml.resources
-E:\公司\优教网V2\Development\trunk\1_公共层\Farseer\Framework\V0.2\Source\obj\x86\Release\Farseer.Net.csproj.GenerateResource.Cache
-E:\公司\优教网V2\Development\trunk\1_公共层\Farseer\Framework\V0.2\Source\obj\x86\Release\Farseer.Net.dll
-E:\公司\优教网V2\Development\trunk\1_公共层\Farseer\Framework\V0.2\Source\obj\x86\Release\Farseer.Net.pdb
-E:\公司\优教网V2\Development\trunk\1_公共层\Farseer\Framework\V0.2\Source\obj\x86\Release\Farseer.Net.csprojResolveAssemblyReference.cache
