@@ -1,0 +1,221 @@
+<html><head><title>使用ZeroClipboard解决跨浏览器复制到剪贴板的问题_supertwj的空间_百度空间</title><meta http-equiv=content-type content="text/html; charset=GBK"><link rel=alternate type="application/rss+xml" title="订阅该空间的博客文章" href="http://hi.baidu.com/supertwj/rss"><style type="text/css">.error{color:#F00;font-size:12px}.shareUser,.shareLastEditor{line-height:20px;color:#666;text-align:left}.shareLastEditor{margin:5px 0 8px}</style><script>
+	    var g_pageTimerStart=new Date().getTime();
+	</script><script src="http://hi.bdimg.com/static/cblog/js/other/global.js?v=009301b8.js"></script><script src="http://hi.bdimg.com/static/cblog/js/other/libs.js?v=48b209f9.js"></script><script src="http://img.baidu.com/js/tangram-1.1.0.js?v=1334907755.js"></script><script>
+var Session = {
+    isLogin: !true,
+    isHost: 0,
+    loginStatus : 0,
+    userName: "supertwj",   
+    userPortrait:'605e737570657274776a3001',
+    spaceURL: "\/supertwj",
+    spBasicURL:"http:\/\/hi.baidu.com\/supertwj",
+    spBasicURLEnc:"http%3A%2F%2Fhi.baidu.com%2Fsupertwj",
+    visitorName:    "",
+    visitorPortrait:'00000000',
+    isActive: '0',   /*{cmt 访问者是否激活空间}*/
+    visitorURL: "\/",        // 
+    pageURL: "http://hi.baidu.com\/supertwj\/blog\/item\/0cc7c5f620f75662dcc4746a.html",    
+    refer: "",
+    spToken: 'the fisrt two args should be string type:0,1!', 
+    spFriendDomain: 'http://frd.baidu.com',
+    spSpaceDomain: 'http://hi.baidu.com',
+    spPortraitDomain: 'http://tx.bdimg.com',
+    spSpaceStaticDomain: 'http://hi.bdimg.com', /*{cmt TODO RD似乎还不有提供这个变量，记得补成呀！}*/
+    spImgDomain : 'http://img.baidu.com',
+    spStaticDomain : 'http://hi.bdimg.com',
+
+    isDrag: false  /*{cmt 是否在拖动页：是为了通用，只对模块内容有作用，这里也作为一个通用属性}*/
+    ,isProfile: false   /*{cmt 是否在拖动页：是为了通用，只对模块内容有作用，这里也作为一个通用属性}*/
+    ,isPortraitVerify:!true
+    };
+</script></head><body> <script>
+/*<![CDATA[*/
+if(top.location != self.location){
+	top.location = self.location;
+}
+var myref = encodeURIComponent("http://hi.baidu.com\/supertwj\/blog\/item\/0cc7c5f620f75662dcc4746a.html");
+/*]]>*/
+</script><!--[if (lt IE 8.0)]><link rel=stylesheet type=text/css href="http://hi.bdimg.com/static/cblog/css/ui/mods.css?v=774e31a7.css"><![endif]--><!--[if (!IE)|(gte IE 8.0)]><!--><link rel=stylesheet type=text/css href="http://hi.bdimg.com/static/cblog/css/ui/mods_datauri.css?v=a1661a70.css"><!--<![endif]--><link rel=stylesheet type=text/css href="http://hitn.bdimg.com/2402050202/css/item/dd93b3f279bf65c37831aa0e.css"><!--[if (lt IE 8.0)]><link rel=stylesheet type=text/css href="http://hi.bdimg.com/static/cblog/css/space.css?v=674c899c.css"><![endif]--><!--[if (!IE)|(gte IE 8.0)]><!--><link rel=stylesheet type=text/css href="http://hi.bdimg.com/static/cblog/css/space_datauri.css?v=b27686c7.css"><!--<![endif]--><div class=userbar><center> <div id=nav><a class=logo href=http://hi.baidu.com/index.htm><img src=http://img.baidu.com/hi/logo/logo_93_30.gif border=0 alt="百度空间"></a><div class="manage no-login"><form action="https://passport.baidu.com/?login" method=post>用户名:<input name=username>&nbsp;&nbsp; 密码:<input type=password name=password> <input type=hidden name=mem_pass value=on><input type=submit value="" style="width:0; height:0;"><a href="#" class=loginlink onclick="this.parentNode.submit(); return false;">登录</a> </form> <a href=/reg/new class=reglink>注册</a></div> </div></center></div><script src="http://hi.bdimg.com/static/base/js/conf/base.js?v=1334907755.js"></script><link rel=stylesheet type=text/css href="http://hi.bdimg.com/static/base/css/base.css?v=1334907755.css"><script language=javascript src="http://hi.bdimg.com/static/cblog/js/ui/dialog.js?v=f1d92f7b.js"></script><center><div id=main align=left><!--[if IE]><script>
+var objmain = document.getElementById("main");
+function updatesize(){ var bodyw = window.document.body.offsetWidth; if(bodyw <= 790) objmain.style.width="772px"; else if(bodyw >= 1016) objmain.style.width="996px"; else objmain.style.width="100%"; }
+updatesize(); window.onresize = updatesize;
+</script><![endif]--><div id=header><div class=lc><div class=rc></div></div><div class=tit><a href="/supertwj" class=titlink title="supertwj的空间 http://hi.baidu.com/supertwj">supertwj的空间</a></div><div class=desc></div><div id=tabline>&nbsp;</div><div id=tab><a href="http://hi.baidu.com/supertwj/home">主页</a><a href="http://hi.baidu.com/supertwj/blog" class=on>博客</a><a href="http://hi.baidu.com/supertwj/album">相册</a><span>|</span><a href="http://hi.baidu.com/supertwj/profile">个人档案</a><span>|</span><a href="http://hi.baidu.com/supertwj/friends">好友</a><span>|</span><a href="http://tieba.baidu.com/i/sys/jump?un=supertwj&fr=spacebar" onclick="BdUtil.ns_trackerLink('m_20110330_spacebar','')" target=_blank>i贴吧</a></div></div><div class=stage><div class=stagepad><div style="width:100%"><table width="100%" border=0 cellspacing=0 cellpadding=0 class=modth><tr><td class=modtl width=7>&nbsp;<td class=modtc nowrap><div class=modhead><span class=modtit>查看文章</span></div><td class=modtc nowrap align=right><td class=modtr width=7>&nbsp;</table><div id=m_blog class=modbox style="overflow-x:hidden;"><div class=tit>使用ZeroClipboard解决跨浏览器复制到剪贴板的问题</div><div class=date>2010-06-03 10:54</div><table style="table-layout:fixed;width:100%"><tr><td><div id=blog_text class=cnt><h3><strong><font size="2">原文链接：http://www.js8.in/407.html</font></strong></h3>
+<h3>Zero Clipboard的实现原理</h3>
+<p><strong>Zero Clipboard </strong>利用透明的Flash让其漂浮在复制按钮之上，这样其实点击的不是按钮而是 Flash ，这样将需要的内容传入Flash，再通过Flash的复制功能把传入的内容复制到<strong>剪贴板</strong>。</p>
+<h3>Zero Clipboard的安装方法</h3>
+<p>其实也不算安装啦，就是使用前的准备工作。<br>
+首先需要下载 Zero Clipboard的压缩包，解压后把文件夹中两个文件：<a href="http://www.js8.in/tag/zeroclipboard" title="ZeroClipboard">ZeroClipboard</a>.js 和 ZeroClipboard.swf 放入到你的项目中。</p>
+<blockquote>
+<p>Zero Clipboard : [<a target="_blank" href="http://code.google.com/p/zeroclipboard/">项目主页</a>] [<a target="_blank" href="http://code.google.com/p/zeroclipboard/downloads/list">zip下载</a>] [<a target="_blank" href="http://bowser.macminicolo.net/%7Ejhuckaby/zeroclipboard/">在线演示</a>]</p>
+</blockquote>
+<p><br>
+然后把在你要使用复制功能的页面中引入Zero Clipboard的js文件：ZeroClipboard.js<br>
+如下代码：</p>
+<blockquote>
+<div class="wp_syntax">
+<div class="code">
+<pre class="html">&lt;script type=&quot;text/javascript&quot; src=&quot;ZeroClipboard.js&quot;&gt;&lt;/script&gt;</pre>
+</div>
+</div>
+</blockquote>
+<p>注意：以上 ZeroClipboard.js, ZeroClipboard.swf需要放在同一路径下。如果不在同一路径，可使用ZeroClipboard.setMoviePath( “Flash路径” );来设置ZeroClipboard.swf 地址</p>
+<h3>Zero Clipboard实现简单<strong>跨浏览器</strong>复制</h3>
+<blockquote>
+<div class="wp_syntax">
+<div class="code">
+<pre class="javascript"><span style="color: rgb(0, 51, 102); font-weight: bold;">var</span> clip <span style="color: rgb(51, 153, 51);">=</span> <span style="color: rgb(0, 51, 102); font-weight: bold;">new</span> ZeroClipboard.<span style="color: rgb(102, 0, 102);">Client</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span> <span style="color: rgb(0, 102, 0); font-style: italic;">// 新建一个对象</span><br>clip.<span style="color: rgb(102, 0, 102);">setHandCursor</span><span style="color: rgb(0, 153, 0);">(</span> <span style="color: rgb(0, 51, 102); font-weight: bold;">true</span> <span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span> <span style="color: rgb(0, 102, 0); font-style: italic;">// 设置鼠标为手型</span><br>clip.<span style="color: rgb(102, 0, 102);">setText</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(51, 102, 204);">&quot;哈哈&quot;</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span> <span style="color: rgb(0, 102, 0); font-style: italic;">// 设置要复制的文本。</span><br><span style="color: rgb(0, 102, 0); font-style: italic;">// 注册一个 button，参数为 id。点击这个 button 就会复制。</span><br><span style="color: rgb(0, 102, 0); font-style: italic;">//这个 button 不一定要求是一个 input 按钮，也可以是其他 DOM 元素。</span><br>clip.<span style="color: rgb(102, 0, 102);">glue</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(51, 102, 204);">&quot;copy-botton&quot;</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span> <span style="color: rgb(0, 102, 0); font-style: italic;">// 和上一句位置不可调换</span></pre>
+</div>
+</div>
+</blockquote>
+<p>这样，这样基本功能实现了，点击按钮就可以复制设置好的文本了。你可能注意到了，待复制的文本是固定的，如果想要动态改变的怎么办，比如复制一个输入框中的内容。不用担心，下面会讲到的。</p>
+<h4>Zero Clipboard的高级功能</h4>
+<p><strong>1、reposition() 方法</strong></p>
+<p>因为按钮上漂浮有一个 Flash 按钮，所以当页面大小发生变化时，Flash 按钮可能会错位，这样就点不着了。 不要紧，Zero Clipboard 提供了一个 reposition() 方法，可以重新计算 Flash 按钮的位置。我们可以将它绑定到 resize 事件上。如下面代码是在jQuery下实现的resize事件重新设置按钮位置：</p>
+<blockquote>
+<div class="wp_syntax">
+<div class="code">
+<pre class="javascript">$<span style="color: rgb(0, 153, 0);">(</span>window<span style="color: rgb(0, 153, 0);">)</span>.<span style="color: rgb(102, 0, 102);">resize</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 51, 102); font-weight: bold;">function</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">{</span><br>    clip.<span style="color: rgb(102, 0, 102);">reposition</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br><span style="color: rgb(0, 153, 0);">}</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span></pre>
+</div>
+</div>
+</blockquote>
+<p><strong>2、hide() 和 show() 方法</strong></p>
+<p>这两个方法可以隐藏和显示 Flash 按钮 。其中 show() 方法会调用 reposition() 方法。</p>
+<p><strong>3、setCSSEffects() 方法</strong></p>
+<p>当鼠标移到按钮上或点击时，由于有 Flash 按钮的遮挡，所以像 css “:hover”, “:active” 等伪类可能会失效。setCSSEffects() 方法就是解决这个问题。首先我们需要将伪类改成类，比如：</p>
+<blockquote>
+<div class="wp_syntax">
+<div class="code">
+<pre class="css"><span style="color: rgb(204, 0, 204);">#copy-botton</span><span style="color: rgb(51, 51, 255);">:hover</span><span style="color: rgb(0, 170, 0);">{</span><br>   <span style="color: rgb(0, 0, 0); font-weight: bold;">border-color</span><span style="color: rgb(0, 170, 0);">:</span><span style="color: rgb(204, 0, 204);">#FF6633</span><span style="color: rgb(0, 170, 0);">;</span><br><span style="color: rgb(0, 170, 0);">}</span><br>// 可以改成下面的 <span style="color: rgb(255, 0, 0);">&quot;:hover&quot;</span> 改成 <span style="color: rgb(255, 0, 0);">&quot;.hover&quot;</span><br><span style="color: rgb(204, 0, 204);">#copy-botton</span>.hover<span style="color: rgb(0, 170, 0);">{</span><br>   <span style="color: rgb(0, 0, 0); font-weight: bold;">border-color</span><span style="color: rgb(0, 170, 0);">:</span><span style="color: rgb(204, 0, 204);">#FF6633</span><span style="color: rgb(0, 170, 0);">;</span><br><span style="color: rgb(0, 170, 0);">}</span></pre>
+</div>
+</div>
+</blockquote>
+<p>我们可以调用 clip.setCSSEffects( true ); 这样 Zero Clipboard 会自动为我们处理：将类 .hover 当成伪类 :hover 。</p>
+<p><strong>4、getHTML() 方法</strong></p>
+<p>如果你想自己实例一个 Flash ，不用 Zero Clipboard 的附着方法，那么这个方法就可以帮上忙了。它接受两个参数，分别为 Flash 的宽度和高度。返回的是 Flash 对应的 HTML 代码。例如：</p>
+<blockquote>
+<div class="wp_syntax">
+<div class="code">
+<pre class="javascript"><span style="color: rgb(0, 51, 102); font-weight: bold;">var</span> html <span style="color: rgb(51, 153, 51);">=</span> clip.<span style="color: rgb(102, 0, 102);">getHTML</span><span style="color: rgb(0, 153, 0);">(</span> <span style="color: rgb(204, 0, 0);">150</span><span style="color: rgb(51, 153, 51);">,</span> <span style="color: rgb(204, 0, 0);">20</span> <span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span></pre>
+</div>
+</div>
+</blockquote>
+<p>你可以用 innerHTML 或直接 document.write(); 进行输出。<br>
+以下是测试输出的组装完毕的HTML 代码：</p>
+<blockquote>
+<div class="wp_syntax">
+<div class="code">
+<pre class="html">&lt;embed id=&quot;ZeroClipboardMovie_1&quot; src=&quot;zeroclipboard/ZeroClipboard.swf&quot; loop=&quot;false&quot; menu=&quot;false&quot; quality=&quot;best&quot; <br>bgcolor=&quot;#ffffff&quot; width=&quot;150&quot; height=&quot;20&quot; name=&quot;ZeroClipboardMovie_1&quot; align=&quot;middle&quot; allowScriptAccess=&quot;always&quot; <br>allowFullScreen=&quot;false&quot; type=&quot;application/x-shockwave-flash&quot; pluginspage=&quot;http://www.macromedia.com/go/getflashplayer&quot; <br>flashvars=&quot;id=1&amp;width=150&amp;height=20&quot; wmode=&quot;transparent&quot; /&gt;</pre>
+</div>
+</div>
+</blockquote>
+<p>IE 的 Flash <a href="http://www.js8.in/tag/ " title="JavaScript">JavaScript</a> 通信接口上有一个 bug 。你必须插入一个 object 标签到一个已存在的 DOM 元素中。并且在写入 innerHTML 之前请确保该元素已经 appendChild 方法插入到 DOM 中。</p>
+<h3>Zero Clipboard 事件处理</h3>
+<p><strong>Zero Clipboard</strong> 提供了一些事件，你可以自定义函数处理这些事件。Zero Clipboard 事件处理函数为 addEventListener(); 例如当 Flash 完全载入后会触发一个事件 “load” 。</p>
+<blockquote>
+<div class="wp_syntax">
+<div class="code">
+<pre class="javascript">clip.<span style="color: rgb(102, 0, 102);">addEventListener</span><span style="color: rgb(0, 153, 0);">(</span> <span style="color: rgb(51, 102, 204);">&quot;load&quot;</span><span style="color: rgb(51, 153, 51);">,</span> <span style="color: rgb(0, 51, 102); font-weight: bold;">function</span><span style="color: rgb(0, 153, 0);">(</span>client<span style="color: rgb(0, 153, 0);">)</span> <span style="color: rgb(0, 153, 0);">{</span><br>    <span style="color: rgb(0, 0, 102);">alert</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(51, 102, 204);">&quot;Flash 加载完毕！&quot;</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br><span style="color: rgb(0, 153, 0);">}</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span></pre>
+</div>
+</div>
+</blockquote>
+<p>Zero Clipboard 会将 clip 对象作为参数传入。即上例中的 “client” 。<br>
+还有 “load” 也可以写成 “onLoad”，其他的事件也可以这样。<br>
+其他事件还包括：</p>
+<p style="text-indent: 0pt; padding-left: 30px;">mouseOver 鼠标移上事件<br>
+mouseOut 鼠标移出事件<br>
+mouseDown 鼠标按下事件<br>
+mouseUp 鼠标松开事件<br>
+complete 复制成功事件</p>
+<p>其中 mouseOver 事件和 complete 事件比较常用。<br>
+前面说过，如果需要动态改变待复制的内容，那 mouseOver 事件就可以派上用场了。例如需要动态复制一个 id 为 test 的输入框中的值，我们可以在鼠标 over 的时候重新设置值。</p>
+<blockquote>
+<div class="wp_syntax">
+<div class="code">
+<pre class="javascript">clip.<span style="color: rgb(102, 0, 102);">addEventListener</span><span style="color: rgb(0, 153, 0);">(</span> <span style="color: rgb(51, 102, 204);">&quot;mouseOver&quot;</span><span style="color: rgb(51, 153, 51);">,</span> <span style="color: rgb(0, 51, 102); font-weight: bold;">function</span><span style="color: rgb(0, 153, 0);">(</span>client<span style="color: rgb(0, 153, 0);">)</span> <span style="color: rgb(0, 153, 0);">{</span><br>    <span style="color: rgb(0, 51, 102); font-weight: bold;">var</span> test <span style="color: rgb(51, 153, 51);">=</span> document.<span style="color: rgb(102, 0, 102);">getElementById</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(51, 102, 204);">&quot;test&quot;</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br>    client.<span style="color: rgb(102, 0, 102);">setText</span><span style="color: rgb(0, 153, 0);">(</span> test.<span style="color: rgb(102, 0, 102);">value</span> <span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span> <span style="color: rgb(0, 102, 0); font-style: italic;">// 重新设置要复制的值</span><br><span style="color: rgb(0, 153, 0);">}</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br><span style="color: rgb(0, 102, 0); font-style: italic;">//复制成功：</span><br>clip.<span style="color: rgb(102, 0, 102);">addEventListener</span><span style="color: rgb(0, 153, 0);">(</span> <span style="color: rgb(51, 102, 204);">&quot;complete&quot;</span><span style="color: rgb(51, 153, 51);">,</span> <span style="color: rgb(0, 51, 102); font-weight: bold;">function</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(0, 153, 0);">{</span><br>    <span style="color: rgb(0, 0, 102);">alert</span><span style="color: rgb(0, 153, 0);">(</span><span style="color: rgb(51, 102, 204);">&quot;复制成功！&quot;</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;</span><br><span style="color: rgb(0, 153, 0);">}</span><span style="color: rgb(0, 153, 0);">)</span><span style="color: rgb(51, 153, 51);">;<br></span></pre>
+</div>
+</div>
+</blockquote></div></table><br><div class=opt id=blogOpt><a href="http://hi.baidu.com/supertwj/blog/category/Javascript" title="查看该分类中所有文章">类别：Javascript</a><span class=x-blog-opt-sp>|</span><a href="#" onclick="addToShare(); return false;" target=_blank><img src=http://img.baidu.com/hi/apps/share/share_btn.gif border=0 align=absbottom></a><span class=x-blog-opt-sp>|</span><a title="将此文章添加到百度搜藏" href=http://cang.baidu.com/do/add onClick="return addToFavor();" target=_blank>添加到搜藏</a> <span class=x-blog-opt-sp>|</span><a title="将此文章分享到i贴吧" href="#" onclick="addToiTieba(); return false;" target=_blank>分享到i贴吧</a><span class=x-blog-opt-sp>|</span>浏览(<span id=result>1132</span>)<span class=x-blog-opt-sp>|</span><a href="#send">评论</a>&nbsp;(<span id=blogCmtCount>0</span>)<script language=javascript>
+										/*<![CDATA[*/
+										var pre = [true,'js常用校验', 'js常用校验','\/supertwj/blog/item/ad2c49000a46a5034afb51b0.html'];
+										var post = [true,'服务器出现HTTP400、401、402、403错误原因及解决方法','服务器出现HTTP400、401、402、4...', '\/supertwj/blog/item/92d4a5046bbb01760308817f.html'];
+										if(pre[0] || post[0]){
+											document.write('<div style="height:5px;line-height:5px;">&nbsp;</div><div id="in_nav">');
+											if(pre[0]){
+												document.write('上一篇：<a href="' + pre[3] + '" title="' + pre[1] + '">' +  pre[2] + '</a>&nbsp;&nbsp;&nbsp;&nbsp;');
+											}
+											if(post[0]){
+												document.write('下一篇：<a href="' + post[3] + '" title="' + post[1] + '">' +  post[2] + '</a>');
+											}
+											document.write('</div>');
+										}
+										/*]]>*/
+									</script></div><div class=line>&nbsp;</div><div id=share_user_list></div><div class=line>&nbsp;</div><style type="text/css">#in_related_doc a{text-decoration:none}</style><div id=in_related_tmp></div><div id=in_reader> <div class=tit>最近读者：</div></div><div class=line>&nbsp;</div><div id=in_comment> <a name=comment></a> <div class=tit>网友评论：</div> <span id=userCommentList></span> <div id=page></div></div><form action='/supertwj/commit' id=blogCmtSubmitForm name=blogCmtSubmitForm method=post> <input type=hidden name=bdstoken value='the fisrt two args should be string type:0,1!'> <input type=hidden name=ct value=8> <input type=hidden name=cm value=2> <input type=hidden name=spBlogID value='0cc7c5f620f75662dcc4746a'> <input type=hidden name=spBlogCmtID value=''> <input type=hidden name=spRefURL value=''></form><div id=in_send><a name=send></a><form name=form1 id=popFormSubmit action="/supertwj/commit" method=post onSubmit="return checkcmtform()"><input type=hidden name=bdstoken value="the fisrt two args should be string type:0,1!"><input type=hidden name=ct value=8><input type=hidden name=cm value=1><input type=hidden name=spBlogID value="0cc7c5f620f75662dcc4746a"><input type=hidden name=spRefURL id=spRefURL><script>
+										    document.getElementById("spRefURL").value = window.location.href;
+										</script><div class=tit>发表评论：</div><table width=620 border=0 cellspacing=5 cellpadding=0><tr><td class=f14>姓　名：<td><input name=spBlogCmtor id=spBlogCmtor style=width:220px tabindex=1 onChange="checkname('spBlogCmtor')" maxlength=49 onFocus="hidErr(1);"><script>
+                                                            document.write(" &nbsp;&nbsp; <a href='http://hi.baidu.com/st/reg.html' target='_blank'>注册</a>");
+                                                            document.write(' | <a href="https://passport.baidu.com/?login&tpl=sp&tpl_reg=sp&u='+myref+'" onclick="BdUtil.relogin(); return false;">登录</a>');
+														</script><div style=display:none id=nmerror>*姓名最长为50字节</div><tr id=1_err style=display:none><td>&nbsp;<td><div class=error id=1_err_con></div><tr><td class=f14>网址或邮箱：<td><input name=spBlogCmtURL id=spBlogCmtURL style=width:360px maxlength=128 tabindex=2 onChange="checkeandu('spBlogCmtURL')" onFocus="hidErr(2);"> (选填)<script>
+														G("spBlogCmtor").value="";
+														G("spBlogCmtURL").value="";
+													</script><tr id=2_err style=display:none><td>&nbsp;<td><div class=error id=2_err_con></div><tr><td valign=top class=f14 id=reTitle>内　容：<td><textarea name="spBlogCmtText" id="spBlogCmtText" style="width:520px;height:155px"  tabindex="3" onFocus="hidErr(3);" onclick="BdUtil.relogin(); return false;" ></textarea><tr id=3_err style=display:none><td>&nbsp;<td><div class=error id=3_err_con></div><tr><td valign=top class=f14>&nbsp;<td valign=top class=f14><input id=btn_ok name=btn_ok type=submit autocomplete=off onclick="BdUtil.relogin(); return false;" value="发表评论" tabindex=5>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id=cancleReLink onClick="canclereply(); return false;" style="display:none; font-size:12px;color:#666;">取消回复</a></table></form></div><br></div><table width="100%" border=0 cellspacing=0 cellpadding=0 height=8><tr><td class=modbl width=7>&nbsp;<td class=modbc>&nbsp;<td class=modbr width=7>&nbsp;</table></div></div></div></div><div class=clearfix></div><div style="text-align:center;margin:30px auto 15px;font-family:Arial,simsun;font-size:12px;"><div style="margin:0 auto 6px;"><a href=http://help.baidu.com/question?prod_en=space target=_blank style="color:#00C;">帮助中心</a><span>&nbsp;|&nbsp;</span><a href="http://tieba.baidu.com/f?kw=%B0%D9%B6%C8%BF%D5%BC%E4&fr=wwwt" target=_blank style="color:#00C;">空间客服</a><span>&nbsp;|&nbsp;</span><a href=http://tousu.baidu.com/hi/ target=_blank style="color:#00C;">投诉中心</a><span>&nbsp;|&nbsp;</span><a href=http://www.baidu.com/search/hi_contract.html target=_blank style="color:#00C;">空间协议</a></div><div style="color:#7A77C8;">&copy;2012&nbsp;Baidu</div></div></center><ul id=blogCmtContentList style="display:none;"></ul><script>	var g_blogTitle = '使用ZeroClipboard解决跨浏览器复制到剪贴板的问题';
+		var g_blogId = '0cc7c5f620f75662dcc4746a';
+		var g_isAllowCmt =  true ;
+		var g_isByShared =  true ;
+		var g_isAddRelate =  true ;
+		var g_latestReader = [
+									["http:\/\/hi.baidu.com\/cosmicblog","235b73717a303735369a03","sqz0756"],
+									["http:\/\/hi.baidu.com\/251433041","81a23235313433333034319309","251433041"],
+									["http:\/\/hi.baidu.com\/无车大将","917fcedeb3b5b4f3bdab2d05","无车大将"],
+									["http:\/\/hi.baidu.com\/chinesezwz","e2486368696e6573657a777a2d02","chinesezwz"],
+									["http:\/\/hi.baidu.com\/instreet1","f25f696e737472656574317308","instreet1"],
+									["http:\/\/hi.baidu.com\/ebb3444","211465626233343434aa14","ebb3444"],
+									["http:\/\/hi.baidu.com\/anyuanjing","6df1616e7975616e6a696e67b70c","anyuanjing"],
+									["http:\/\/hi.baidu.com\/angysong","fca7616e6779736f6e676c00","angysong"],
+								{}
+			];
+	</script><iframe id=submitiframe name=submitiframe src="http://hi.bdimg.com/static/cblog/html/blank.html?v=20111213" style="display:none;"></iframe><script src="http://hi.bdimg.com/static/base/js/conf/comment.js?v=1334907755.js"></script><script src="http://hi.bdimg.com/static/cblog/js/job/detailpage.js?v=ee7931cf.js"></script><script>
+/*<![CDATA[*/
+/*{cmt
+    这个相当一个代理器  
+  在这里想实现一种这种加载效果：加载时注册（用一个 初始化数据.数组 记录要绑定的ID），文档ready后，按需加载js+css资源，js加载完，就初始化据执行
+
+  有个问题，有些结构是 动态 执行这个绑定的，可能会发生资源还没有加载的情况。可以考虑给初始化数据，加一个标志位，说明加载完未，如果未，则把数据push到 初始化数据中(因为是用 dom.onxxx 的方式，所以不怕多次对同一个ID执行的问题)
+
+
+  }*/
+var SP = SP || {};
+if(!SP.mycard){
+    SP.mycard = new (function(){
+        var me = this;
+        var _cancleAction = Session.isDrag;  /*{cmt 标记在特殊情况下，所有的注册都被abort 如拖动页面}*/
+        var _list = [];
+        var _sourceLoaded = false;    /*{cmt 这里用了一种资源加载结束后，回调的机制，这个标志资源是否加载结束}*/
+        me.bind = function (_id){
+            if(_cancleAction){  //abort
+                return;
+            }
+            if(!_sourceLoaded){
+                _list.push(_id);
+            } else {
+                baidu.space.mycard.bind(_id);
+            }
+        }
+        me.init = function (_config){
+            _cancleAction = !!_config.cancle;
+        }
+        me.onSourceLoaded = function (){
+            _sourceLoaded = true;
+            baidu.space.mycard.init({portrait: Session.visitorPortrait});
+            for(var i=0,len=_list.length; i<len; i++){
+                baidu.space.mycard.bind(_list[i]);
+            }
+        }
+    })();
+    baidu.dom.ready(function(){
+        BdAjax.loadCSS('http://hi.bdimg.com/static/cblog/css/ui/ucard/ucard.css?v=50de96ca.css');
+        BdAjax.loadJS('http://hi.bdimg.com/static/cblog/js/ui/ucard/ucard.js?v=fcbffbf8.js');
+    });
+}
+SP.mycard.bind('m_blog');  /*{cmt 只有文档加载完才真正绑定，这里只是append记录 }*/
+/*]]>*/
+</script>

@@ -1,0 +1,29 @@
+﻿div {margin:0;padding:0;
+}
+#QynUploadQueue { height: 420px; background: #fff; border: 1px solid #ccc; overflow-x: hidden; overflow-y: auto; position: relative; }
+#QynUploadQueue input[disabled] { border: 1px solid #ccc; }
+#QynUploadQueue label { width: 150px; text-align: right; display: block; margin-right: 5px; }
+
+
+.progressWrapper { overflow: hidden; font-size: 14px; width: 200px; float: left;margin-bottom:10px; }
+.progressContainer { overflow: hidden; position: relative; border-bottom: 1px solid #ccc; border-top: 1px solid White; width:180px;margin:0 auto; }
+.progressName { font-size: 12px; font-weight: 700; color: #555; line-height: 30px; white-space: nowrap; overflow: hidden; text-align:center;position: relative; z-index: 2 }
+.pic { 
+	height: 130px; width: 200px;margin:0 auto;position: relative; z-index: 2;
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    /*ie6、7不支持display:table-cell*/
+    *display: block;
+    _font-size: 130px;
+    +line-height: 130px; /*设置ie7中空文本节点行高为130px*/
+    _font-family: sans-serif;
+       }
+.pic img { max-height: 130px; max-width: 160px; }
+.progressFileSize, .progressBarStatus{ font-size: 12px; color: #555; white-space: nowrap; overflow: hidden; text-align:center;position: relative; z-index: 2 }
+.progressBarStatus{ font-weight:bold; }
+.progressBarInProgress { background: #DDF1CE; position: absolute;box-shadow: inset 0 0 3px rgba(96,173,30,0.5); font-size: 0; width: 0%; text-align: right; z-index: 1;height:200px;top:0; }
+
+.red { border: solid 1px #B50000; background-color: #FFEBEB; }
+.green{ border: solid 1px green;box-shadow: inset 0 0 5px rgba(96,173,30,0.5);  }
+.progressCancel { position: absolute;z-index: 3;top:0;left:160px; }

@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head runat="server">
+    <title>文件上传演示</title>
+    <script src="lhgcore.lhgdialog.min.js"></script>
+    <script src="../QynUpload.js?FileType=FileList"></script>
+    <style>
+        body { font-size: 12px; background-color: #eee; padding: 0; }
+        li { height: 30px; }
+        dt { font-weight: bold; color: #0094ff; font-size: 13px; }
+        h1 { color: #eceff2; text-shadow: 3px 3px 3px #9c9ea5; }
+        legend { font-weight: bold; color: #ff4c24; font-size: 14px; }
+        fieldset { border: dashed 1px #496d8a; margin-top: 30px; background-color: #fffeee; }
+        .head { height: 90px; line-height: 90px; padding-left: 20px; background-color: #103858; margin: -20px -20px 0 -20px; }
+        a:visited { color: #0082ff; }
+        a:hover { color: #0082ff; }
+        a { color: #0082ff; }
+        blue { color: #0094ff; }
+        orange { color: #e63b15; }
+        green { color: #136d06; }
+        pre { background-color: #eee; }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h1>QynUpload 上传组件演示</h1>
+    </div>
+	<fieldset>
+	<legend>Global.asax解决Session、Cookies在Chrome、Firefox失效的问题</legend>
+	 <dl>
+            <dt>Global.asax文件：</dt>
+            <dd>
+			<pre>
+<green>/// &lt;summary&gt;</green>
+<green>/// 解决swfupload 中 Session 失效</green>
+<green>/// &lt;/summary&gt;</green>
+<green>/// &lt;param name="sender"&gt;&lt;/param&gt;</green>
+<green>/// &lt;param name="e"&gt;&lt;/param&gt;</green>
+void Application_BeginRequest(Object sender, EventArgs e)
+{
+	var Request = HttpContext.Current.Request;
+	var Response = HttpContext.Current.Response;
+	try
+	{
+		var value = Req.QA(<orange>"ASPSESSID"</orange>);
+		if (value != null)
+		{
+			Cookies.Set(<orange>"ASP.NET_SESSIONID"</orange>, value, <orange>60 * 24</orange>, false);
+		}
+	}
+	catch (Exception)
+	{
+		Response.StatusCode = 500;
+		Response.Write(<orange>"无法初始化 Session"</orange>);
+	}
+}
+			</pre>
+			</dd>
+	 <dl>
+	</fieldset>
+    <fieldset>
+        <legend>调用示例1：配合lhgdialog.js弹出层框架调用</legend>
+        <dl>
+            <dt>引用脚本：</dt>
+            <dd>
+                <pre>&lt;script src="lhgcore.lhgdialog.min.js"&gt;&lt;/script&gt;
+&lt;script src="QynUpload.js?FileType=FileList"&gt;&lt;/script&gt;</pre>
+            </dd>
+            <dt>原理说明：</dt>
+            <dd>
+                <p>搭配lhgdialog.js弹出层框架调用上传组件</p>
+            </dd>
+            <dt>组件方法：</dt>
+            <dd>
+                <pre>
+<green>/// &lt;summary&gt;</green>
+<green>/// 显示页面，使用js.dialog方式</green>
+<green>/// &lt;/summary&gt;</green></green>
+<green>/// &lt;param name="width"&gt;弹出框的长度&lt;/param&gt;</green>
+<green>/// &lt;param name="height"&gt;弹出框的高度&lt;/param&gt;</green>
+<green>/// &lt;param name="swfOption"&gt;swf配置&lt;/&lt;param&gt;</green>
+<green>/// &lt;param name="callBack"&gt;窗口关闭时回调函数(this.content.document.getElementById(&quot;lstItem&quot;), this.content)&lt;/&lt;param&gt;</green>
+<green>/// &lt;param name="fileType"&gt;文件类型样式&lt;/param&gt;</green>
+<green>/// &lt;param name="dig"&gt;对话框变量&lt;/param&gt;</green>
+QynUpload.Dialog = function (width, height, swfOption, callBack, fileType, dig)
+                </pre>
+            </dd>
+            <dt>实际调用：</dt>
+            <dd>
+                <pre>
+<blue>function</blue> Dialog() { 
+    QynUpload.Dialog('800px', '400px', {
+        upload_url: &quot;<orange>File.ashx</orange>&quot;,                 <green>// 上传时程序保存文件的执行代码</green>
+        file_size_limit: &quot;<orange>3000 KB</orange>&quot;,              <green>// 允许上传的文件大小</green>
+        file_types: &quot;<orange>*.jpg;*.gif;*.png;*.ico</orange>&quot;,   <green>// 允许上传的后缀，多个用;隔开</green>
+        file_types_description: &quot;<orange>图片格式</orange>&quot;,      <green>// 后缀格式说明</green>
+        file_upload_limit: &quot;<orange>3</orange>&quot;,                  <green>// 上传文件限制个数</green>
+        file_queue_limit: &quot;<orange>3</orange>&quot;,                    <green>// 上传队列限制个数</green>
+        post_params: {&quot;<orange>QynUpload_Session</orange>&quot;: &quot;<orange>&lt;%=Session.SessionID %&gt;</orange>&quot;}   <green>// 解决Session丢失</green>
+    }, function (lstItem, content) { alert(lstItem); },null,this.$$.dialog);
+}
+                </pre>
+            </dd>
+            <dd>Dialog方式（<a href="#" onclick="Dialog();">演示</a>）：</dd>
+        </dl>
+    </fieldset>
+
+
+    <fieldset>
+        <legend>调用示例2：配合原生的window.open调用：</legend>
+        <dl>
+            <dt>引用脚本：</dt>
+            <dd>
+                <pre>&lt;script src="QynUpload.js?FileType=FileList"&gt;&lt;/script&gt;</pre>
+            </dd>
+            <dt>原理说明：</dt>
+            <dd>
+                <p>使用JS原生的window.open方法调用上传组件</p>
+            </dd>
+            <dt>组件方法：</dt>
+            <dd>
+                <pre>
+<green>/// &lt;summary&gt;</green>
+<green>/// 显示页面，使用window.open方式</green>
+<green>/// &lt;/summary&gt;</green></green>
+<green>/// &lt;param name="width"&gt;弹出框的长度&lt;/param&gt;</green>
+<green>/// &lt;param name="height"&gt;弹出框的高度&lt;/param&gt;</green>
+<green>/// &lt;param name="swfOption"&gt;swf配置&lt;/&lt;param&gt;</green>
+<green>/// &lt;param name="callBack"&gt;窗口关闭时回调函数&lt;/&lt;param&gt;</green>
+<green>/// &lt;param name="fileType"&gt;文件类型样式&lt;/param&gt;</green>
+QynUpload.Show = function (width, height, swfOption, callBack, fileType)
+                </pre>
+            </dd>
+            <dt>调用示例</dt>
+            <dd>
+                <pre>
+<blue>function</blue> Show() { 
+    QynUpload.Show('800px', '400px', {
+        upload_url: &quot;<orange>File.ashx</orange>&quot;,                 <green>// 上传时程序保存文件的执行代码</green>
+        file_size_limit: &quot;<orange>3000 KB</orange>&quot;,              <green>// 允许上传的文件大小</green>
+        file_types: &quot;<orange>*.jpg;*.gif;*.png;*.ico</orange>&quot;,   <green>// 允许上传的后缀，多个用;隔开</green>
+        file_types_description: &quot;<orange>图片格式</orange>&quot;,      <green>// 后缀格式说明</green>
+        file_upload_limit: &quot;<orange>3</orange>&quot;,                  <green>// 上传文件限制个数</green>
+        file_queue_limit: &quot;<orange>3</orange>&quot;,                    <green>// 上传队列限制个数</green>
+        post_params: {&quot;<orange>QynUpload_Session</orange>&quot;: &quot;<orange>&lt;%=Session.SessionID %&gt;</orange>&quot;}   <green>// 解决Session丢失</green>
+    }, function (lstItem, content) { alert(lstItem); },null);
+}
+                </pre>
+            </dd>
+            <dd>Show方式（<a href="#" onclick="Show();">演示</a>）：</dd>
+        </dl>
+    </fieldset>
+
+
+    <fieldset>
+        <legend>调用示例3：配合第三方框架调用：</legend>
+        <dl>
+            <dt>引用脚本：</dt>
+            <dd>
+                <pre>&lt;script src="第三方框架脚本地址"&gt;&lt;/script&gt;</pre>
+            </dd>
+            <dt>原理说明：</dt>
+            <dd>
+                <p>使用第三方框架调用上传组件</p>
+            </dd>
+            <dt>组件方法：</dt>
+            <dd>
+                <pre>不需要调用上传组件的脚本。请参考下面的实现方式！</pre>
+            </dd>
+            <dt>调用示例</dt>
+            <dd>
+                <pre>
+<blue>function</blue> Upload() {
+    $$.dialog({
+        width: &quot;<orange>800px</orange>&quot;,
+        height: &quot;<orange>400px</orange>&quot;,
+        content: &quot;<orange>url:dialog.html?FileType=FileList</orange>&quot;,
+        close: function () {
+            alert(this.content.document.getElementById("lstItem"));
+        },
+        init: function () {
+            this.content.setting({
+                upload_url: &quot;<orange>File.ashx</orange>&quot;,                 <green>// 上传时程序保存文件的执行代码</green>
+                file_size_limit: &quot;<orange>3000 KB</orange>&quot;,              <green>// 允许上传的文件大小</green>
+                file_types: &quot;<orange>*.jpg;*.gif;*.png;*.ico</orange>&quot;,   <green>// 允许上传的后缀，多个用;隔开</green>
+                file_types_description: &quot;<orange>图片格式</orange>&quot;,      <green>// 后缀格式说明</green>
+                file_upload_limit: &quot;<orange>3</orange>&quot;,                  <green>// 上传文件限制个数</green>
+                file_queue_limit: &quot;<orange>3</orange>&quot;,                    <green>// 上传队列限制个数</green>
+                post_params: {&quot;<orange>QynUpload_Session</orange>&quot;: &quot;<orange>&lt;%=Session.SessionID %&gt;</orange>&quot;}   <green>// 解决Session丢失</green>
+            });
+        }
+    });
+}
+                </pre>
+            </dd>
+            <dd>Upload方式（<a href="#" onclick="Upload();">演示</a>）：</dd>
+        </dl>
+    </fieldset>
+</body>
+<script>
+    function Dialog() {
+        QynUpload.Dialog('800px', '400px', {
+            upload_url: "Demo/File.ashx",                 // 上传时程序保存文件的执行代码
+            file_size_limit: "3000 KB",              // 允许上传的文件大小
+            file_types: "*.jpg;*.gif;*.png;*.ico",   // 允许上传的后缀，多个用;隔开
+            file_types_description: "图片格式",      // 后缀格式说明
+            file_upload_limit: "3",                  // 上传文件限制个数
+            file_queue_limit: "3",                    // 上传队列限制个数
+			post_params: {"QynUpload_Session": "<%=Session.SessionID %>"}   // 解决Session丢失
+        }, function (lstItem, content) { alert(lstItem); }, null, this.$$.dialog);
+    }
+
+    function Show() {
+        QynUpload.Show('800px', '400px', {
+            upload_url: "Demo/File.ashx",                 // 上传时程序保存文件的执行代码
+            file_size_limit: "3000 KB",              // 允许上传的文件大小
+            file_types: "*.jpg;*.gif;*.png;*.ico",   // 允许上传的后缀，多个用;隔开
+            file_types_description: "图片格式",      // 后缀格式说明
+            file_upload_limit: "3",                  // 上传文件限制个数
+            file_queue_limit: "3",                    // 上传队列限制个数
+			post_params: {"QynUpload_Session": "<%=Session.SessionID %>"}   // 解决Session丢失
+        }, function (lstItem, content) { alert(lstItem); });
+    }
+
+    function Upload() {
+        $$.dialog({
+            width: '800px',
+            height: '400px',
+            content: 'url:../dialog.html?FileType=FileList',
+            close: function () {
+                alert(this.content.document.getElementById("lstItem"));
+            },
+            init: function () {
+                this.content.setting({
+                    upload_url: "Demo/File.ashx",                 // 上传时程序保存文件的执行代码
+                    file_size_limit: "3000 KB",              // 允许上传的文件大小
+                    file_types: "*.jpg;*.gif;*.png;*.ico",   // 允许上传的后缀，多个用;隔开
+                    file_types_description: "图片格式",      // 后缀格式说明
+                    file_upload_limit: "3",                  // 上传文件限制个数
+                    file_queue_limit: "3",                    // 上传队列限制个数
+					post_params: {"QynUpload_Session": "<%=Session.SessionID %>"}   // 解决Session丢失
+                });
+            }
+        });
+    }
+</script>
+</html>

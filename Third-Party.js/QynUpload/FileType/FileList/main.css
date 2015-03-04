@@ -1,0 +1,19 @@
+﻿#QynUploadQueue { background: #fff; height: 312px; border: 1px solid #ccc; overflow-x: hidden; overflow-y: auto; position: relative; }
+#QynUploadQueue input[disabled] { border: 1px solid #ccc; }
+#QynUploadQueue label { width: 150px; text-align: right; display: block; margin-right: 5px; }
+.progressWrapper { overflow: hidden; font-size: 14px; }
+.progressContainer { overflow: hidden; position: relative; border-bottom: 1px solid #ccc; height: 51px; }
+.progressName { margin-left: 60px; margin-top: 5px; font-size: 12px; display: inline; float: left; font-weight: 700; color: #555; line-height: 20px; white-space: nowrap; overflow: hidden; position: relative; z-index: 2; }
+.progressBarInProgress { background: #DDF1CE; position: absolute; height: 100%; top: -2px; left: 0; }
+.progressFileSize { float: right; display: inline; margin-top: 5px; margin-right: 70px; color: #333; position: relative; z-index: 2; }
+.progressPercent { float: right; display: inline; margin-top: 5px; margin-right: 70px; color: #999; position: relative; z-index: 2; }
+.progressBarInProgress, .progressBarComplete, .progressBarError { box-shadow: inset 0 0 3px rgba(96,173,30,0.5); font-size: 0; width: 0%; height: 100%; text-align: right; margin-top: 2px; z-index: 0; }
+.progressBarComplete { width: 90%; }
+.progressBarError { width: 90%; visibility: hidden; }
+.progressBarStatus { display: inline; float: left; color: #999; position: relative; z-index: 2; margin-left: 60px; top: 5px; }
+a.progressCancel { position: absolute; z-index: 2; top: 20px; right: 20px; height: 30px; text-align: center; width: 30px; font-size: 0; overflow: hidden; }
+a.progressCancel img { vertical-align: top; }
+.red { border: solid 1px #B50000; background-color: #FFEBEB; }
+.MulitBtnContainer { position: relative; top: -200px; left: 180px; }
+.cl { clear: both; }
+.cl .pic { display: none; }

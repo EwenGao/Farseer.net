@@ -1,0 +1,5 @@
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Entity\bin\Debug\FS.Entity.dll
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Entity\bin\Debug\FS.Entity.pdb
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Entity\obj\Debug\FS.Entity.dll
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Entity\obj\Debug\FS.Entity.pdb
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Entity\obj\Debug\FS.Entity.csprojResolveAssemblyReference.cache

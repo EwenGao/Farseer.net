@@ -1,0 +1,12 @@
+1、基于iframe、ajax 的弹出框改造
+2、识别input的控件的Fill
+3、实体基类太过依赖int
+4、增加对虚拟数据库的支持
+5、使用其它ORM解决方案
+6、轻量化实体
+7、对VIEW、Table、过程的单独继承
+8、对Select的聚合
+9、对union join的支持
+10、批量SQL的提交、批量获取
+11、EMIT对象转换
+12、Update时，支持 + 1(UpdateValue)操作

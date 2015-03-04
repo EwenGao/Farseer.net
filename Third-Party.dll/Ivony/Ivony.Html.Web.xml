@@ -1,0 +1,1635 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ivony.Html.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Ivony.Html.Web.CacheExtensions">
+            <summary>
+            包含 WebCache 一些扩展方法
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheExtensions.Insert(System.Web.Caching.Cache,System.String,System.Object,System.Web.Caching.CacheItemPriority)">
+            <summary>
+            向 System.Web.Caching.Cache 对象中插入对象，使用指定的优先级策略。
+            </summary>
+            <param name="cache"></param>
+            <param name="key">用于引用该对象的缓存键。</param>
+            <param name="value">要插入缓存中的对象。</param>
+            <param name="priority">该对象相对于缓存中存储的其他项的成本，由 System.Web.Caching.CacheItemPriority 枚举表示。该值由缓存在退出对象时使用；具有较低成本的对象在具有较高成本的对象之前被从缓存移除。</param>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheExtensions.Insert(System.Web.Caching.Cache,System.String,System.Object,System.DateTimeOffset)">
+            <summary>
+            向 System.Web.Caching.Cache 对象中插入对象，使用指定的过期时间。
+            </summary>
+            <param name="cache"></param>
+            <param name="key">用于引用该对象的缓存键。</param>
+            <param name="value">要插入缓存中的对象。</param>
+            <param name="expiration">所插入对象将到期并被从缓存中移除的时间。</param>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheExtensions.Insert(System.Web.Caching.Cache,System.String,System.Object,System.Web.Caching.CacheDependency,System.Web.Caching.CacheItemPriority)">
+            <summary>
+            向 System.Web.Caching.Cache 对象中插入对象，使用指定的过期时间。
+            </summary>
+            <param name="cache"></param>
+            <param name="key">用于引用该对象的缓存键。</param>
+            <param name="value">要插入缓存中的对象。</param>
+            <param name="dependency">该项的文件依赖项或缓存键依赖项。当任何依赖项更改时，该对象即无效，并从缓存中移除。</param>
+            <param name="priority">该对象相对于缓存中存储的其他项的成本，由 System.Web.Caching.CacheItemPriority 枚举表示。该值由缓存在退出对象时使用；具有较低成本的对象在具有较高成本的对象之前被从缓存移除。</param>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheExtensions.InsertCacheItem(System.Web.Caching.Cache,Ivony.Html.Web.CacheItem)">
+            <summary>
+            插入一个缓存项到 WebCache
+            </summary>
+            <param name="cache"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheExtensions.GetCacheItem(System.Web.Caching.Cache,Ivony.Html.Web.CacheToken)">
+            <summary>
+            从 WebCache 获取一个缓存项
+            </summary>
+            <param name="cache"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheExtensions.GetCachedResponse(System.Web.Caching.Cache,Ivony.Html.Web.CacheToken)">
+            <summary>
+            从 WebCache 获取缓存的响应
+            </summary>
+            <param name="cache"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ivony.Html.Web.CacheItem">
+            <summary>
+            定义缓存项，缓存项包括缓存的响应和策略。
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheItem.#ctor(Ivony.Html.Web.CacheToken,Ivony.Html.Web.ICachedResponse,System.TimeSpan)">
+            <summary>
+            创建一个缓存项
+            </summary>
+            <param name="token">缓存项的缓存依据</param>
+            <param name="cached">缓存的数据</param>
+            <param name="duration">最大缓存时间</param>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheItem.IsValid">
+            <summary>
+            缓存项是否还有效
+            </summary>
+            <returns>是否有效</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheItem.IsValid(Ivony.Html.Web.CacheToken)">
+            <summary>
+            缓存项是否还有效
+            </summary>
+            <param name="token">缓存标识，检查检查缓存项的标识是否与提供的一致，否则也认为缓存项无效</param>
+            <returns>是否有效</returns>
+        </member>
+        <member name="F:Ivony.Html.Web.CacheItem.maxShake">
+            <summary>
+            最大可能的偏移量
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheItem.SetMaxAge(Ivony.Html.Web.ClientCachePolicyBase)">
+            <summary>
+            根据缓存项的设置，设置客户端的 maxage 缓存策略
+            </summary>
+            <param name="cachePolicy"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheItem.SetMaxAge(Ivony.Html.Web.ClientCachePolicyBase,System.TimeSpan)">
+            <summary>
+            根据缓存项的设置，设置客户端的 maxage 缓存策略
+            </summary>
+            <param name="cachePolicy"></param>
+            <param name="shake"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheItem.TrySetETag(Ivony.Html.Web.ClientCachePolicyBase)">
+            <summary>
+            尝试设置 ETag 标签
+            </summary>
+            <param name="cachePolicy"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheItem.ApplyClientCachePolicy(Ivony.Html.Web.ClientCachePolicyBase)">
+            <summary>
+            应用客户端缓存策略
+            </summary>
+            <param name="cachePolicy"></param>
+        </member>
+        <member name="P:Ivony.Html.Web.CacheItem.CacheToken">
+            <summary>
+            缓存项的依据
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.CacheItem.CachedResponse">
+            <summary>
+            缓存的响应数据
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.CacheItem.Expiration">
+            <summary>
+            缓存过期时间
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.CacheItem.DurationWhenCreated">
+            <summary>
+            创建缓存项时设置的缓存持续时间
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.CacheItem.ETag">
+            <summary>
+            获取缓存项的 ETag 标识
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.IClientCacheablePolicy">
+            <summary>
+            实现此接口以实现客户端缓存策略
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.IClientCacheablePolicy.ResolveClientCache">
+            <summary>
+            尝试输出客户端缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.IClientCacheablePolicy.ApplyClientCachePolicy">
+            <summary>
+            尝试应用客户端缓存策略
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.CachePolicy">
+            <summary>
+            缓存策略
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.CachePolicy.#ctor(System.Web.HttpContextBase,Ivony.Html.Web.CacheToken,Ivony.Html.Web.ICachePolicyProvider)">
+            <summary>
+            创建 CachePolicy 实例
+            </summary>
+            <param name="context"></param>
+            <param name="token"></param>
+            <param name="provider"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.CachePolicy.ResolveCache">
+            <summary>
+            尝试缓存输出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CachePolicy.UpdateCache(Ivony.Html.Web.ICachedResponse)">
+            <summary>
+            刷新缓存
+            </summary>
+            <param name="cachedResponse">可被缓存的响应</param>
+            <returns>缓存项</returns>
+        </member>
+        <member name="P:Ivony.Html.Web.CachePolicy.HttpContext">
+            <summary>
+            获取当前 HTTP 请求
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.CachePolicy.CacheToken">
+            <summary>
+            缓存标记
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.CachePolicy.Provider">
+            <summary>
+            缓存策略提供程序
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.CacheToken">
+            <summary>
+            表示一个缓存标记，缓存标记可以从当前请求的特征中产生，并变换为唯一的 CacheKey
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.ToString">
+            <summary>
+            获取缓存标记的字符串表达形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.Equals(System.Object)">
+            <summary>
+            比较两个缓存标记项
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.GetHashCode">
+            <summary>
+            计算哈希值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.CacheKey">
+            <summary>
+            从缓存标记产生缓存键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.op_Addition(Ivony.Html.Web.CacheToken,Ivony.Html.Web.CacheToken)">
+            <summary>
+            合并两个缓存标记
+            </summary>
+            <param name="token1">要合并的缓存标记</param>
+            <param name="token2">要合并的另一个缓存标记</param>
+            <returns>合并后的缓存标记</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.op_Equality(Ivony.Html.Web.CacheToken,Ivony.Html.Web.CacheToken)">
+            <summary>
+            确定两个缓存标记是否相等
+            </summary>
+            <param name="token1">要比较的缓存标记</param>
+            <param name="token2">要比较的另一个缓存标记</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.op_Inequality(Ivony.Html.Web.CacheToken,Ivony.Html.Web.CacheToken)">
+            <summary>
+            确定两个缓存标记是否不相等
+            </summary>
+            <param name="token1">要比较的缓存标记</param>
+            <param name="token2">要比较的另一个缓存标记</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.CreateToken(System.String,System.String[])">
+            <summary>
+            创建 CacheToken
+            </summary>
+            <param name="typeName">缓存标记类别名称</param>
+            <param name="tokens">用于标识的字符串</param>
+            <returns>创建的 CacheToken</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.CreateToken(System.String,Ivony.Html.Web.ICacheDependency,System.String,System.String[])">
+            <summary>
+            创建 CacheToken
+            </summary>
+            <param name="cacheDependency">缓存依赖项</param>
+            <param name="varyHeader">客户端缓存依赖头</param>
+            <param name="typeName">缓存标记类别名称</param>
+            <param name="tokens">用于标识的字符串</param>
+            <returns>创建的 CacheToken</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.Combine(Ivony.Html.Web.CacheToken[])">
+            <summary>
+            合并多个缓存标记
+            </summary>
+            <param name="tokens">要合并的缓存标记列表</param>
+            <returns>合并后的缓存标记</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.Combine(System.Collections.Generic.IEnumerable{Ivony.Html.Web.CacheToken})">
+            <summary>
+            合并多个缓存标记
+            </summary>
+            <param name="tokens">要合并的缓存标记列表</param>
+            <returns>合并后的缓存标记</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.FromRouteValues(System.Web.Routing.RequestContext)">
+            <summary>
+            从路由值中产生缓存标记
+            </summary>
+            <param name="context">当前 HTTP 请求上下文</param>
+            <returns>产生的缓存标记</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.FromRouteValues(System.Web.Routing.RequestContext,System.String[])">
+            <summary>
+            从路由值中产生缓存标记
+            </summary>
+            <param name="context">当前 HTTP 请求上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.FromRouteValues(System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            从路由值中产生缓存标记
+            </summary>
+            <param name="routeValues">路由值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.FromRouteValues(System.Web.Routing.RouteValueDictionary,System.String[])">
+            <summary>
+            从路由值中产生缓存标记
+            </summary>
+            <param name="routeValues">路由值</param>
+            <param name="keys">需要产生缓存标记的路由键</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.FromCookies(System.Web.HttpContextBase)">
+            <summary>
+            从 Cookies 中产生缓存标记
+            </summary>
+            <param name="context">当前 HTTP 请求上下文</param>
+            <returns>产生的缓存标记</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.FromCookies(System.Web.HttpContextBase,System.String[])">
+            <summary>
+            从 Cookies 中产生缓存标记
+            </summary>
+            <param name="context">当前 HTTP 请求上下文</param>
+            <param name="names">要产生缓存标记的 Cookie 名</param>
+            <returns>产生的缓存标记</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.FromSessionID(System.Web.HttpContextBase)">
+            <summary>
+            从 SessionID 中创建缓存标记
+            </summary>
+            <param name="context">当前 HTTP 请求上下文</param>
+            <returns>创建的缓存标记</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.FromVirtualPath(System.Web.HttpContextBase)">
+            <summary>
+            从虚拟路径中创建缓存标记
+            </summary>
+            <param name="context">当前 HTTP 请求上下文</param>
+            <returns>创建的缓存标记</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.FromQueryString(System.Web.HttpContextBase)">
+            <summary>
+            从当前请求的查询字符串中创建缓存标记
+            </summary>
+            <param name="context">当前 HTTP 请求上下文</param>
+            <returns>创建的缓存标记</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.FromQueryString(System.Web.HttpContextBase,System.String[])">
+            <summary>
+            从当前请求的查询字符串中创建缓存标记
+            </summary>
+            <param name="context">当前 HTTP 请求上下文</param>
+            <param name="keys">要创建缓存标记的查询数据键</param>
+            <returns>创建的缓存标记</returns>
+        </member>
+        <member name="P:Ivony.Html.Web.CacheToken.CacheDependency">
+            <summary>
+            获取缓存依赖项
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.CacheToken.VaryHeaders">
+            <summary>
+            获取客户端缓存依赖头
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.CacheTokenItem.ToString">
+            <summary>
+            获取缓存标记项的字符串表达形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.CacheTokenItem.GetHashCode">
+            <summary>
+            计算哈希值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheToken.CacheTokenItem.Equals(System.Object)">
+            <summary>
+            比较两个缓存标记项
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Ivony.Html.Web.CacheToken.CacheTokenItem.TypeName">
+            <summary>
+            类型名
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.CacheToken.CacheTokenItem.CacheDependency">
+            <summary>
+            缓存依赖项
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.CacheToken.CacheTokenItem.VaryHeader">
+            <summary>
+            客户端缓存依赖头
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.ClientCachePolicyBase">
+            <summary>
+            客户端缓存策略基类
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicyBase.SetMaxAge(System.TimeSpan)">
+            <summary>
+            设置缓存过期时间
+            </summary>
+            <param name="delta">从当前开始最大的过期时间</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicyBase.SetProxyMaxAge(System.TimeSpan)">
+            <summary>
+            设置代理服务器缓存过期时间
+            </summary>
+            <param name="delta">从当前开始最大的过期时间</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicyBase.SetCacheability(System.Web.HttpCacheability)">
+            <summary>
+            设置 cache-control 标头为 HttpCacheability 值之一
+            </summary>
+            <param name="cacheability">缓存可用性</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicyBase.SetExpires(System.DateTimeOffset)">
+            <summary>
+            设置缓存绝对过期时间
+            </summary>
+            <param name="expiresDate">缓存绝对过期时间</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicyBase.SetLastModified(System.DateTimeOffset)">
+            <summary>
+            设置请求内容最后一次被修改的时间
+            </summary>
+            <param name="lastModified">请求内容最后一次被修改的时间</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicyBase.SetETag(System.String)">
+            <summary>
+            设置内容标识
+            </summary>
+            <param name="etag">用于标识内容的哈希值</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicyBase.SetVary(System.String[])">
+            <summary>
+            设置 Vary 标头，指定哪些 HTTP 头可能引起缓存结果失效
+            </summary>
+            <param name="headers"></param>
+        </member>
+        <member name="T:Ivony.Html.Web.ClientCachePolicy">
+            <summary>
+            定义和协助应用 HTTP 客户端缓存策略
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicy.ApplyClientCachePolicy(System.Web.HttpResponseBase)">
+            <summary>
+            应用客户端缓存策略
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicy.SetMaxAge(System.TimeSpan)">
+            <summary>
+            设置缓存过期时间
+            </summary>
+            <param name="delta">从当前开始最大的过期时间</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicy.SetProxyMaxAge(System.TimeSpan)">
+            <summary>
+            设置代理服务器缓存过期时间
+            </summary>
+            <param name="delta">从当前开始最大的过期时间</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicy.SetCacheability(System.Web.HttpCacheability)">
+            <summary>
+            设置 cache-control 标头为 HttpCacheability 值之一
+            </summary>
+            <param name="cacheability">缓存可用性</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicy.SetExpires(System.DateTimeOffset)">
+            <summary>
+            设置缓存绝对过期时间
+            </summary>
+            <param name="expiresDate">缓存绝对过期时间</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicy.SetLastModified(System.DateTimeOffset)">
+            <summary>
+            设置请求内容最后一次被修改的时间
+            </summary>
+            <param name="lastModified">请求内容最后一次被修改的时间</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicy.SetETag(System.String)">
+            <summary>
+            设置内容标识
+            </summary>
+            <param name="etag">用于标识内容的哈希值</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicy.SetVary(System.String[])">
+            <summary>
+            设置 Vary 标头，指定哪些 HTTP 头可能引起缓存结果失效
+            </summary>
+            <param name="headers"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicy.ResetCacheControl">
+            <summary>
+            重置 cache-control 设置
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.ClientCachePolicy.ResetEntitySettings">
+            <summary>
+            重置 Last-Modified、ETag 等设置
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.ClientCachePolicy.DisableAbsoluteExpiration">
+            <summary>
+            指定是否禁用绝对过期
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.ClientCachePolicyModule">
+            <summary>
+            客户端缓存策略支持模块
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.HtmlBuildProvider">
+            <summary>
+            将 HTML 文件编译成 IHtmlDocumentProvider 对象的 BuildProvider
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlBuildProvider.GenerateCode(System.Web.Compilation.AssemblyBuilder)">
+            <summary>
+            此方法已被重写以产生代码
+            </summary>
+            <param name="assemblyBuilder">程序集构建器</param>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlBuildProvider.AddReferences(System.Web.Compilation.AssemblyBuilder)">
+            <summary>
+            添加依赖项
+            </summary>
+            <param name="assemblyBuilder"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlBuildProvider.GetGeneratedType(System.CodeDom.Compiler.CompilerResults)">
+            <summary>
+            此方法已被重写以获取编译后的类型
+            </summary>
+            <param name="results"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlBuildProvider.CreateDocumentProviderType">
+            <summary>
+            创建 IDocumentProvider 实现类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlBuildProvider.CreateName">
+            <summary>
+            创建类型名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlBuildProvider.GetParser">
+            <summary>
+            获取解析器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlBuildProvider.GetDomProviderType">
+            <summary>
+            获取 HTML Dom 提供程序
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlBuildProvider.CodeCompilerType">
+            <summary>
+            此属性已被重写以获取默认编译设置
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.CacheHelper">
+            <summary>
+            提供 HTTP 客户端缓存的一些帮助功能
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheHelper.IsNotModified(System.Web.HttpContextBase,System.String)">
+            <summary>
+            检查客户端的 ETag 是否已经过期，若未过期则发出 HTTP 304
+            </summary>
+            <param name="context">HTTP 上下文</param>
+            <param name="etag">用于与客户端 ETag 比较的，生成的请求内容的 ETag</param>
+            <returns>是否已经发出 HTTP 304</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheHelper.NotModified(System.Web.HttpContextBase)">
+            <summary>
+            输出 304 通知浏览器此页未被修改
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheHelper.CreateETagFromFile(System.String)">
+            <summary>
+            从文件路径创建 ETag
+            </summary>
+            <param name="staticFilepath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheHelper.ComputeHash(System.String)">
+            <summary>
+            计算字符串的哈希值
+            </summary>
+            <param name="data">字符串数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.CacheHelper.MapPath(System.String)">
+            <summary>
+            映射物理路径
+            </summary>
+            <param name="virtualPath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ivony.Html.Web.HttpHandler">
+            <summary>
+            此类型用于包装 IHtmlHandler 处理 HTTP 请求
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.JumonyHandler">
+            <summary>
+            Jumony 用于处理 HTTP 请求的处理器
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.IHtmlHandler">
+            <summary>
+            定义一个 HTML 文档处理程序
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.IHtmlHandler.ProcessDocument(System.Web.HttpContextBase,Ivony.Html.IHtmlDocument)">
+            <summary>
+            处理 HTML 文档
+            </summary>
+            <param name="context">当前请求上下文</param>
+            <param name="document">要处理的文档</param>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.System#Web#IHttpHandler#ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            实现 IHttpHandler.ProcessRequest
+            </summary>
+            <param name="context">当前 HTTP 请求的上下文</param>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.ProcessRequest(System.Web.HttpContextBase)">
+            <summary>
+            处理 HTTP 请求
+            </summary>
+            <param name="context">HTTP 上下文信息</param>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.CreateContext(System.Web.HttpContext)">
+            <summary>
+            创建本次请求的上下文，派生类重写此方法提供自定义上下文。
+            </summary>
+            <param name="context">HTTP 上下文</param>
+            <returns>请求上下文信息</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.ResolveCache">
+            <summary>
+            尝试获取缓存的输出
+            </summary>
+            <returns>缓存的输出</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.UpdateCache(Ivony.Html.Web.ICachedResponse)">
+            <summary>
+            刷新输出缓存
+            </summary>
+            <param name="cachedResponse">响应的缓存</param>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.CreateResponse(System.String)">
+            <summary>
+            派生类重写此方法自定义创建响应的逻辑
+            </summary>
+            <returns>响应</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.OutputResponse(Ivony.Html.Web.ICachedResponse)">
+            <summary>
+            派生类重写此方法自定义输出响应的逻辑
+            </summary>
+            <param name="responseData">响应信息</param>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.Ivony#Html#Web#IHtmlHandler#ProcessDocument(System.Web.HttpContextBase,Ivony.Html.IHtmlDocument)">
+            <summary>
+            实现IHtmlHandler接口
+            </summary>
+            <param name="context"></param>
+            <param name="document"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.ProcessDocument">
+            <summary>
+            派生类重写此方法处理文档
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.AddGeneratorMetaData">
+            <summary>
+            这个方法是用来添加<![CDATA[<meta name="generator" value="jumony" />]]>元素的。
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.Find(System.String)">
+            <summary>
+            在文档范围内使用选择器查找符合要求的元素
+            </summary>
+            <param name="selector">CSS选择器表达式</param>
+            <returns>符合选择器要求的元素</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.LoadDocument">
+            <summary>
+            加载Web页面
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.MapPath(System.String)">
+            <summary>
+            返回与 Web 服务器上的指定虚拟路径相对应的物理文件路径
+            </summary>
+            <param name="virtualPath">Web 服务器的虚拟路径</param>
+            <returns>与 path 相对应的物理文件路径</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.OnPreResolveCache">
+            <summary>引发 PreResolveCache 事件</summary>
+        </member>
+        <member name="M:Ivony.Html.Web.JumonyHandler.OnPostResolveCache">
+            <summary>引发 PostResolveCache 事件</summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.IsReusable">
+            <summary>
+            指定此实例是否可以被复用，默认值为false
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.RequestMapping">
+            <summary>
+            获取映射的结果
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.CachePolicy">
+            <summary>
+            获取当前请求的缓存策略
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.Document">
+            <summary>
+            获取正在处理的页面文档
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.Context">
+            <summary>
+            获取与该页关联的 HttpContext 对象。
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.Request">
+            <summary>
+            获取请求的页的 HttpRequest 对象
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.Response">
+            <summary>
+            获取与该 Page 对象关联的 HttpResponse 对象。该对象使您得以将 HTTP 响应数据发送到客户端，并包含有关该响应的信息
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.Server">
+            <summary>
+            获取 Server 对象，它是 HttpServerUtility 类的实例
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.Application">
+            <summary>
+            为当前 Web 请求获取 HttpApplicationState 对象
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.Trace">
+            <summary>
+            为当前 Web 请求获取 TraceContext 对象
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.JumonyHandler.Cache">
+            <summary>
+            获取与该页驻留的应用程序关联的 Cache 对象
+            </summary>
+        </member>
+        <member name="E:Ivony.Html.Web.JumonyHandler.PreLoadDocument">
+            <summary>在加载文档前引发此事件</summary>
+        </member>
+        <member name="E:Ivony.Html.Web.JumonyHandler.PostLoadDocument">
+            <summary>在加载文档后引发此事件</summary>
+        </member>
+        <member name="E:Ivony.Html.Web.JumonyHandler.PreProcessDocument">
+            <summary>在处理文档前引发此事件</summary>
+        </member>
+        <member name="E:Ivony.Html.Web.JumonyHandler.PostProcessDocument">
+            <summary>在处理文档后引发此事件</summary>
+        </member>
+        <member name="E:Ivony.Html.Web.JumonyHandler.PreRender">
+            <summary>在渲染文档前引发此事件</summary>
+        </member>
+        <member name="E:Ivony.Html.Web.JumonyHandler.PostRender">
+            <summary>在渲染文档后引发此事件</summary>
+        </member>
+        <member name="E:Ivony.Html.Web.JumonyHandler.PreResolveCache">
+            <summary>在尝试缓存输出前引发此事件</summary>
+        </member>
+        <member name="E:Ivony.Html.Web.JumonyHandler.PostResolveCache">
+            <summary>在缓存未命中后引发此事件</summary>
+        </member>
+        <member name="T:Ivony.Html.Web.ICachedResponse">
+            <summary>
+            定义被缓存的响应内容
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.ICachedResponse.Apply(System.Web.HttpResponseBase)">
+            <summary>
+            将缓存的内容应用到响应
+            </summary>
+            <param name="response">响应对象</param>
+        </member>
+        <member name="T:Ivony.Html.Web.IClientCacheableResponse">
+            <summary>
+            可以进行客户端缓存的响应
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.IClientCacheableResponse.CreateETag">
+            <summary>
+            创建相应的 ETag 标识
+            </summary>
+            <returns>响应的 ETag 标识</returns>
+        </member>
+        <member name="T:Ivony.Html.Web.ICacheStorageProvider">
+            <summary>
+            输出缓存储存提供程序
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.ICacheStorageProvider.InsertCacheItem(Ivony.Html.Web.CacheItem)">
+            <summary>
+            插入一个缓存项
+            </summary>
+            <param name="cacheItem">缓存项</param>
+        </member>
+        <member name="M:Ivony.Html.Web.ICacheStorageProvider.GetCacheItem(Ivony.Html.Web.CacheToken)">
+            <summary>
+            获取一个缓存项
+            </summary>
+            <param name="token">缓存标示</param>
+            <returns>缓存项</returns>
+        </member>
+        <member name="T:Ivony.Html.Web.WebCacheStorageProvider">
+            <summary>
+            WebCache 的缓存储存提供程序。
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.WebCacheStorageProvider.#ctor">
+            <summary>
+            创建 WebCacheStorageProvider 的实例
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.WebCacheStorageProvider.#ctor(System.Web.Caching.Cache)">
+            <summary>
+            创建 WebCacheStorageProvider 的实例
+            </summary>
+            <param name="cache">WebCache 对象</param>
+        </member>
+        <member name="M:Ivony.Html.Web.WebCacheStorageProvider.InsertCacheItem(Ivony.Html.Web.CacheItem)">
+            <summary>
+            插入一个缓存项
+            </summary>
+            <param name="cacheItem">要插入的缓存项</param>
+        </member>
+        <member name="M:Ivony.Html.Web.WebCacheStorageProvider.GetCacheItem(Ivony.Html.Web.CacheToken)">
+            <summary>
+            获取一个缓存项
+            </summary>
+            <param name="token">缓存标示</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ivony.Html.Web.IHtmlDocumentProvider">
+            <summary>
+            IHtmlDocument 对象创建适配器
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.IHtmlDocumentProvider.CreateDocument">
+            <summary>
+            创建 IHtmlDocument 对象
+            </summary>
+            <returns>创建的文档对象</returns>
+        </member>
+        <member name="T:Ivony.Html.Web.HtmlProviders">
+            <summary>
+            提供 Jumony Web 所有提供程序的管理和注册的静态类
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlProviders.MapRequest(System.Web.HttpRequestBase)">
+            <summary>
+            映射请求
+            </summary>
+            <param name="request">当前 HTTP 请求信息</param>
+            <returns>请求映射信息</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlProviders.Parse(Ivony.Html.IHtmlParser,Ivony.Html.Web.HtmlContentResult)">
+            <summary>
+            分析文档内容
+            </summary>
+            <param name="parser">分析器</param>
+            <param name="content">文档内容加载结果</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlProviders.LoadContent(System.Web.HttpContextBase,System.String)">
+            <summary>
+            加载 HTML 文档内容
+            </summary>
+            <param name="context">当前 HTTP 请求上下文</param>
+            <param name="virtualPath">文档的虚拟路径</param>
+            <returns>HTML 内容加载结果</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlProviders.LoadDocument(System.Web.HttpContextBase,System.String)">
+            <summary>
+            加载 HTML 文档
+            </summary>
+            <param name="context">当前 HTTP 请求上下文</param>
+            <param name="virtualPath">文档的虚拟路径</param>
+            <returns>HTML 文档对象</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlProviders.LoadDocument(System.Web.HttpContextBase,System.String,System.String@)">
+            <summary>
+            加载 HTML 文档
+            </summary>
+            <param name="context">当前请求的 HttpContext 对象</param>
+            <param name="virtualPath">文档的虚拟路径</param>
+            <param name="cacheKey">若文档已被缓存，获取缓存键</param>
+            <returns>HTML 文档对象</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlProviders.GetParser(System.Web.HttpContextBase,System.Uri,System.String)">
+            <summary>
+            获取用于分析 HTML 文档的分析器
+            </summary>
+            <param name="context">当前请求上下文</param>
+            <param name="contentUri">内容的地址</param>
+            <param name="htmlContent">HTML 文档内容</param>
+            <returns>HTML 分析器相关信息</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlProviders.ParseDocument(System.Web.HttpContextBase,Ivony.Html.Web.HtmlContentResult)">
+            <summary>
+            分析 HTML 文档，此方法会根据情况缓存文档模型
+            </summary>
+            <param name="context">当前请求的 HttpContext 对象</param>
+            <param name="contentResult">文档加载结果</param>
+            <returns>HTML 文档对象</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlProviders.ParseDocument(System.Web.HttpContextBase,Ivony.Html.Web.HtmlContentResult,Ivony.Html.Web.HtmlParserResult)">
+            <summary>
+            分析 HTML 文档，此方法会根据情况缓存文档模型
+            </summary>
+            <param name="context">当前请求的 HttpContext 对象</param>
+            <param name="contentResult">文档加载结果</param>
+            <param name="parserResult">解析器选择结果</param>
+            <returns>HTML 文档对象</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlProviders.ParseDocument(System.Web.HttpContextBase,System.String,System.Uri)">
+            <summary>
+            分析 HTML 文档，此方法永不缓存
+            </summary>
+            <param name="context">当前请求的 HttpContext 对象</param>
+            <param name="virtualPath">请求的虚拟路径</param>
+            <param name="htmlContent">文档内容</param>
+            <returns>HTML 文档对象</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlProviders.GetCachePolicy(System.Web.HttpContextBase)">
+            <summary>
+            获取当前请求的缓存策略
+            </summary>
+            <param name="context">当前 HTTP 请求</param>
+            <returns>适用于当前请求的缓存策略</returns>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlProviders.ParserProviders">
+            <summary>
+            所有解析器提供程序
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlProviders.ContentProviders">
+            <summary>
+            所有内容提供程序
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlProviders.RequestMappers">
+            <summary>
+            所有请求映射提供程序
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlProviders.CachePolicyProviders">
+            <summary>
+            所有缓存策略提供程序
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlProviders.DefaultCachePolicyProvider">
+            <summary>
+            获取默认的缓存策略提供程序
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlProviders.DefaultParserProvider">
+            <summary>
+            获取默认的 HTML 解析器
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.ICachePolicyProvider">
+            <summary>
+            定义缓存策略提供程序
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.ICachePolicyProvider.CreateCachePolicy(System.Web.HttpContextBase)">
+            <summary>
+            为当前请求创建缓存策略
+            </summary>
+            <param name="context">当前 HTTP 请求</param>
+            <returns>当前请求的缓存策略</returns>
+        </member>
+        <member name="T:Ivony.Html.Web.CacheKeyPolicy">
+            <summary>
+            用于枚举设置默认缓存键策略（缓存依据）
+            </summary>
+        </member>
+        <member name="F:Ivony.Html.Web.CacheKeyPolicy.NoCache">
+            <summary>指定对于所有请求都不要缓存，即不产生任何CacheKey</summary>
+        </member>
+        <member name="F:Ivony.Html.Web.CacheKeyPolicy.ByVirtualPath">
+            <summary>指定以请求的虚拟路径作为缓存依据</summary>
+        </member>
+        <member name="F:Ivony.Html.Web.CacheKeyPolicy.BySession">
+            <summary>指定以SessionID作为依据</summary>
+        </member>
+        <member name="F:Ivony.Html.Web.CacheKeyPolicy.ByIdentity">
+            <summary>指定以Identity的Name作为依据</summary>
+        </member>
+        <member name="T:Ivony.Html.Web.DefaultCachePolicyProvider">
+            <summary>
+            用于设置和获取默认缓存策略
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.DefaultCachePolicyProvider.GetCacheToken(System.Web.HttpContextBase)">
+            <summary>
+            按照设置的默认规则获取缓存标记
+            </summary>
+            <param name="context">请求上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.DefaultCachePolicyProvider.CreateCachePolicy(System.Web.HttpContextBase)">
+            <summary>
+            获取默认缓存策略
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Ivony.Html.Web.DefaultCachePolicyProvider.Instance">
+            <summary>
+            获取默认缓存策略提供程序的实例
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.DefaultCachePolicyProvider.CacheKeyPolicy">
+            <summary>
+            设置默认缓存键的产生依据
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.DefaultCachePolicyProvider.CacheDuration">
+            <summary>
+            获取或设置默认缓存时间
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.IHtmlContentProvider">
+            <summary>
+            定义 HTML 内容提供程序
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.IHtmlContentProvider.LoadContent(System.Web.HttpContextBase,System.String)">
+            <summary>
+            加载 HTML 内容
+            </summary>
+            <param name="context">当前请求上下文</param>
+            <param name="virtualPath">要加载内容的虚拟路径</param>
+            <returns>加载的 HTML 内容</returns>
+        </member>
+        <member name="T:Ivony.Html.Web.HtmlContentResult">
+            <summary>
+            IHtmlContentProvider 的内容加载结果
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlContentResult.#ctor(Ivony.Html.Web.IHtmlContentProvider,System.String,System.Uri)">
+            <summary>
+            创建 HtmlContentResult 实例
+            </summary>
+            <param name="provider">负责加载的提供程序</param>
+            <param name="content">加载的内容</param>
+            <param name="contentUri">内容的URL地址</param>
+        </member>
+        <member name="M:Ivony.Html.Web.HtmlContentResult.#ctor(Ivony.Html.Web.IHtmlContentProvider,System.String,System.Uri,System.String)">
+            <summary>
+            创建 HtmlContentResult 实例
+            </summary>
+            <param name="provider">负责加载的提供程序</param>
+            <param name="content">加载的内容</param>
+            <param name="contentUri">内容的URL地址</param>
+            <param name="cacheKey">缓存内容所使用的缓存键</param>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlContentResult.Content">
+            <summary>
+            HTML 文本内容
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlContentResult.Provider">
+            <summary>
+            获取产生此结果的 HtmlContentProvider
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlContentResult.CacheKey">
+            <summary>
+            获取缓存时使用的索引键
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlContentResult.ContentUri">
+            <summary>
+            获取的内容的绝对 Uri
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.StaticFileLoader">
+            <summary>
+            静态文件内容加载器，用于从静态文件中加载 HTML 内容，会自动缓存
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.StaticFileLoader.LoadContent(System.Web.HttpContextBase,System.String)">
+            <summary>
+            从静态文件中加载 HTML 内容
+            </summary>
+            <param name="context">当前请求上下文</param>
+            <param name="virtualPath">静态文件的虚拟路径</param>
+            <returns>加载的内容结果</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.StaticFileLoader.LoadContent(System.Web.HttpContextBase,System.Web.Hosting.VirtualPathProvider,System.String)">
+            <summary>
+            利用指定 VirtualPathProvider 将虚拟路径所指向文件当作静态文件加载。
+            </summary>
+            <param name="context">当前请求上下文</param>
+            <param name="provider">指定的 VirtualPathProvider</param>
+            <param name="virtualPath">虚拟路径</param>
+            <returns>加载结果</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.StaticFileLoader.LoadContent(System.Web.Hosting.VirtualFile)">
+            <summary>
+            从指定虚拟文件中读取文本内容
+            </summary>
+            <param name="file">虚拟文件</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ivony.Html.Web.AspxFileLoader">
+            <summary>
+            ASPX 文件内容加载器，用于从 ASPX 动态页面中加载内容
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.AspxFileLoader.LoadContent(System.Web.HttpContextBase,System.String)">
+            <summary>
+            读取 ASPX 页面所呈现的 HTML 内容
+            </summary>
+            <param name="context">当前 HTTP 请求</param>
+            <param name="virtualPath">ASPX 文件路径</param>
+            <returns>ASPX 页面所呈现的 HTML 内容</returns>
+        </member>
+        <member name="T:Ivony.Html.Web.IHtmlParserProvider">
+            <summary>
+            HTML 解析器提供程序
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.IHtmlParserProvider.GetParser(System.Web.HttpContextBase,System.Uri,System.String)">
+            <summary>
+            获取一个 HTML 解析器
+            </summary>
+            <param name="context">当前请求上下文</param>
+            <param name="contentUri">HTML 内容地址</param>
+            <param name="htmlContent">HTML 内容</param>
+            <returns>HTML 解析器结果</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.IHtmlParserProvider.ReleaseParser(Ivony.Html.IHtmlParser)">
+            <summary>
+            释放解析器实例
+            </summary>
+            <param name="parser"></param>
+        </member>
+        <member name="T:Ivony.Html.Web.HtmlParserResult">
+            <summary>
+            HTML 解析器结果
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlParserResult.Parser">
+            <summary>
+            HTML 解析器实例
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlParserResult.DomProvider">
+            <summary>
+            用于构建 HTML DOM 的提供程序
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.HtmlParserResult.Provider">
+            <summary>
+            产生此结果的 HTML 解析器提供程序
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.DefaultParserProvider">
+            <summary>
+            默认的 HTML 解析器提供程序
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.DefaultParserProvider.GetParser">
+            <summary>
+            获取默认的解析器结果
+            </summary>
+            <returns>包含默认解析器的结果</returns>
+        </member>
+        <member name="T:Ivony.Html.Web.IHtmlHandlerProvider">
+            <summary>
+            HTML 文档处理程序
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.IHtmlHandlerProvider.GetHandler(System.Web.HttpContextBase,System.String)">
+            <summary>
+            获取 HTML 处理程序
+            </summary>
+            <param name="context">当前 Http 请求信息</param>
+            <param name="virtualPath">HTML 文档的虚路径</param>
+            <returns>HTML 处理程序</returns>
+        </member>
+        <member name="T:Ivony.Html.Web.PersistentCacheStorageProvider">
+            <summary>
+            持久化缓存提供程序
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.PersistentCacheStorageProvider.InsertCacheItem(Ivony.Html.Web.CacheItem)">
+            <summary>
+            插入缓存项
+            </summary>
+            <param name="cacheItem"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.PersistentCacheStorageProvider.GetCacheItem(Ivony.Html.Web.CacheToken)">
+            <summary>
+            获取缓存项
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.PersistentCacheStorageProvider.SaveCacheItem(Ivony.Html.Web.CacheItem)">
+            <summary>
+            将缓存项持久化到设备
+            </summary>
+            <param name="cacheItem"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.PersistentCacheStorageProvider.LoadCacheItem(Ivony.Html.Web.CacheToken)">
+            <summary>
+            从持久化设备中加载缓存项
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.PersistentCacheStorageProvider.Serialize(Ivony.Html.Web.CacheItem,System.IO.Stream)">
+            <summary>
+            序列化缓存项
+            </summary>
+            <param name="cacheItem"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.PersistentCacheStorageProvider.Deserialize(System.IO.Stream)">
+            <summary>
+            反序列化缓存项
+            </summary>
+            <param name="stream"></param>
+            
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.PersistentCacheStorageProvider.CreateSaveStream(Ivony.Html.Web.CacheToken)">
+            <summary>
+            创建持久化输出流
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.PersistentCacheStorageProvider.CreateLoadStream(Ivony.Html.Web.CacheToken)">
+            <summary>
+            创建持久化输入流
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ivony.Html.Web.StaticFileCacheStorageProvider">
+            <summary>
+            静态文件缓存提供程序
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.StaticFileCacheStorageProvider.#ctor(System.String,System.Boolean)">
+            <summary>
+            创建静态文件缓存储存提供程序
+            </summary>
+            <param name="physicalPath">静态缓存储存的物理路径位置</param>
+            <param name="enableMemoryCache">是否同时启用基于内存的 WebCache 缓存</param>
+        </member>
+        <member name="M:Ivony.Html.Web.StaticFileCacheStorageProvider.InsertCacheItem(Ivony.Html.Web.CacheItem)">
+            <summary>
+            插入缓存项
+            </summary>
+            <param name="cacheItem"></param>
+        </member>
+        <member name="M:Ivony.Html.Web.StaticFileCacheStorageProvider.GetCacheItem(Ivony.Html.Web.CacheToken)">
+            <summary>
+            获取缓存项
+            </summary>
+            <param name="token">缓存标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.StaticFileCacheStorageProvider.CreateLoadStream(Ivony.Html.Web.CacheToken)">
+            <summary>
+            创建持久化输入流
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.StaticFileCacheStorageProvider.CreateSaveStream(Ivony.Html.Web.CacheToken)">
+            <summary>
+            创建持久化输出流
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Ivony.Html.Web.StaticFileCacheStorageProvider.invalidPathCharactor">
+            <summary>
+            匹配非文件名组成字符的正则表达式
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.StaticFileCacheStorageProvider.CreateFilename(Ivony.Html.Web.CacheToken)">
+            <summary>
+            根据缓存标识创建静态缓存的文件名
+            </summary>
+            <param name="token">缓存标识</param>
+            <returns></returns>
+        </member>
+        <member name="P:Ivony.Html.Web.StaticFileCacheStorageProvider.PhysicalPath">
+            <summary>
+            静态文件路径
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.StaticFileCacheStorageProvider.EnableMemoryCache">
+            <summary>
+            是否使用内存缓存
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.StandardCachePolicy">
+            <summary>
+            标准缓存策略
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.StandardCachePolicy.#ctor(System.Web.HttpContextBase,Ivony.Html.Web.CacheToken,Ivony.Html.Web.ICachePolicyProvider,System.TimeSpan,System.Boolean)">
+            <summary>
+            创建一个标准缓存策略
+            </summary>
+            <param name="context">请求上下文</param>
+            <param name="token">缓存标示</param>
+            <param name="provider">缓存策略提供程序</param>
+            <param name="duration">缓存持续时间</param>
+            <param name="enableClientCache">是否启用客户端缓存</param>
+        </member>
+        <member name="M:Ivony.Html.Web.StandardCachePolicy.#ctor(System.Web.HttpContextBase,Ivony.Html.Web.CacheToken,Ivony.Html.Web.ICachePolicyProvider,System.TimeSpan,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            创建一个标准缓存策略
+            </summary>
+            <param name="context">请求上下文</param>
+            <param name="token">缓存标示</param>
+            <param name="provider">缓存策略提供程序</param>
+            <param name="duration">缓存持续时间</param>
+            <param name="enableClientCache">是否启用客户端缓存</param>
+            <param name="localcacheVirtualPath">静态文件缓存虚拟路径</param>
+            <param name="enableMemoryCache">是否启用内存缓存</param>
+        </member>
+        <member name="M:Ivony.Html.Web.StandardCachePolicy.#ctor(System.Web.HttpContextBase,Ivony.Html.Web.CacheToken,Ivony.Html.Web.ICachePolicyProvider,System.TimeSpan,System.Boolean,Ivony.Html.Web.ICacheStorageProvider)">
+            <summary>
+            创建一个标准缓存策略
+            </summary>
+            <param name="context">请求上下文</param>
+            <param name="token">缓存标示</param>
+            <param name="provider">缓存策略提供程序</param>
+            <param name="duration">缓存持续时间</param>
+            <param name="enableClientCache">是否启用客户端缓存</param>
+            <param name="storageProvider">缓存储存提供程序</param>
+        </member>
+        <member name="M:Ivony.Html.Web.StandardCachePolicy.ResolveClientCache">
+            <summary>
+            尝试输出客户端缓存
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.StandardCachePolicy.ApplyClientCachePolicy">
+            <summary>
+            应用客户端缓存策略
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.StandardCachePolicy.CreateCacheItem(Ivony.Html.Web.ICachedResponse)">
+            <summary>
+            创建缓存项
+            </summary>
+            <param name="cachedResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.StandardCachePolicy.GetCacheItem">
+            <summary>
+            获取 CacheItem
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Web.StandardCachePolicy.ResolveCache">
+            <summary>
+            尝试获取缓存的输出
+            </summary>
+            <returns>可用的已被缓存的输出</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.StandardCachePolicy.UpdateCache(Ivony.Html.Web.ICachedResponse)">
+            <summary>
+            插入缓存
+            </summary>
+            <param name="cachedResponse">可被缓存的响应数据</param>
+            <returns>缓存项</returns>
+        </member>
+        <member name="P:Ivony.Html.Web.StandardCachePolicy.CacheStorageProvider">
+            <summary>
+            缓存项储存提供程序
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.StandardCachePolicy.Duration">
+            <summary>
+            缓存持续时间
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.StandardCachePolicy.EnableClientCache">
+            <summary>
+            是否启用客户端缓存
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.StandardCachePolicy.LocalCacheVirtualPath">
+            <summary>
+            本地静态缓存路径
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.StandardCachePolicy.EnableMemoryCache">
+            <summary>
+            是否启用内存缓存
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.WebParser">
+            <summary>
+            专门用于 Web UI 引擎的 HTML 解析器
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.WebParser.IsCDataElement(Ivony.Html.Parser.ContentModels.HtmlBeginTag)">
+            <summary>
+            重写此方法以确保 &lt;partial&gt; 标签被视为CData元素。
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ivony.Html.Web.NoResponseHttpContext">
+            <summary>
+            提供一个禁用响应功能的 HttpContext 对象的包装
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.NoResponseHttpContext.#ctor(System.Web.HttpContext)">
+            <summary>
+            创建 NoResponseHttpContext 实例
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Ivony.Html.Web.RequestMapping">
+            <summary>
+            IRequestMapper 产生的映射结果
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.RequestMapping.#ctor(Ivony.Html.Web.IRequestMapper,System.String,Ivony.Html.Web.IHtmlHandler)">
+            <summary>
+            创建 RequestMapping 对象
+            </summary>
+            
+            <param name="templatePath">HTML 模版路径</param>
+            <param name="handler">HTML 文档处理程序</param>
+        </member>
+        <member name="M:Ivony.Html.Web.RequestMapping.#ctor(Ivony.Html.Web.IRequestMapper,Ivony.Html.Web.IHtmlHandler)">
+            <summary>
+            派生类调用创建 RequestMapping 对象
+            </summary>
+            <param name="mapper">请求映射器</param>
+            <param name="handler">HTML 文档处理程序</param>
+        </member>
+        <member name="M:Ivony.Html.Web.RequestMapping.LoadTemplate">
+            <summary>
+            加载 HTML 文档模版
+            </summary>
+            <returns>HTML 文档模版</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.RequestMapping.LoadDocument(System.String@)">
+            <summary>
+            加载文档
+            </summary>
+            <param name="cacheKey">文档缓存键</param>
+            <returns>HTML 文档</returns>
+        </member>
+        <member name="P:Ivony.Html.Web.RequestMapping.Mapper">
+            <summary>
+            获取请求的映射器
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.RequestMapping.TemplatePath">
+            <summary>
+            获取 HTML 文档模版路径
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.RequestMapping.TemplateCacheKey">
+            <summary>
+            获取模版缓存键
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.RequestMapping.Handler">
+            <summary>
+            HTML 文档处理程序
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.HtmlRewriteModule">
+            <summary>
+            重写 HTTP 请求映射到 Jumony 处理程序的模块
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.IRequestMapper">
+            <summary>
+            定义请求映射器，Jumony请求映射器为请求获取 HTML 模板和对应的处理程序
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.IRequestMapper.MapRequest(System.Web.HttpRequestBase)">
+            <summary>
+            映射当前请求
+            </summary>
+            <param name="request">当前 HTTP 请求</param>
+            <returns>映射结果</returns>
+        </member>
+        <member name="T:Ivony.Html.Web.DefaultRequestMapper">
+            <summary>
+            默认的请求映射器
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.DefaultRequestMapper.MapRequest(System.Web.HttpRequestBase)">
+            <summary>
+            映射当前请求
+            </summary>
+            <param name="request">当前 HTTP 请求</param>
+            <returns>映射结果</returns>
+        </member>
+        <member name="T:Ivony.Html.Web.RawResponse">
+            <summary>
+            定义响应内容，用于缓存
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.RawResponse.#ctor">
+            <summary>
+            创建 RawResponse 对象
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.RawResponse.Apply(System.Web.HttpResponseBase)">
+            <summary>
+            将响应直接输出
+            </summary>
+            <param name="response">HttpResponse 对象，用于输出响应</param>
+        </member>
+        <member name="M:Ivony.Html.Web.RawResponse.WriteTo(System.IO.Stream)">
+            <summary>
+            将响应写入响应输出流
+            </summary>
+            <param name="stream">输出流</param>
+        </member>
+        <member name="M:Ivony.Html.Web.RawResponse.CreateETag">
+            <summary>
+            创建响应的 ETag 标识
+            </summary>
+            <returns>ETag 标识</returns>
+        </member>
+        <member name="P:Ivony.Html.Web.RawResponse.StatusCode">
+            <summary>
+            HTTP 响应状态码，如 200
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.RawResponse.Status">
+            <summary>
+            HTTP 响应状态说明，如 OK
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.RawResponse.Headers">
+            <summary>
+            HTTP 响应头集合
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.RawResponse.Content">
+            <summary>
+            HTTP 响应内容
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.RawResponse.HeaderEncoding">
+            <summary>
+            响应头的编码
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Web.RawResponse.ContentEncoding">
+            <summary>
+            响应内容的编码
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Web.WebExtenions">
+            <summary>
+            提供一些 Web 相关的扩展方法。
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Web.WebExtenions.GetMapping(System.Web.HttpContext)">
+            <summary>
+            获取请求的映射信息
+            </summary>
+            <param name="context">请求上下文</param>
+            <returns>映射信息</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.WebExtenions.GetMapping(System.Web.HttpContextBase)">
+            <summary>
+            获取请求的映射信息
+            </summary>
+            <param name="context">请求上下文</param>
+            <returns>映射信息</returns>
+        </member>
+        <member name="M:Ivony.Html.Web.WebExtenions.GetClientCachePolicy(System.Web.HttpContextBase)">
+            <summary>
+            获取当前 HTTP 请求的客户端缓存策略
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

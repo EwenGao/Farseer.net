@@ -1,0 +1,15 @@
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\入门\CoreLibrary\FS.Model\bin\Debug\FS.Model.dll
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\入门\CoreLibrary\FS.Model\bin\Debug\FS.Model.pdb
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\入门\CoreLibrary\FS.Model\bin\Debug\Farseer.Net.dll
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\入门\CoreLibrary\FS.Model\bin\Debug\Farseer.Net.pdb
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\入门\CoreLibrary\FS.Model\obj\Debug\FS.Model.csprojResolveAssemblyReference.cache
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\入门\CoreLibrary\FS.Model\obj\Debug\FS.Model.dll
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\入门\CoreLibrary\FS.Model\obj\Debug\FS.Model.pdb
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Model\bin\Debug\FS.Model.dll
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Model\bin\Debug\FS.Model.pdb
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Model\bin\Debug\Farseer.Net.dll
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Model\bin\Debug\Farseer.Net.pdb
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Model\obj\Debug\FS.Model.csprojResolveAssemblyReference.cache
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Model\obj\Debug\FS.Model.dll
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Model\obj\Debug\FS.Model.pdb
+E:\公司\优教网V2\CoreLibrary\Farseer\Framework\V0.2\Demo\CoreLibrary\FS.Model\bin\Debug\FS.Model.dll.config

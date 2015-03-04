@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A6186FC8-3FF6-4ED2-8000-4AA73FA86C42}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS</RootNamespace>
+    <AssemblyName>Farseer.Net</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\DeBug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <DocumentationFile>bin\x86\Debug\Farseer.Net.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>packages\EntityFramework.6.1.1-beta1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\Demo\packages\EntityFramework.Extended.6.1.0.95\lib\net40\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>packages\EntityFramework.6.1.1-beta1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dll\MVC3\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configs\CacheConfigs.cs" />
+    <Compile Include="Configs\BaseConfigs.cs" />
+    <Compile Include="Configs\DbConfigs.cs" />
+    <Compile Include="Configs\EmailConfigs.cs" />
+    <Compile Include="Configs\GeneralConfigs.cs" />
+    <Compile Include="Configs\RewriterConfigs.cs" />
+    <Compile Include="Configs\SystemConfigs.cs" />
+    <Compile Include="Core\Bean\DataResult.cs" />
+    <Compile Include="Core\Bean\DbContext.cs" />
+    <Compile Include="Core\Data\DbExecutor.cs" />
+    <Compile Include="Core\Bean\DbFactory.cs" />
+    <Compile Include="Core\Data\XmlExecutor.cs" />
+    <Compile Include="Core\Interface\IAuditInfo.cs" />
+    <Compile Include="Core\Interface\ICacheInfo.cs" />
+    <Compile Include="Core\Interface\ICreateInfo.cs" />
+    <Compile Include="Core\Interface\ILoginInfo.cs" />
+    <Compile Include="Core\Interface\IUpdateInfo.cs" />
+    <Compile Include="Core\Model\BaseCateInfo.cs" />
+    <Compile Include="Core\Model\BaseInfo.cs" />
+    <Compile Include="Core\Model\BaseModel.cs" />
+    <Compile Include="Core\Bean\SqlTemplate.cs" />
+    <Compile Include="Core\Page\BaseController.cs" />
+    <Compile Include="Core\Page\BaseControls.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Core\Page\BaseHandler.cs" />
+    <Compile Include="Core\Page\BaseMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Core\Page\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Extend\Bool\Extend.cs" />
+    <Compile Include="Extend\Control\CheckBoxList.cs" />
+    <Compile Include="Extend\Control\DataGridView.cs" />
+    <Compile Include="Extend\Control\DropDownList.cs" />
+    <Compile Include="Extend\Control\Extend.cs" />
+    <Compile Include="Extend\Control\ListControl.cs" />
+    <Compile Include="Extend\Control\Repeater.cs" />
+    <Compile Include="Extend\Control\RepeaterItem.cs" />
+    <Compile Include="Extend\Control\TextBox.cs" />
+    <Compile Include="Extend\DataTable\DataTableExtend.cs" />
+    <Compile Include="Extend\DateTime\DateTimeExtend.cs" />
+    <Compile Include="Extend\Enum\EnumExtend.cs" />
+    <Compile Include="Extend\Expression\ExpressionExtend.cs" />
+    <Compile Include="Extend\Extend.cs" />
+    <Compile Include="Extend\IDataReader\IDataReader.cs" />
+    <Compile Include="Extend\List\Cate.cs" />
+    <Compile Include="Extend\List\Extend.cs" />
+    <Compile Include="Extend\List\IEnumerable.cs" />
+    <Compile Include="Extend\List\IList.cs" />
+    <Compile Include="Extend\List\List.cs" />
+    <Compile Include="Extend\Model\ModelExtend.cs" />
+    <Compile Include="Extend\Object\ObjectExtend.cs" />
+    <Compile Include="Extend\String\StringExtend.cs" />
+    <Compile Include="Extend\Struct\StructExtend.cs" />
+    <Compile Include="Mvc\Routing\DomainData.cs" />
+    <Compile Include="Mvc\Routing\DomainRoute.cs" />
+    <Compile Include="Mvc\Routing\LinkExtensions.cs" />
+    <Compile Include="ORM\Attribute\DBAttribute.cs" />
+    <Compile Include="ORM\Attribute\ModelAttribute.cs" />
+    <Compile Include="ORM\Mapping.cs" />
+    <Compile Include="ORM\ModelCache.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Repeater\Property.cs" />
+    <Compile Include="UI\Repeater\Repeater.cs" />
+    <Compile Include="UI\UpLoadFile\EventHandler.cs" />
+    <Compile Include="UI\UpLoadFile\Main.cs" />
+    <Compile Include="UI\UpLoadFile\Property.cs" />
+    <Compile Include="Utils\Common\Assembly.cs" />
+    <Compile Include="Utils\Common\Chinese.cs" />
+    <Compile Include="Utils\Common\Encrypt.cs" />
+    <Compile Include="Utils\Common\Files.cs" />
+    <Compile Include="Utils\Common\InfoComparer.cs" />
+    <Compile Include="Utils\Common\IsType.cs" />
+    <Compile Include="Utils\Common\Json.cs" />
+    <Compile Include="Utils\Common\Mac.cs" />
+    <Compile Include="Utils\Common\Net.cs" />
+    <Compile Include="Utils\Common\OLog.cs" />
+    <Compile Include="Utils\Common\Pro.cs" />
+    <Compile Include="Utils\Common\QueueTask.cs" />
+    <Compile Include="Utils\Common\Rand.cs" />
+    <Compile Include="Utils\Common\Reverser.cs" />
+    <Compile Include="Utils\Common\RMB.cs" />
+    <Compile Include="Utils\Common\Serialized.cs" />
+    <Compile Include="Utils\Common\SmtpMail.cs" />
+    <Compile Include="Utils\Common\SpeedTest.cs" />
+    <Compile Include="Utils\Common\Str.cs" />
+    <Compile Include="Utils\Common\StrPlus.cs" />
+    <Compile Include="Utils\Common\Thumbnail.cs" />
+    <Compile Include="Utils\Common\TimingTasks.cs" />
+    <Compile Include="Utils\Common\WinRAR.cs" />
+    <Compile Include="Utils\Form\DynamicHtml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\Form\DynamicHtml.Designer.cs">
+      <DependentUpon>DynamicHtml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\IHttpModule\CDN.cs" />
+    <Compile Include="Utils\IHttpModule\UrlRewriter.cs" />
+    <Compile Include="Utils\SocketHelper\ClientSocket.cs" />
+    <Compile Include="Utils\SocketHelper\ServerSocket.cs" />
+    <Compile Include="Utils\SocketHelper\StateObject.cs" />
+    <Compile Include="Utils\Web\Cookies.cs" />
+    <Compile Include="Utils\Web\Excel.cs" />
+    <Compile Include="Utils\Web\Htmls.cs" />
+    <Compile Include="Utils\Web\HttpClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\Web\Images.cs" />
+    <Compile Include="Utils\Web\IPAdress.cs" />
+    <Compile Include="Utils\Web\MvcReq.cs" />
+    <Compile Include="Utils\Web\PageSplit.cs" />
+    <Compile Include="Utils\Web\Req.cs" />
+    <Compile Include="Utils\Web\Script\JavaScript.cs" />
+    <Compile Include="Utils\Web\Script\LhgDialog.cs" />
+    <Compile Include="Utils\Web\Sessions.cs" />
+    <Compile Include="Utils\Web\Terminator.cs" />
+    <Compile Include="Utils\Web\UpLoadFile.cs" />
+    <Compile Include="Utils\Web\Url.cs" />
+    <Compile Include="Utils\Web\VeriCode.cs" />
+    <Compile Include="Utils\Web\WebCache.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Utils\Form\DynamicHtml.resx">
+      <DependentUpon>DynamicHtml.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

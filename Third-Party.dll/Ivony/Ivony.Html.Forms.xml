@@ -1,0 +1,471 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ivony.Html.Forms</name>
+    </assembly>
+    <members>
+        <member name="T:Ivony.Html.Forms.FormExtensions">
+            <summary>
+            提供一组关于表单的扩展方法
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.AsForm(Ivony.Html.IHtmlElement)">
+            <summary>
+            尝试将一个HTML元素转换为表单
+            </summary>
+            <param name="element">要转换为表单的元素</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.CurrentValues(Ivony.Html.Forms.IHtmlGroupControl)">
+            <summary>
+            获取输入组当前所有选中的值
+            </summary>
+            <param name="group">输入组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.SubmittedValue(Ivony.Html.Forms.IHtmlInputControl)">
+            <summary>
+            获取指定控件在客户端设置的值
+            </summary>
+            <param name="inputer">输入控件</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.SubmittedValues(Ivony.Html.Forms.IHtmlGroupControl)">
+            <summary>
+            获取指定输入组在客户端设置的值
+            </summary>
+            <param name="group">输入组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.ApplySubmittedValue(Ivony.Html.Forms.HtmlForm)">
+            <summary>
+            将客户端提交来的值，应用到对应的输入控件上
+            </summary>
+            <param name="control">表单</param>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.ApplySubmittedValue(Ivony.Html.Forms.IHtmlInputControl)">
+            <summary>
+            将客户端提交来的值，应用到对应的输入控件上
+            </summary>
+            <param name="control">输入控件</param>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.ApplySubmittedValue(Ivony.Html.Forms.IHtmlTextControl)">
+            <summary>
+            将客户端提交来的值，应用到对应的输入控件上
+            </summary>
+            <param name="control">输入控件</param>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.ApplySubmittedValue(Ivony.Html.Forms.IHtmlGroupControl)">
+            <summary>
+            将客户端提交来的值，应用到对应的输入控件上
+            </summary>
+            <param name="control">输入控件</param>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.ClearValues(Ivony.Html.Forms.IHtmlGroupControl)">
+            <summary>
+            清空输入组所有选中的值
+            </summary>
+            <param name="group">输入组</param>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.CandidateValues(Ivony.Html.Forms.IHtmlGroupControl)">
+            <summary>
+            获取输入组所有可能的值
+            </summary>
+            <param name="group">输入组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.Item(Ivony.Html.Forms.IHtmlGroupControl,System.String)">
+            <summary>
+            通过 value 获取输入组项
+            </summary>
+            <param name="group">输入组</param>
+            <param name="value">要查找输入组项的值</param>
+            <returns>输入组项，如果没有找到则返回 false</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.TrySetValue(Ivony.Html.Forms.IHtmlGroupControl,System.String)">
+            <summary>
+            尝试为输入组设置一个值
+            </summary>
+            <param name="group">输入组</param>
+            <param name="value">要设置的值</param>
+            <returns>是否成功</returns>
+            <remarks>此方法暂不支持设置多个用逗号分隔的值</remarks>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.TrySetValue(Ivony.Html.Forms.IHtmlTextControl,System.String)">
+            <summary>
+            尝试为文本控件设置一个值
+            </summary>
+            <param name="group">文本控件</param>
+            <param name="value">要设置的值</param>
+            <remarks>对于密码框此方法会设置失败并返回false</remarks>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.TrySetValue(Ivony.Html.Forms.IHtmlInputControl,System.String)">
+            <summary>
+            尝试为输入控件设置值
+            </summary>
+            <param name="input">输入控件</param>
+            <param name="value">要设置的值</param>
+            <returns>是否成功</returns>
+            <remarks>对于密码框或不存在值吻合选项的输入组，此方法会设置失败并返回false</remarks>
+            <exception cref="T:System.NotSupportedException">不被支持的输入控件</exception>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.TrySetValues(Ivony.Html.Forms.HtmlForm,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            尝试对表单所有元素设置值
+            </summary>
+            <param name="form">要设置值的表单</param>
+            <param name="values">要设置的值</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.ValueString(Ivony.Html.Forms.IHtmlInputControl)">
+            <summary>
+            获取字符串形式表达的 Value 值
+            </summary>
+            <param name="input">输入控件</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.Labels(Ivony.Html.Forms.IHtmlFormElement)">
+            <summary>
+            查找与指定元素绑定的 Label
+            </summary>
+            <param name="element">要查找绑定的 Label 的元素</param>
+            <returns>与元素绑定的 Label 集合，如果元素不支持绑定，则返回null</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.Labels(Ivony.Html.Forms.IHtmlFocusableControl)">
+            <summary>
+            查找与指定元素绑定的 Label
+            </summary>
+            <param name="element">要查找绑定的 Label 的元素</param>
+            <returns>与元素绑定的 Label 集合</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.LabelText(Ivony.Html.Forms.IHtmlFormElement)">
+            <summary>
+            尝试获取与指定元素绑定的 Label 的文本
+            </summary>
+            <param name="element">要查找绑定的 Label 的元素</param>
+            <returns>绑定的 Label 的文本，如果元素不支持绑定或没找到则返回null</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.LabelText(Ivony.Html.Forms.IHtmlFocusableControl)">
+            <summary>
+            尝试获取与指定元素绑定的 Label 的文本
+            </summary>
+            <param name="element">要查找绑定的 Label 的元素</param>
+            <returns>绑定的 Label 的文本，如果没找到则返回null</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.FormExtensions.FindContainer(Ivony.Html.Forms.IHtmlInputControl)">
+            <summary>
+            尝试查找最小包含指定输入控件的容器
+            </summary>
+            <param name="inputControl">输入控件</param>
+            <returns>找到的最小包含容器</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.HtmlForm.#ctor(Ivony.Html.IHtmlElement)">
+            <summary>
+            创建一个 HTML 表单对象
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:Ivony.Html.Forms.HtmlForm.RefreshForm">
+            <summary>
+            重新扫描表单中所有控件
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Forms.HtmlForm.Submit(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            尝试提交表单
+            </summary>
+            <param name="data">提交的数据</param>
+            <returns>被提交的表单</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.HtmlForm.Submit(System.Collections.Specialized.NameValueCollection,System.Boolean)">
+            <summary>
+            尝试提交表单
+            </summary>
+            <param name="data">提交的数据</param>
+            <param name="validateInputs">指示是否应当验证表单提交的数据是否与表单吻合</param>
+            <returns>被提交的表单</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.HtmlForm.FindLabels(System.String)">
+            <summary>
+            检索指定HTML元素绑定的 Label
+            </summary>
+            <param name="element">要检索 Label 的元素</param>
+            <returns></returns>
+        </member>
+        <member name="P:Ivony.Html.Forms.HtmlForm.Element">
+            <summary>
+            表单元素
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.HtmlForm.SubmittedValues">
+            <summary>
+            获取表单提交的值，若表单尚未提交，则为 null
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.HtmlForm.InputControls">
+            <summary>
+            获取表单所有的输入控件
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.HtmlForm.Item(System.String)">
+            <summary>
+            获取指定名称的输入控件
+            </summary>
+            <param name="name">输入控件名</param>
+            <returns>输入控件</returns>
+        </member>
+        <member name="P:Ivony.Html.Forms.HtmlForm.TextInputs">
+            <summary>
+            所有文本输入控件
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.HtmlForm.GroupInputs">
+            <summary>
+            所有组合输入控件
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.HtmlButtonGroup">
+            <summary>
+            按钮组，是input type="checkbox"及input type="radio"组的抽象。
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.IHtmlGroupControl">
+            <summary>
+            表示 HTML 输入组控件的抽象，例如多选单选按钮组和SELECT元素
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.IHtmlInputControl">
+            <summary>
+            表示一个抽象的 HTML 输入控件或控件组
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.IHtmlFormElement">
+            <summary>
+            表示一个抽象的表单控件
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.IHtmlGroupControl.AllowMultipleSelections">
+            <summary>
+            是否支持多选
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.IHtmlGroupControl.Items">
+            <summary>
+            所有的输入组项
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.IHtmlInputGroupItem">
+            <summary>
+            表示 HTML 输入组项的抽象，例如OPTION或是多选单选按钮。
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.IHtmlInputGroupItem.Element">
+            <summary>
+            输入组项所对应的元素
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.IHtmlInputGroupItem.Group">
+            <summary>
+            输入组项所对应的输入组控件
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.IHtmlInputGroupItem.Selected">
+            <summary>
+            该项是否已被选中
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.IHtmlInputGroupItem.Value">
+            <summary>
+            该项的值
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.IHtmlInputGroupItem.Text">
+            <summary>
+            该项的显示文本
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.IHtmlFocusableControl">
+            <summary>
+            表示一个可以获得焦点的表单控件
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.HtmlInputText">
+            <summary>
+            定义一个文本输入框元素
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.IHtmlTextControl">
+            <summary>
+            表示一个文本输入控件
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.HtmlInputText.Form">
+            <summary>
+            输入框所属的表单
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.HtmlInputText.Element">
+            <summary>
+            描述输入框的元素
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.HtmlInputText.Name">
+            <summary>
+            输入框的名称
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.HtmlInputText.TextValue">
+            <summary>
+            输入框的文本值
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.HtmlLabel">
+            <summary>
+            表示 label 元素
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.Validation.IHtmlValueValidator">
+            <summary>
+            定义一个 HTML 输入值验证器
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.Validation.HtmlFormValidator">
+            <summary>
+            HTML 表单验证器，承担一个表单的验证。这是一个抽象类，具体的表单验证类型应从此类型继承。
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.#ctor(Ivony.Html.Forms.HtmlForm)">
+            <summary>
+            构造表单验证器
+            </summary>
+            <param name="form">要被验证的表单</param>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.Initialize">
+            <summary>
+            初始化验证器
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.Validate">
+            <summary>
+            进行验证
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.ExecuteValidate">
+            <summary>
+            派生类重写此方法实现具体的验证过程
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.FailedMessageContainer(Ivony.Html.Forms.IHtmlInputControl)">
+            <summary>
+            派生类重写此方法查找显示指定输入控件验证错误信息的容器
+            </summary>
+            <param name="input">要显示错误信息的输入控件</param>
+            <returns>显示错误信息的容器</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.FailedSummaryContainer">
+            <summary>
+            派生类重写此方法查找显示验证失败摘要信息的容器
+            </summary>
+            <returns>显示验证失败摘要信息的容器</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.FieldDescrptionContainer(Ivony.Html.Forms.IHtmlInputControl)">
+            <summary>
+            派生类重写此方法查找显示指定输入控件验证描述信息的容器
+            </summary>
+            <param name="input">要显示描述信息的输入控件</param>
+            <returns>显示描述信息的容器</returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.ShowFailedMessage">
+            <summary>
+            派生类重写此方法自定义验证失败信息的显示逻辑
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.RenderMessages(Ivony.Html.IHtmlElement,System.String[])">
+            <summary>
+            派生类重写此方法在指定容器呈现指定信息
+            </summary>
+            <param name="container"></param>
+            <param name="messages"></param>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.ShowFieldDescription">
+            <summary>
+            派生类重写此方法自定义验证描述信息展现过程
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.EnsureList(Ivony.Html.IHtmlElement)">
+            <summary>
+            确保指定的 HTML 元素是一个列表元素，若不是则在末尾加上一个列表
+            </summary>
+            <param name="container"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.OnFailed">
+            <summary>
+            当验证失败时，引发Failed事件
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.OnSuccessful">
+            <summary>
+            当验证成功时，引发Successful事件
+            </summary>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.GetFieldName(Ivony.Html.Forms.IHtmlInputControl)">
+            <summary>
+            尝试获取字段名
+            </summary>
+            <param name="input">输入控件</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.AddFieldValidator(Ivony.Html.Forms.Validation.IHtmlFieldValidator)">
+            <summary>
+            添加一个字段验证器
+            </summary>
+            <param name="validator"></param>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.AddFieldValidation(System.String,Ivony.Html.Forms.Validation.IHtmlValueValidator[])">
+            <summary>
+            添加一个字段验证规则
+            </summary>
+            <param name="inputName">输入控件名</param>
+            <param name="validators">值验证器</param>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.AddFieldValidation(System.String,System.String,Ivony.Html.Forms.Validation.IHtmlValueValidator[])">
+            <summary>
+            添加一个字段验证规则
+            </summary>
+            <param name="inputName">输入控件名</param>
+            <param name="fieldName">字段名</param>
+            <param name="validators">值验证器</param>
+        </member>
+        <member name="M:Ivony.Html.Forms.Validation.HtmlFormValidator.AddFieldValidation(Ivony.Html.Forms.IHtmlInputControl,System.String,Ivony.Html.Forms.Validation.IHtmlValueValidator[])">
+            <summary>
+            添加一个字段验证规则
+            </summary>
+            <param name="input">输入控件</param>
+            <param name="fieldName">字段名</param>
+            <param name="validators">值验证器</param>
+        </member>
+        <member name="P:Ivony.Html.Forms.Validation.HtmlFormValidator.Form">
+            <summary>
+            获取验证器验证的表单
+            </summary>
+        </member>
+        <member name="P:Ivony.Html.Forms.Validation.HtmlFormValidator.IsValid">
+            <summary>
+            表单是否能够通过验证
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.Validation.HtmlFormValidator.GenericFieldValidator">
+            <summary>
+            一般字段验证器
+            </summary>
+        </member>
+        <member name="T:Ivony.Html.Forms.Validation.HtmlFieldValidator">
+            <summary>
+            HTML 表单字段验证器，承担一个表单输入字段的验证，一个表单输入字段（即 IHtmlInputControl 对象）只能有一个验证器。
+            </summary>
+        </member>
+    </members>
+</doc>

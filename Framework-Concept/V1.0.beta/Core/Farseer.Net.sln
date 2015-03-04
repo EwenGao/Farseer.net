@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer.Net", "Farseer.Net\Farseer.Net.csproj", "{4F393E31-DFCD-434A-A350-53D635A99317}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer.Net.Mapping", "Farseer.Net.Mapping\Farseer.Net.Mapping.csproj", "{904F083A-829B-45F3-BE66-3D4EB03BDAB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer.Net.UI", "Farseer.Net.UI\Farseer.Net.UI.csproj", "{6425C6E8-1B81-4E50-A248-732567BFC234}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer.Net.Utils", "Farseer.Net.Utils\Farseer.Net.Utils.csproj", "{CD3ED5AF-CD82-4172-B55C-B731AE3EE466}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer.Net.Configs", "Farseer.Net.Configs\Farseer.Net.Configs.csproj", "{A39C300B-17F0-40F3-9352-1EA773F83372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer.Net.Extends", "Farseer.Net.Extends\Farseer.Net.Extends.csproj", "{A63F3633-289A-4CC8-BA16-8AB157E7F758}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F393E31-DFCD-434A-A350-53D635A99317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F393E31-DFCD-434A-A350-53D635A99317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F393E31-DFCD-434A-A350-53D635A99317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F393E31-DFCD-434A-A350-53D635A99317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{904F083A-829B-45F3-BE66-3D4EB03BDAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{904F083A-829B-45F3-BE66-3D4EB03BDAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{904F083A-829B-45F3-BE66-3D4EB03BDAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{904F083A-829B-45F3-BE66-3D4EB03BDAB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6425C6E8-1B81-4E50-A248-732567BFC234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6425C6E8-1B81-4E50-A248-732567BFC234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6425C6E8-1B81-4E50-A248-732567BFC234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6425C6E8-1B81-4E50-A248-732567BFC234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD3ED5AF-CD82-4172-B55C-B731AE3EE466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD3ED5AF-CD82-4172-B55C-B731AE3EE466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD3ED5AF-CD82-4172-B55C-B731AE3EE466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD3ED5AF-CD82-4172-B55C-B731AE3EE466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A39C300B-17F0-40F3-9352-1EA773F83372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A39C300B-17F0-40F3-9352-1EA773F83372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A39C300B-17F0-40F3-9352-1EA773F83372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A39C300B-17F0-40F3-9352-1EA773F83372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A63F3633-289A-4CC8-BA16-8AB157E7F758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A63F3633-289A-4CC8-BA16-8AB157E7F758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A63F3633-289A-4CC8-BA16-8AB157E7F758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A63F3633-289A-4CC8-BA16-8AB157E7F758}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

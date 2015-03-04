@@ -1,0 +1,22 @@
+﻿.ico { border: 0px solid red; width: 32px; height: 32px; z-index: 5; position: absolute; left: 13px; top: 8px; }
+.rar { background: url(../ico/rar.ico) no-repeat; }
+.chm { background: url(../ico/chm.ico) no-repeat; }
+.cs { background: url(../ico/cs.ico) no-repeat; }
+.css { background: url(../ico/css.ico) no-repeat; }
+.dll { background: url(../ico/dll.ico) no-repeat; }
+.doc { background: url(../ico/doc.ico) no-repeat; }
+.docx { background: url(../ico/docx.ico) no-repeat; }
+.gif { background: url(../ico/gif.ico) no-repeat; }
+.html { background: url(../ico/html.ico) no-repeat; }
+.inf { background: url(../ico/inf.ico) no-repeat; }
+.msi { background: url(../ico/msi.ico) no-repeat; }
+.pdf { background: url(../ico/pdf.ico) no-repeat; }
+.txt { background: url(../ico/txt.ico) no-repeat; }
+.xls { background: url(../ico/xls.ico) no-repeat; }
+.xlsx { background: url(../ico/xlsx.ico) no-repeat; }
+.xml { background: url(../ico/xml.ico) no-repeat; }
+.jpg { background: url(../ico/jpg.ico) no-repeat; }
+.png { background: url(../ico/png.ico) no-repeat; }
+.bmp { background: url(../ico/bmp.ico) no-repeat; }
+.tif { background: url(../ico/tif.ico) no-repeat; }
+.exe { background: url(../ico/exe.ico) no-repeat; }
