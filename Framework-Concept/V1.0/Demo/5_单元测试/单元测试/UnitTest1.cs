@@ -12,7 +12,7 @@ namespace 单元测试
         public void TableContextMethod()
         {
             // 通过TableContext上下文，动态创建User表的映射
-            TableContext<UserPO>.Data.Select(o => new { o.ID }).Where(o => o.ID == 1).ToList();
+            TableContext<UserPO>.Data.Select(o => new { o.ID }).Where(o => o.ID == 1).Desc(o => new { o.ID, o.UserName }).ToList();
             UserPO.Data.Select(o => new { o.ID }).Where(o => o.ID == 1).ToList();
 
 

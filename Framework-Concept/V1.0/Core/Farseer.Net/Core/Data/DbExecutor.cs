@@ -26,7 +26,7 @@ namespace FS.Core.Data
         /// <summary>
         ///     数据类型
         /// </summary>
-        private readonly DataBaseType DataType;
+        public readonly DataBaseType DataType;
 
         /// <summary>
         ///     数据提供者

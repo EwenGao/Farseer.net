@@ -7,11 +7,26 @@ using System.Text;
 using System.Web;
 using FS.Configs;
 using FS.Core.Data;
+using FS.Core.Infrastructure;
+using FS.Core.Client.SqlServer;
 
 namespace Farseer.Net.Core
 {
     public class DbFactory
     {
+        public static IQuery CreateQuery(DataBaseType dbType)
+        {
+            switch (dbType)
+            {
+                case DataBaseType.OleDb: return new SqlServerQuery();
+                case DataBaseType.MySql: return new SqlServerQuery();
+                case DataBaseType.Xml: return new SqlServerQuery();
+                case DataBaseType.SQLite: return new SqlServerQuery();
+                case DataBaseType.Oracle: return new SqlServerQuery();
+                default: return new SqlServerQuery();
+            }
+        }
+
         /// <summary>
         /// 返回数据库类型名称
         /// </summary>

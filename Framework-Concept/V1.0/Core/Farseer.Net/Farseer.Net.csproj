@@ -53,12 +53,25 @@
     <Compile Include="Configs\GeneralConfigs.cs" />
     <Compile Include="Configs\RewriterConfigs.cs" />
     <Compile Include="Configs\SystemConfigs.cs" />
+    <Compile Include="Core\Assemble\OrderByAssemble.cs" />
+    <Compile Include="Core\Assemble\AssignAssemble.cs" />
+    <Compile Include="Core\Assemble\WhereAssemble.cs" />
+    <Compile Include="Core\Assemble\SelectAssemble.cs" />
+    <Compile Include="Core\Client\SqlServer\SqlServerQuery.cs" />
+    <Compile Include="Core\Client\SqlServer\SqlServerQueryQueue.cs" />
+    <Compile Include="Core\Infrastructure\IAssemble.cs" />
+    <Compile Include="Core\Client\SqlServer\SqlServerQueryQueueList.cs" />
+    <Compile Include="Core\Infrastructure\IQueryQueue.cs" />
+    <Compile Include="Core\Infrastructure\IQueryQueueExecute.cs" />
+    <Compile Include="Core\Infrastructure\IQuery~1.cs" />
+    <Compile Include="Core\Infrastructure\IQuery.cs" />
     <Compile Include="Core\Context\TableContext~1.cs" />
     <Compile Include="Core\Context\TableSet.cs" />
     <Compile Include="Core\Context\TableContext.cs" />
     <Compile Include="Core\Data\DbExecutor.cs" />
     <Compile Include="Core\Data\XmlExecutor.cs" />
     <Compile Include="Core\DbFactory.cs" />
+    <Compile Include="Core\Infrastructure\ISql.cs" />
     <Compile Include="Extend\BoolExtend.cs" />
     <Compile Include="Extend\ControlExtend.cs" />
     <Compile Include="Extend\DataTableExtend.cs" />
@@ -142,7 +155,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Core\Client\MySql\" />
+    <Folder Include="Core\Client\OleDb\" />
+    <Folder Include="Core\Client\Oracle\" />
+    <Folder Include="Core\Client\SQLite\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
