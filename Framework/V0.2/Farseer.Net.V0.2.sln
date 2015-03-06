@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{8A9388E7-CE47-49D5-B2F6-6C7C112824D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{0D41F599-4DE3-4C6F-AF96-1783CD95D629}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A5E5A30A-F04D-42E6-A7FB-91739E0F4753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FS.Entity", "Demo\Demo.Entity\FS.Entity.csproj", "{989B09DF-FA30-48AB-8F17-FC2098F9B328}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FS.Model", "Demo\Demo.Model\FS.Model.csproj", "{7A81F800-1513-4A4B-B906-6E3F2A00F321}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "站点(2)", "http://localhost:59728", "{2FBD9194-F38B-4917-B1BA-C8D59EB43F7A}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{989b09df-fa30-48ab-8f17-fc2098f9b328}|FS.Entity.dll;{7a81f800-1513-4a4b-b906-6e3f2a00f321}|FS.Model.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_59728"
+		Debug.AspNetCompiler.PhysicalPath = "Demo\站点\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59728\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_59728"
+		Release.AspNetCompiler.PhysicalPath = "Demo\站点\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59728\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Demo\站点\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer.Net", "Source\Farseer.Net.csproj", "{F6345D1B-C5DC-464C-A417-C02D7CD37E52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{989B09DF-FA30-48AB-8F17-FC2098F9B328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{989B09DF-FA30-48AB-8F17-FC2098F9B328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{989B09DF-FA30-48AB-8F17-FC2098F9B328}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{989B09DF-FA30-48AB-8F17-FC2098F9B328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{989B09DF-FA30-48AB-8F17-FC2098F9B328}.Release|Any CPU.Build.0 = Release|Any CPU
+		{989B09DF-FA30-48AB-8F17-FC2098F9B328}.Release|x86.ActiveCfg = Release|Any CPU
+		{7A81F800-1513-4A4B-B906-6E3F2A00F321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A81F800-1513-4A4B-B906-6E3F2A00F321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A81F800-1513-4A4B-B906-6E3F2A00F321}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7A81F800-1513-4A4B-B906-6E3F2A00F321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A81F800-1513-4A4B-B906-6E3F2A00F321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A81F800-1513-4A4B-B906-6E3F2A00F321}.Release|x86.ActiveCfg = Release|Any CPU
+		{2FBD9194-F38B-4917-B1BA-C8D59EB43F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FBD9194-F38B-4917-B1BA-C8D59EB43F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FBD9194-F38B-4917-B1BA-C8D59EB43F7A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FBD9194-F38B-4917-B1BA-C8D59EB43F7A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FBD9194-F38B-4917-B1BA-C8D59EB43F7A}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2FBD9194-F38B-4917-B1BA-C8D59EB43F7A}.Release|x86.ActiveCfg = Debug|Any CPU
+		{F6345D1B-C5DC-464C-A417-C02D7CD37E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6345D1B-C5DC-464C-A417-C02D7CD37E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6345D1B-C5DC-464C-A417-C02D7CD37E52}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F6345D1B-C5DC-464C-A417-C02D7CD37E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6345D1B-C5DC-464C-A417-C02D7CD37E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6345D1B-C5DC-464C-A417-C02D7CD37E52}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F6345D1B-C5DC-464C-A417-C02D7CD37E52} = {8A9388E7-CE47-49D5-B2F6-6C7C112824D7}
+		{989B09DF-FA30-48AB-8F17-FC2098F9B328} = {0D41F599-4DE3-4C6F-AF96-1783CD95D629}
+		{7A81F800-1513-4A4B-B906-6E3F2A00F321} = {0D41F599-4DE3-4C6F-AF96-1783CD95D629}
+		{2FBD9194-F38B-4917-B1BA-C8D59EB43F7A} = {0D41F599-4DE3-4C6F-AF96-1783CD95D629}
+	EndGlobalSection
+EndGlobal
