@@ -47,3 +47,13 @@
 /Framework/V1.0/Test/Farseer.Net.Extend.Tests/bin
 /Framework/V1.0/Test/Farseer.Net.Configs.Tests/bin
 /Framework/V1.0/Test/Farseer.Net.Core.Tests/bin
+/Framework/V1.0/Demo/Demo.VO/obj
+/Framework/V1.0/Demo/Demo.PO/obj
+/Framework/V1.0/Demo/Demo.Common/obj
+/Framework/V1.0/Demo/Demo.BusinessRule/obj
+/Framework/V1.0/Demo/Demo.BusinessFacade/obj
+/Framework/V1.0/Demo/站点/obj
+/Framework/V1.0/Test/Farseer.Net.Mapping.Tests/obj
+/Framework/V1.0/Test/Farseer.Net.Extend.Tests/obj
+/Framework/V1.0/Test/Farseer.Net.Configs.Tests/obj
+/Framework/V1.0/Test/Farseer.Net.Core.Tests/obj
