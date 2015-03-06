@@ -24,6 +24,7 @@ namespace FS.Core.Client.SqlServer
         public SqlServerQuery()
         {
             GroupQueryQueue = new SqlServerQueryQueue();
+            GroupQueryQueueList = new List<IQueryQueue>();
         }
         public void Execute()
         {

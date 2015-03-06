@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Serialization;
+using FS.Extend;
 
 namespace FS.Configs
 {
@@ -160,7 +161,7 @@ namespace FS.Configs
             FileStream fs = null;
             try
             {
-                Directory.CreateDirectory(filePath);
+                Directory.CreateDirectory(filePath.Substring(0, filePath.LastIndexOf("\\")));
                 fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
                 var serializer = new XmlSerializer(t.GetType());
                 serializer.Serialize(fs, t);
