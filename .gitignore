@@ -37,3 +37,13 @@
 /Framework/V1.0/Demo/4_站点/bin
 /Framework/V1.0/Demo/3_业务逻辑/Demo.BusinessRule/bin
 /Framework/V1.0/Farseer.Net.V1.0.sln.ide
+/Framework/V1.0/Demo/Demo.Common/bin
+/Framework/V1.0/Demo/Demo.VO/bin
+/Framework/V1.0/Demo/Demo.PO/bin
+/Framework/V1.0/Demo/Demo.BusinessRule/bin
+/Framework/V1.0/Demo/Demo.BusinessFacade/bin
+/Framework/V1.0/Demo/网站/bin
+/Framework/V1.0/Test/Farseer.Net.Mapping.Tests/bin
+/Framework/V1.0/Test/Farseer.Net.Extend.Tests/bin
+/Framework/V1.0/Test/Farseer.Net.Configs.Tests/bin
+/Framework/V1.0/Test/Farseer.Net.Core.Tests/bin

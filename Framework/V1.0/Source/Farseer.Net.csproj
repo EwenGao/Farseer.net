@@ -63,7 +63,6 @@
     <Compile Include="Core\Client\SqlServer\SqlServerQueryQueueList.cs" />
     <Compile Include="Core\Infrastructure\IQueryQueue.cs" />
     <Compile Include="Core\Infrastructure\IQueryQueueExecute.cs" />
-    <Compile Include="Core\Infrastructure\IQuery~1.cs" />
     <Compile Include="Core\Infrastructure\IQuery.cs" />
     <Compile Include="Core\Context\TableContext~1.cs" />
     <Compile Include="Core\Context\TableSet.cs" />

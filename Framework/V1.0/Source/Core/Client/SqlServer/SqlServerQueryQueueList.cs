@@ -18,11 +18,6 @@ namespace FS.Core.Infrastructure
         Expression ExpOrderBy { get; set; }
         private StringBuilder Sql { get; set; }
 
-        public void Commit(IQuery query)
-        {
-
-        }
-
         public void Query(IQuery query)
         {
             var strSelectSql = new SelectAssemble().Execute(query.ExpSelect);

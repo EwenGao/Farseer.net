@@ -16,6 +16,9 @@ namespace FS.Core.Infrastructure
         
         string TableName { get; set; }
 
+        /// <summary>
+        /// 将GroupQueryQueue提交到组中，并创建新的GroupQueryQueue
+        /// </summary>
         void Execute();
 
         Expression ExpSelect { get; set; }
