@@ -7,6 +7,8 @@ namespace FS.Core.Infrastructure
 {
     public interface IQueryQueueExecute
     {
+        StringBuilder Sql { get;}
+
         /// <summary>
         /// 生成SQL
         /// </summary>

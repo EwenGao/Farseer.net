@@ -69,7 +69,7 @@ namespace FS.Core.Context
             return this;
         }
 
-        public List<TEntity> ToInfo()
+        public TEntity ToInfo()
         {
             return null;
         }

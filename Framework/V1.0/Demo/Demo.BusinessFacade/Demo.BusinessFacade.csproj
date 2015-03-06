@@ -43,7 +43,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\2_数据层\Demo.VO\Demo.VO.csproj">
+    <ProjectReference Include="..\Demo.VO\Demo.VO.csproj">
       <Project>{0d70f49b-769f-4d5c-8eca-b01fcced6f20}</Project>
       <Name>Demo.VO</Name>
     </ProjectReference>

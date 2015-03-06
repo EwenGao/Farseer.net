@@ -15,9 +15,9 @@ namespace FS.Core.Client.SqlServer
 
         public Expression ExpWhere { get; set; }
 
-        public IQueryQueue GroupQueryQueue { get; set; }
-
         private List<IQueryQueue> GroupQueryQueueList { get; set; }
+
+        public IQueryQueue GroupQueryQueue { get; set; }
 
         public string TableName { get; set; }
 

@@ -11,12 +11,12 @@ namespace FS.Core.Infrastructure
     /// <summary>
     /// 组查询队列（支持批量提交SQL）
     /// </summary>
-    public class SqlServerQueryQueueList : IQueryQueueExecute
+    public class SqlServerQueryQueueList : IQueryQueueListExecute
     {
         Expression ExpSelect { get; set; }
         Expression ExpWhere { get; set; }
         Expression ExpOrderBy { get; set; }
-        private StringBuilder Sql { get; set; }
+        public StringBuilder Sql { get; private set; }
 
         public void Query(IQuery query)
         {
@@ -42,6 +42,12 @@ namespace FS.Core.Infrastructure
             }
 
             query.Execute();
+        }
+
+        public List<T> Query<T>(IQuery query)
+        {
+            Query(query);
+            return new Lazy<List<T>>().Value;
         }
     }
 }

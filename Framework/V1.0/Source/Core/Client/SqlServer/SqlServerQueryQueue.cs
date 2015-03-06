@@ -8,6 +8,6 @@ namespace FS.Core.Client.SqlServer
 {
     public class SqlServerQueryQueue : IQueryQueue
     {
-        public IQueryQueueExecute List { get { return new SqlServerQueryQueueList(); } }
+        public IQueryQueueListExecute List { get { return new SqlServerQueryQueueList(); } }
     }
 }

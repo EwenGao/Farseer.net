@@ -70,6 +70,7 @@
     <Compile Include="Core\Data\DbExecutor.cs" />
     <Compile Include="Core\Data\XmlExecutor.cs" />
     <Compile Include="Core\DbFactory.cs" />
+    <Compile Include="Core\Infrastructure\IQueryQueueListExecute.cs" />
     <Compile Include="Core\Infrastructure\ISql.cs" />
     <Compile Include="Extend\BoolExtend.cs" />
     <Compile Include="Extend\ControlExtend.cs" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Client\MySql\" />

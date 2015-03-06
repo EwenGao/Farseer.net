@@ -7,6 +7,6 @@ namespace FS.Core.Infrastructure
 {
     public interface IQueryQueue
     {
-        IQueryQueueExecute List { get; }
+        IQueryQueueListExecute List { get; }
     }
 }
