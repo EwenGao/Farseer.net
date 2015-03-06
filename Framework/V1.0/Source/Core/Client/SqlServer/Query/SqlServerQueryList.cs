@@ -1,28 +1,35 @@
-﻿using FS.Core.Assemble;
-using FS.Core.Client.SqlServer;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using FS.Core.Assemble;
+using FS.Core.Infrastructure;
+using FS.Core.Infrastructure.Query;
 
-namespace FS.Core.Infrastructure
+namespace FS.Core.Client.SqlServer.Query
 {
     /// <summary>
     /// 组查询队列（支持批量提交SQL）
     /// </summary>
-    public class SqlServerQueryQueueList : IQueryQueueListExecute
+    public class SqlServerQueryList : IQueryQueueList
     {
+        private IQueryQueue _queryQueue;
+
+        public SqlServerQueryList(IQueryQueue queryQueue)
+        {
+            _queryQueue = queryQueue;
+        }
+
         Expression ExpSelect { get; set; }
         Expression ExpWhere { get; set; }
         Expression ExpOrderBy { get; set; }
         public StringBuilder Sql { get; private set; }
 
-        public void Query(IQuery query)
+        public void Query()
         {
-            var strSelectSql = new SelectAssemble().Execute(query.ExpSelect);
-            var strWhereSql = new WhereAssemble().Execute(query.ExpWhere);
-            var strOrderBySql = new OrderByAssemble().Execute(query.ExpOrderBy);
+            var strSelectSql = new SelectAssemble().Execute(_queryQueue.ExpSelect);
+            var strWhereSql = new WhereAssemble().Execute(_queryQueue.ExpWhere);
+            var strOrderBySql = new OrderByAssemble().Execute(_queryQueue.ExpOrderBy);
 
             Sql = new StringBuilder();
 
@@ -41,13 +48,22 @@ namespace FS.Core.Infrastructure
                 Sql.Append(string.Format("orderby {0} ", strOrderBySql));
             }
 
-            query.Execute();
+            _queryQueue.Execute();
         }
 
-        public List<T> Query<T>(IQuery query)
+        public List<T> Query<T>()
         {
-            Query(query);
+            Query();
             return new Lazy<List<T>>().Value;
+        }
+
+        public void Dispose()
+        {
+            ExpSelect = null;
+            ExpWhere = null;
+            ExpOrderBy = null;
+            Sql.Clear();
+            Sql = null;
         }
     }
 }

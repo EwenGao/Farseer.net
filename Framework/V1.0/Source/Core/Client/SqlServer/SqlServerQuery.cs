@@ -1,35 +1,39 @@
-﻿using FS.Core.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Linq.Expressions;
+using FS.Core.Data;
+using FS.Core.Infrastructure;
 
 namespace FS.Core.Client.SqlServer
 {
     public class SqlServerQuery : IQuery
     {
-        public Expression ExpOrderBy { get; set; }
-
-        public Expression ExpSelect { get; set; }
-
-        public Expression ExpWhere { get; set; }
-
+        /// <summary>
+        /// 组列表
+        /// </summary>
         private List<IQueryQueue> GroupQueryQueueList { get; set; }
+
+        public SqlServerQuery(DbExecutor database)
+        {
+            Database = database;
+            Init();
+        }
+
+        public DbExecutor Database { get; set; }
 
         public IQueryQueue GroupQueryQueue { get; set; }
 
         public string TableName { get; set; }
 
-        public SqlServerQuery()
-        {
-            GroupQueryQueue = new SqlServerQueryQueue();
-            GroupQueryQueueList = new List<IQueryQueue>();
-        }
         public void Execute()
         {
             GroupQueryQueueList.Add(GroupQueryQueue);
+            Init();
+        }
+
+        public void Init()
+        {
             GroupQueryQueue = new SqlServerQueryQueue();
+            if (GroupQueryQueueList == null) { GroupQueryQueueList = new List<IQueryQueue>(); }
         }
     }
 }

@@ -4,7 +4,6 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
-using Farseer.Net.Core;
 
 namespace FS.Core.Data
 {

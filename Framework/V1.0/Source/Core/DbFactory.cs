@@ -6,24 +6,24 @@ using System.IO;
 using System.Text;
 using System.Web;
 using FS.Configs;
+using FS.Core.Client.SqlServer;
 using FS.Core.Data;
 using FS.Core.Infrastructure;
-using FS.Core.Client.SqlServer;
 
-namespace Farseer.Net.Core
+namespace FS.Core
 {
     public class DbFactory
     {
-        public static IQuery CreateQuery(DataBaseType dbType)
+        public static IQuery CreateQuery(DbExecutor dataBase)
         {
-            switch (dbType)
+            switch (dataBase.DataType)
             {
-                case DataBaseType.OleDb: return new SqlServerQuery();
-                case DataBaseType.MySql: return new SqlServerQuery();
-                case DataBaseType.Xml: return new SqlServerQuery();
-                case DataBaseType.SQLite: return new SqlServerQuery();
-                case DataBaseType.Oracle: return new SqlServerQuery();
-                default: return new SqlServerQuery();
+                case DataBaseType.OleDb: return new SqlServerQuery(dataBase);
+                case DataBaseType.MySql: return new SqlServerQuery(dataBase);
+                case DataBaseType.Xml: return new SqlServerQuery(dataBase);
+                case DataBaseType.SQLite: return new SqlServerQuery(dataBase);
+                case DataBaseType.Oracle: return new SqlServerQuery(dataBase);
+                default: return new SqlServerQuery(dataBase);
             }
         }
 

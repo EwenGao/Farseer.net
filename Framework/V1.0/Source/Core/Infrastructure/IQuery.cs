@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using FS.Core.Data;
 
 namespace FS.Core.Infrastructure
 {
@@ -10,10 +11,17 @@ namespace FS.Core.Infrastructure
     public interface IQuery
     {
         /// <summary>
+        /// 数据库
+        /// </summary>
+        DbExecutor Database { get; set; }
+        /// <summary>
         /// 当前组查询队列（支持批量提交SQL）
         /// </summary>
         IQueryQueue GroupQueryQueue { get; set; }
-        
+
+        /// <summary>
+        /// 表名
+        /// </summary>
         string TableName { get; set; }
 
         /// <summary>
@@ -21,8 +29,9 @@ namespace FS.Core.Infrastructure
         /// </summary>
         void Execute();
 
-        Expression ExpSelect { get; set; }
-        Expression ExpOrderBy { get; set; }
-        Expression ExpWhere { get; set; }
+        /// <summary>
+        /// 初始化当前查询队列
+        /// </summary>
+        void Init();
     }
 }

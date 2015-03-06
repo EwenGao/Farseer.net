@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Reflection;
-using Farseer.Net.Core;
 using FS.Configs;
+using FS.Core;
 using FS.Core.Data;
 
 namespace FS.Mapping.Table

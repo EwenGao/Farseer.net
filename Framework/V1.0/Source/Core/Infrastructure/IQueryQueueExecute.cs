@@ -5,14 +5,11 @@ using System.Text;
 
 namespace FS.Core.Infrastructure
 {
-    public interface IQueryQueueExecute
+    public interface IQueryQueueExecute : IDisposable
     {
-        StringBuilder Sql { get;}
-
         /// <summary>
         /// 生成SQL
         /// </summary>
-        /// <param name="query"></param>
-        void Query(IQuery query);
+        void Query();
     }
 }

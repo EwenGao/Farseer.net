@@ -1,5 +1,4 @@
 ﻿using System;
-using Farseer.Net.Core;
 using FS.Configs;
 using FS.Core.Data;
 using FS.Mapping.Table;
@@ -15,6 +14,7 @@ namespace FS.Core.Context
         /// 通过数据库配置，连接数据库
         /// </summary>
         /// <param name="dbIndex">数据库选项</param>
+        /// <param name="tableName">表名称</param>
         protected internal TableContext(int dbIndex, string tableName = null) : this(DbFactory.CreateConnString(dbIndex), DbConfigs.ConfigInfo.DbList[dbIndex].DataType, DbConfigs.ConfigInfo.DbList[dbIndex].CommandTimeout, tableName) { }
 
         /// <summary>
@@ -23,12 +23,14 @@ namespace FS.Core.Context
         /// <param name="connectionString">数据库连接字符串</param>
         /// <param name="dbType">数据库类型</param>
         /// <param name="commandTimeout">SQL执行超时时间</param>
+        /// <param name="tableName">表名称</param>
         protected internal TableContext(string connectionString, DataBaseType dbType = DataBaseType.SqlServer, int commandTimeout = 30, string tableName = null) : this(new DbExecutor(connectionString, dbType, commandTimeout), tableName) { }
 
         /// <summary>
         /// 事务
         /// </summary>
         /// <param name="database">数据库执行</param>
+        /// <param name="tableName">表名称</param>
         protected internal TableContext(DbExecutor database, string tableName = null)
         {
             Database = database;
@@ -39,7 +41,7 @@ namespace FS.Core.Context
         /// <summary>
         /// 数据库
         /// </summary>
-        public DbExecutor Database { get; protected set; }
+        public DbExecutor Database { get; private set; }
 
         /// <summary>
         /// 合并执行命令
@@ -49,7 +51,7 @@ namespace FS.Core.Context
         /// <summary>
         /// 表名
         /// </summary>
-        protected string TableName { get; set; }
+        internal string TableName { get; private set; }
 
         /// <summary>
         /// 保存修改
