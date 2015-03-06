@@ -46,7 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Source\Farseer.Net.csproj">
+    <ProjectReference Include="..\..\Source\Farseer.Net.csproj">
       <Project>{4f393e31-dfcd-434a-a350-53d635a99317}</Project>
       <Name>Farseer.Net</Name>
     </ProjectReference>

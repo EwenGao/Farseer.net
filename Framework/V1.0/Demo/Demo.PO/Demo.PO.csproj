@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D70F49B-769F-4D5C-8ECA-B01FCCED6F20}</ProjectGuid>
+    <ProjectGuid>{1E717783-D834-4A1B-A3FE-1D426E76CD97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demo.VO</RootNamespace>
-    <AssemblyName>Demo.VO</AssemblyName>
+    <RootNamespace>Demo.PO</RootNamespace>
+    <AssemblyName>Demo.PO</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,14 +39,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Members\UserVO.cs" />
+    <Compile Include="Table\Members\UserPO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Table\TableContainer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\1_公共层\Demo.Common\Demo.Common.csproj">
+    <ProjectReference Include="..\..\Source\Farseer.Net.csproj">
+      <Project>{4f393e31-dfcd-434a-a350-53d635a99317}</Project>
+      <Name>Farseer.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Demo.Common\Demo.Common.csproj">
       <Project>{0be98637-0885-4ed8-b2b2-bf4a8f3a1eef}</Project>
       <Name>Demo.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Procedure\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

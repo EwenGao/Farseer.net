@@ -150,14 +150,6 @@
       <Project>{4f393e31-dfcd-434a-a350-53d635a99317}</Project>
       <Name>Farseer.Net</Name>
     </ProjectReference>
-    <ProjectReference Include="..\2_数据层\Demo.VO\Demo.VO.csproj">
-      <Project>{0d70f49b-769f-4d5c-8eca-b01fcced6f20}</Project>
-      <Name>Demo.VO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\3_业务逻辑\Demo.BusinessFacade\Demo.BusinessFacade.csproj">
-      <Project>{c322d729-f6cf-4f53-b90e-ca8cc8392aae}</Project>
-      <Name>Demo.BusinessFacade</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
