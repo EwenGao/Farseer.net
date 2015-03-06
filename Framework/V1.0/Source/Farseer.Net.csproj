@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F393E31-DFCD-434A-A350-53D635A99317}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS</RootNamespace>
+    <AssemblyName>Farseer.Net</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configs\BaseConfigs.cs" />
+    <Compile Include="Configs\CacheConfigs.cs" />
+    <Compile Include="Configs\DbConfigs.cs" />
+    <Compile Include="Configs\EmailConfigs.cs" />
+    <Compile Include="Configs\GeneralConfigs.cs" />
+    <Compile Include="Configs\RewriterConfigs.cs" />
+    <Compile Include="Configs\SystemConfigs.cs" />
+    <Compile Include="Core\Assemble\OrderByAssemble.cs" />
+    <Compile Include="Core\Assemble\AssignAssemble.cs" />
+    <Compile Include="Core\Assemble\WhereAssemble.cs" />
+    <Compile Include="Core\Assemble\SelectAssemble.cs" />
+    <Compile Include="Core\Client\SqlServer\SqlServerQuery.cs" />
+    <Compile Include="Core\Client\SqlServer\SqlServerQueryQueue.cs" />
+    <Compile Include="Core\Infrastructure\IAssemble.cs" />
+    <Compile Include="Core\Client\SqlServer\SqlServerQueryQueueList.cs" />
+    <Compile Include="Core\Infrastructure\IQueryQueue.cs" />
+    <Compile Include="Core\Infrastructure\IQueryQueueExecute.cs" />
+    <Compile Include="Core\Infrastructure\IQuery~1.cs" />
+    <Compile Include="Core\Infrastructure\IQuery.cs" />
+    <Compile Include="Core\Context\TableContext~1.cs" />
+    <Compile Include="Core\Context\TableSet.cs" />
+    <Compile Include="Core\Context\TableContext.cs" />
+    <Compile Include="Core\Data\DbExecutor.cs" />
+    <Compile Include="Core\Data\XmlExecutor.cs" />
+    <Compile Include="Core\DbFactory.cs" />
+    <Compile Include="Core\Infrastructure\ISql.cs" />
+    <Compile Include="Extend\BoolExtend.cs" />
+    <Compile Include="Extend\ControlExtend.cs" />
+    <Compile Include="Extend\DataTableExtend.cs" />
+    <Compile Include="Extend\DateTimeExtend.cs" />
+    <Compile Include="Extend\EnumExtend.cs" />
+    <Compile Include="Extend\ExpressionExtend.cs" />
+    <Compile Include="Extend\Extend.cs" />
+    <Compile Include="Extend\IDataReader.cs" />
+    <Compile Include="Extend\IOrderedQueryable.cs" />
+    <Compile Include="Extend\ListExtend.cs" />
+    <Compile Include="Extend\ModelExtend.cs" />
+    <Compile Include="Extend\ObjectExtend.cs" />
+    <Compile Include="Extend\StringExtend.cs" />
+    <Compile Include="Extend\StructExtend.cs" />
+    <Compile Include="Interface\IAuditInfo.cs" />
+    <Compile Include="Interface\ICreateInfo.cs" />
+    <Compile Include="Interface\IEntity.cs" />
+    <Compile Include="Interface\ILoginInfo.cs" />
+    <Compile Include="Interface\IUpdateInfo.cs" />
+    <Compile Include="Mapping\Table\DBAttribute.cs" />
+    <Compile Include="Mapping\Table\FieldMapState.cs" />
+    <Compile Include="Mapping\Table\TableMap.cs" />
+    <Compile Include="Mapping\Table\TableMapCache.cs" />
+    <Compile Include="Mapping\Verify\FieldMapState.cs" />
+    <Compile Include="Mapping\Verify\IVerification.cs" />
+    <Compile Include="Mapping\Verify\VerifyMap.cs" />
+    <Compile Include="Mapping\Verify\VerifyMapCache.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Repeater\Property.cs" />
+    <Compile Include="UI\Repeater\Repeater.cs" />
+    <Compile Include="Utils\Common\AdministrativeCode.cs" />
+    <Compile Include="Utils\Common\Assembly.cs" />
+    <Compile Include="Utils\Common\Chinese.cs" />
+    <Compile Include="Utils\Common\Encrypt.cs" />
+    <Compile Include="Utils\Common\Files.cs" />
+    <Compile Include="Utils\Common\InfoComparer.cs" />
+    <Compile Include="Utils\Common\IsType.cs" />
+    <Compile Include="Utils\Common\Json.cs" />
+    <Compile Include="Utils\Common\Mac.cs" />
+    <Compile Include="Utils\Common\Net.cs" />
+    <Compile Include="Utils\Common\OLog.cs" />
+    <Compile Include="Utils\Common\Pro.cs" />
+    <Compile Include="Utils\Common\QueueTask.cs" />
+    <Compile Include="Utils\Common\Rand.cs" />
+    <Compile Include="Utils\Common\Reverser.cs" />
+    <Compile Include="Utils\Common\RMB.cs" />
+    <Compile Include="Utils\Common\Serialized.cs" />
+    <Compile Include="Utils\Common\SmtpMail.cs" />
+    <Compile Include="Utils\Common\SpeedTest.cs" />
+    <Compile Include="Utils\Common\Str.cs" />
+    <Compile Include="Utils\Common\StrPlus.cs" />
+    <Compile Include="Utils\Common\Thumbnail.cs" />
+    <Compile Include="Utils\Common\TimingTasks.cs" />
+    <Compile Include="Utils\Common\WinRAR.cs" />
+    <Compile Include="Utils\IHttpModule\CDN.cs" />
+    <Compile Include="Utils\IHttpModule\UrlRewriter.cs" />
+    <Compile Include="Utils\Open\QQWebOpen.cs" />
+    <Compile Include="Utils\SocketHelper\ClientSocket.cs" />
+    <Compile Include="Utils\SocketHelper\ServerSocket.cs" />
+    <Compile Include="Utils\SocketHelper\StateObject.cs" />
+    <Compile Include="Utils\Web\Cookies.cs" />
+    <Compile Include="Utils\Web\Excel.cs" />
+    <Compile Include="Utils\Web\Htmls.cs" />
+    <Compile Include="Utils\Web\HttpClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\Web\Images.cs" />
+    <Compile Include="Utils\Web\IPAdress.cs" />
+    <Compile Include="Utils\Web\MvcReq.cs" />
+    <Compile Include="Utils\Web\PageSplit.cs" />
+    <Compile Include="Utils\Web\Req.cs" />
+    <Compile Include="Utils\Web\Script\JavaScript.cs" />
+    <Compile Include="Utils\Web\Script\LhgDialog.cs" />
+    <Compile Include="Utils\Web\Sessions.cs" />
+    <Compile Include="Utils\Web\Terminator.cs" />
+    <Compile Include="Utils\Web\UpLoadFile.cs" />
+    <Compile Include="Utils\Web\Url.cs" />
+    <Compile Include="Utils\Web\VeriCode.cs" />
+    <Compile Include="Utils\Web\WebCache.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Client\MySql\" />
+    <Folder Include="Core\Client\OleDb\" />
+    <Folder Include="Core\Client\Oracle\" />
+    <Folder Include="Core\Client\SQLite\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -26,3 +26,13 @@
 /Framework-Concept/V1.0/Demo/5_单元测试/单元测试/*.user
 /Framework-Concept/V1.0/Core/Farseer.Net.sln.ide
 /Framework-Concept/V1.0/Core/Farseer.Net.v14.suo
+/Framework/V1.0/Source/bin
+/Framework/V1.0/Source/obj
+/Framework/V1.0/Source/*.suo
+/Framework/V1.0/Demo/3_业务逻辑/Demo.BusinessFacade/bin
+/Framework/V1.0/Demo/2_数据层/Demo.VO/bin
+/Framework/V1.0/Demo/2_数据层/Demo.PO/bin
+/Framework/V1.0/Demo/1_公共层/Demo.Common/bin
+/Framework/V1.0/Demo/5_单元测试/单元测试/bin
+/Framework/V1.0/Demo/4_站点/bin
+/Framework/V1.0/Demo/3_业务逻辑/Demo.BusinessRule/bin
