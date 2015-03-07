@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{D8EB0E64-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{1680B9CB-7327-4EB1-B0C5-9BFA18469650}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer.Net", "Source\Farseer.Net.csproj", "{4F393E31-DFCD-434A-A350-53D635A99317}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer.Net", "Source\Farseer.Net\Farseer.Net.csproj", "{4F393E31-DFCD-434A-A350-53D635A99317}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.BusinessFacade", "Demo\Demo.BusinessFacade\Demo.BusinessFacade.csproj", "{C322D729-F6CF-4F53-B90E-CA8CC8392AAE}"
 EndProject
