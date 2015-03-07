@@ -3,7 +3,6 @@ using System.Text;
 using FS.Core.Assemble;
 using FS.Core.Infrastructure;
 using FS.Core.Infrastructure.Query;
-using FS.Extend;
 
 namespace FS.Core.Client.SqlServer.Query
 {
@@ -15,7 +14,7 @@ namespace FS.Core.Client.SqlServer.Query
         Expression ExpSelect { get; set; }
         Expression ExpWhere { get; set; }
         Expression ExpOrderBy { get; set; }
-        
+
         private IQueryQueue _queryQueue;
 
         public SqlServerQueryInfo(IQueryQueue queryQueue)
@@ -23,37 +22,37 @@ namespace FS.Core.Client.SqlServer.Query
             _queryQueue = queryQueue;
         }
 
-        public void Query( )
+        public void Query()
         {
-            query.GroupQueryQueue.Sql = new StringBuilder();
+            _queryQueue.Sql = new StringBuilder();
 
-            var strSelectSql = new SelectAssemble().Execute(query.ExpSelect);
-            var strWhereSql = new WhereAssemble().Execute(query.ExpWhere);
-            var strOrderBySql = new OrderByAssemble().Execute(query.ExpOrderBy);
+            var strSelectSql = new SelectAssemble().Execute(_queryQueue.ExpSelect);
+            var strWhereSql = new WhereAssemble().Execute(_queryQueue.ExpWhere);
+            var strOrderBySql = new OrderByAssemble().Execute(_queryQueue.ExpOrderBy);
 
 
             if (string.IsNullOrWhiteSpace(strSelectSql)) { strSelectSql = "*"; }
-            query.GroupQueryQueue.Sql.Append(string.Format("select top 1 {0} ", strSelectSql));
+            _queryQueue.Sql.Append(string.Format("select top 1 {0} ", strSelectSql));
 
-            query.GroupQueryQueue.Sql.Append(string.Format("from {0} ", query.TableName));
+            _queryQueue.Sql.Append(string.Format("from {0} ", _queryQueue.TableName));
 
             if (!string.IsNullOrWhiteSpace(strWhereSql))
             {
-                query.GroupQueryQueue.Sql.Append(string.Format("where {0} ", strWhereSql));
+                _queryQueue.Sql.Append(string.Format("where {0} ", strWhereSql));
             }
 
             if (!string.IsNullOrWhiteSpace(strOrderBySql))
             {
-                query.GroupQueryQueue.Sql.Append(string.Format("orderby {0} ", strOrderBySql));
+                _queryQueue.Sql.Append(string.Format("orderby {0} ", strOrderBySql));
             }
 
-            query.Init();
+            _queryQueue.Init();
         }
 
-        public T Query<T>( ) where T : class
+        public T Query<T>() where T : class
         {
-            Query(query);
-            return query.Database.GetReader(System.Data.CommandType.Text, Sql.ToString()).ToInfo<T>();
+            Query();
+            return _queryQueue.Database.GetReader(System.Data.CommandType.Text, _queryQueue.Sql.ToString()).ToInfo<T>();
         }
 
         public void Dispose()

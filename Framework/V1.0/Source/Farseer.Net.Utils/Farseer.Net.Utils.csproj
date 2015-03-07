@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3884B3FE-5D8D-433D-ADB4-70319B8D444C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS.Utils</RootNamespace>
+    <AssemblyName>FS.Utils</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AdministrativeCode.cs" />
+    <Compile Include="Common\Assembly.cs" />
+    <Compile Include="Common\Chinese.cs" />
+    <Compile Include="Common\Encrypt.cs" />
+    <Compile Include="Common\Files.cs" />
+    <Compile Include="Common\InfoComparer.cs" />
+    <Compile Include="Common\IsType.cs" />
+    <Compile Include="Common\Json.cs" />
+    <Compile Include="Common\Mac.cs" />
+    <Compile Include="Common\Net.cs" />
+    <Compile Include="Common\OLog.cs" />
+    <Compile Include="Common\Pro.cs" />
+    <Compile Include="Common\QueueTask.cs" />
+    <Compile Include="Common\Rand.cs" />
+    <Compile Include="Common\Reverser.cs" />
+    <Compile Include="Common\RMB.cs" />
+    <Compile Include="Common\Serialized.cs" />
+    <Compile Include="Common\SmtpMail.cs" />
+    <Compile Include="Common\SpeedTest.cs" />
+    <Compile Include="Common\Str.cs" />
+    <Compile Include="Common\StrPlus.cs" />
+    <Compile Include="Common\Thumbnail.cs" />
+    <Compile Include="Common\TimingTasks.cs" />
+    <Compile Include="Common\WinRAR.cs" />
+    <Compile Include="IHttpModule\CDN.cs" />
+    <Compile Include="IHttpModule\UrlRewriter.cs" />
+    <Compile Include="Open\QQWebOpen.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SocketHelper\ClientSocket.cs" />
+    <Compile Include="SocketHelper\ServerSocket.cs" />
+    <Compile Include="SocketHelper\StateObject.cs" />
+    <Compile Include="Web\Cookies.cs" />
+    <Compile Include="Web\Excel.cs" />
+    <Compile Include="Web\Htmls.cs" />
+    <Compile Include="Web\HttpClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Web\Images.cs" />
+    <Compile Include="Web\IPAdress.cs" />
+    <Compile Include="Web\MvcReq.cs" />
+    <Compile Include="Web\PageSplit.cs" />
+    <Compile Include="Web\Req.cs" />
+    <Compile Include="Web\Script\JavaScript.cs" />
+    <Compile Include="Web\Script\LhgDialog.cs" />
+    <Compile Include="Web\Sessions.cs" />
+    <Compile Include="Web\Terminator.cs" />
+    <Compile Include="Web\UpLoadFile.cs" />
+    <Compile Include="Web\Url.cs" />
+    <Compile Include="Web\VeriCode.cs" />
+    <Compile Include="Web\WebCache.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

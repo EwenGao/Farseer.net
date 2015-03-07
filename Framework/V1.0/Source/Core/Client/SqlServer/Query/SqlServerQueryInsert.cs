@@ -3,7 +3,6 @@ using System.Text;
 using FS.Core.Assemble;
 using FS.Core.Infrastructure;
 using FS.Core.Infrastructure.Query;
-using FS.Extend;
 
 namespace FS.Core.Client.SqlServer.Query
 {
@@ -25,7 +24,7 @@ namespace FS.Core.Client.SqlServer.Query
 
         public void Query( )
         {
-            query.GroupQueryQueue.Sql = new StringBuilder();
+            _queryQueue.Sql = new StringBuilder();
 
             var strSelectSql = new SelectAssemble().Execute(query.ExpSelect);
             var strWhereSql = new WhereAssemble().Execute(query.ExpWhere);
@@ -33,18 +32,18 @@ namespace FS.Core.Client.SqlServer.Query
 
 
             if (string.IsNullOrWhiteSpace(strSelectSql)) { strSelectSql = "*"; }
-            query.GroupQueryQueue.Sql.Append(string.Format("select top 1 {0} ", strSelectSql));
+            _queryQueue.Sql.Append(string.Format("select top 1 {0} ", strSelectSql));
 
-            query.GroupQueryQueue.Sql.Append(string.Format("from {0} ", query.TableName));
+            _queryQueue.Sql.Append(string.Format("from {0} ", query.TableName));
 
             if (!string.IsNullOrWhiteSpace(strWhereSql))
             {
-                query.GroupQueryQueue.Sql.Append(string.Format("where {0} ", strWhereSql));
+                _queryQueue.Sql.Append(string.Format("where {0} ", strWhereSql));
             }
 
             if (!string.IsNullOrWhiteSpace(strOrderBySql))
             {
-                query.GroupQueryQueue.Sql.Append(string.Format("orderby {0} ", strOrderBySql));
+                _queryQueue.Sql.Append(string.Format("orderby {0} ", strOrderBySql));
             }
 
             query.Init();

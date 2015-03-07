@@ -79,20 +79,6 @@
     <Compile Include="Core\Infrastructure\Query\IQueryQueueUpdate.cs" />
     <Compile Include="Core\Infrastructure\Query\IQueryQueueInfo.cs" />
     <Compile Include="Core\Infrastructure\Query\IQueryQueueList.cs" />
-    <Compile Include="Extend\BoolExtend.cs" />
-    <Compile Include="Extend\ControlExtend.cs" />
-    <Compile Include="Extend\DataTableExtend.cs" />
-    <Compile Include="Extend\DateTimeExtend.cs" />
-    <Compile Include="Extend\EnumExtend.cs" />
-    <Compile Include="Extend\ExpressionExtend.cs" />
-    <Compile Include="Extend\Extend.cs" />
-    <Compile Include="Extend\IDataReader.cs" />
-    <Compile Include="Extend\IOrderedQueryable.cs" />
-    <Compile Include="Extend\ListExtend.cs" />
-    <Compile Include="Extend\ModelExtend.cs" />
-    <Compile Include="Extend\ObjectExtend.cs" />
-    <Compile Include="Extend\StringExtend.cs" />
-    <Compile Include="Extend\StructExtend.cs" />
     <Compile Include="Interface\IAuditInfo.cs" />
     <Compile Include="Interface\ICreateInfo.cs" />
     <Compile Include="Interface\IEntity.cs" />
@@ -107,61 +93,6 @@
     <Compile Include="Mapping\Verify\VerifyMap.cs" />
     <Compile Include="Mapping\Verify\VerifyMapCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\Repeater\Property.cs" />
-    <Compile Include="UI\Repeater\Repeater.cs" />
-    <Compile Include="Utils\Common\AdministrativeCode.cs" />
-    <Compile Include="Utils\Common\Assembly.cs" />
-    <Compile Include="Utils\Common\Chinese.cs" />
-    <Compile Include="Utils\Common\Encrypt.cs" />
-    <Compile Include="Utils\Common\Files.cs" />
-    <Compile Include="Utils\Common\InfoComparer.cs" />
-    <Compile Include="Utils\Common\IsType.cs" />
-    <Compile Include="Utils\Common\Json.cs" />
-    <Compile Include="Utils\Common\Mac.cs" />
-    <Compile Include="Utils\Common\Net.cs" />
-    <Compile Include="Utils\Common\OLog.cs" />
-    <Compile Include="Utils\Common\Pro.cs" />
-    <Compile Include="Utils\Common\QueueTask.cs" />
-    <Compile Include="Utils\Common\Rand.cs" />
-    <Compile Include="Utils\Common\Reverser.cs" />
-    <Compile Include="Utils\Common\RMB.cs" />
-    <Compile Include="Utils\Common\Serialized.cs" />
-    <Compile Include="Utils\Common\SmtpMail.cs" />
-    <Compile Include="Utils\Common\SpeedTest.cs" />
-    <Compile Include="Utils\Common\Str.cs" />
-    <Compile Include="Utils\Common\StrPlus.cs" />
-    <Compile Include="Utils\Common\Thumbnail.cs" />
-    <Compile Include="Utils\Common\TimingTasks.cs" />
-    <Compile Include="Utils\Common\WinRAR.cs" />
-    <Compile Include="Utils\IHttpModule\CDN.cs" />
-    <Compile Include="Utils\IHttpModule\UrlRewriter.cs" />
-    <Compile Include="Utils\Open\QQWebOpen.cs" />
-    <Compile Include="Utils\SocketHelper\ClientSocket.cs" />
-    <Compile Include="Utils\SocketHelper\ServerSocket.cs" />
-    <Compile Include="Utils\SocketHelper\StateObject.cs" />
-    <Compile Include="Utils\Web\Cookies.cs" />
-    <Compile Include="Utils\Web\Excel.cs" />
-    <Compile Include="Utils\Web\Htmls.cs" />
-    <Compile Include="Utils\Web\HttpClient.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Utils\Web\Images.cs" />
-    <Compile Include="Utils\Web\IPAdress.cs" />
-    <Compile Include="Utils\Web\MvcReq.cs" />
-    <Compile Include="Utils\Web\PageSplit.cs" />
-    <Compile Include="Utils\Web\Req.cs" />
-    <Compile Include="Utils\Web\Script\JavaScript.cs" />
-    <Compile Include="Utils\Web\Script\LhgDialog.cs" />
-    <Compile Include="Utils\Web\Sessions.cs" />
-    <Compile Include="Utils\Web\Terminator.cs" />
-    <Compile Include="Utils\Web\UpLoadFile.cs" />
-    <Compile Include="Utils\Web\Url.cs" />
-    <Compile Include="Utils\Web\VeriCode.cs" />
-    <Compile Include="Utils\Web\WebCache.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Client\MySql\" />

@@ -3,7 +3,6 @@ using System.Text;
 using FS.Core.Assemble;
 using FS.Core.Infrastructure;
 using FS.Core.Infrastructure.Query;
-using FS.Extend;
 
 namespace FS.Core.Client.SqlServer.Query
 {
