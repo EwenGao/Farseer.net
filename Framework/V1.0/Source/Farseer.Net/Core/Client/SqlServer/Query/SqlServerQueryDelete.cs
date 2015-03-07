@@ -11,55 +11,44 @@ namespace FS.Core.Client.SqlServer.Query
     /// </summary>
     public class SqlServerQueryDelete : IQueryQueueDelete
     {
-        Expression ExpSelect { get; set; }
-        Expression ExpWhere { get; set; }
-        Expression ExpOrderBy { get; set; }
+        private readonly IQuery _queryProvider;
 
-        private IQueryQueue _queryQueue;
-
-        public SqlServerQueryDelete(IQueryQueue queryQueue)
+        public SqlServerQueryDelete(IQuery queryProvider)
         {
-            _queryQueue = queryQueue;
+            _queryProvider = queryProvider;
         }
 
         public void Query()
         {
-            _queryQueue.Sql = new StringBuilder();
+            _queryProvider.QueryQueue.Sql = new StringBuilder();
 
-            var strSelectSql = new SelectAssemble().Execute(_queryQueue.ExpSelect);
-            var strWhereSql = new WhereAssemble().Execute(_queryQueue.ExpWhere);
-            var strOrderBySql = new OrderByAssemble().Execute(_queryQueue.ExpOrderBy);
+            var strSelectSql = new SelectAssemble().Execute(_queryProvider.QueryQueue.ExpSelect);
+            var strWhereSql = new WhereAssemble().Execute(_queryProvider.QueryQueue.ExpWhere);
+            var strOrderBySql = new OrderByAssemble().Execute(_queryProvider.QueryQueue.ExpOrderBy);
 
 
             if (string.IsNullOrWhiteSpace(strSelectSql)) { strSelectSql = "*"; }
-            _queryQueue.Sql.Append(string.Format("select top 1 {0} ", strSelectSql));
+            _queryProvider.QueryQueue.Sql.Append(string.Format("select top 1 {0} ", strSelectSql));
 
-            _queryQueue.Sql.Append(string.Format("from {0} ", _queryQueue.TableName));
+            _queryProvider.QueryQueue.Sql.Append(string.Format("from {0} ", _queryProvider.TableContext.TableName));
 
             if (!string.IsNullOrWhiteSpace(strWhereSql))
             {
-                _queryQueue.Sql.Append(string.Format("where {0} ", strWhereSql));
+                _queryProvider.QueryQueue.Sql.Append(string.Format("where {0} ", strWhereSql));
             }
 
             if (!string.IsNullOrWhiteSpace(strOrderBySql))
             {
-                _queryQueue.Sql.Append(string.Format("orderby {0} ", strOrderBySql));
+                _queryProvider.QueryQueue.Sql.Append(string.Format("orderby {0} ", strOrderBySql));
             }
-
-            _queryQueue.Init();
         }
 
-        public T Query<T>() where T : class
+        public int Query<T>() where T : class
         {
-            Query(query);
-            return query.Database.GetReader(System.Data.CommandType.Text, Sql.ToString()).ToInfo<T>();
-        }
-
-        public void Dispose()
-        {
-            ExpSelect = null;
-            ExpWhere = null;
-            ExpOrderBy = null;
+            Query();
+            var result = _queryProvider.TableContext.Database.ExecuteNonQuery(System.Data.CommandType.Text, _queryProvider.QueryQueue.Sql.ToString());
+            _queryProvider.Execute();
+            return result;
         }
     }
 }

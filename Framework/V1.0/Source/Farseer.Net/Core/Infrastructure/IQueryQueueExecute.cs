@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FS.Core.Infrastructure
 {
-    public interface IQueryQueueExecute : IDisposable
+    public interface IQueryQueueExecute
     {
         /// <summary>
         /// 生成SQL

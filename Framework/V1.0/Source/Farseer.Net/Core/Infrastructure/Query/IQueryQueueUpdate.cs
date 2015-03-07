@@ -5,6 +5,6 @@
         /// <summary>
         /// 生成SQL
         /// </summary>
-        T Query<T>() where T : class;
+        int Query<T>(T entity) where T : class;
     }
 }

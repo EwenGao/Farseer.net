@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq.Expressions;
-using FS.Core.Data;
+using FS.Core.Context;
 using FS.Core.Infrastructure;
 
 namespace FS.Core.Client.SqlServer
@@ -12,27 +11,24 @@ namespace FS.Core.Client.SqlServer
         /// </summary>
         private List<IQueryQueue> GroupQueryQueueList { get; set; }
 
-        public SqlServerQuery(DbExecutor database)
+        public SqlServerQuery(TableContext tableContext)
         {
-            Database = database;
+            TableContext = tableContext;
             Init();
         }
 
-        public DbExecutor Database { get; set; }
-
-        public IQueryQueue GroupQueryQueue { get; set; }
-
-        public string TableName { get; set; }
+        public TableContext TableContext { get; private set; }
+        public IQueryQueue QueryQueue { get; set; }
 
         public void Execute()
         {
-            GroupQueryQueueList.Add(GroupQueryQueue);
+            GroupQueryQueueList.Add(QueryQueue);
             Init();
         }
 
         public void Init()
         {
-            GroupQueryQueue = new SqlServerQueryQueue();
+            QueryQueue = new SqlServerQueryQueue(this);
             if (GroupQueryQueueList == null) { GroupQueryQueueList = new List<IQueryQueue>(); }
         }
     }

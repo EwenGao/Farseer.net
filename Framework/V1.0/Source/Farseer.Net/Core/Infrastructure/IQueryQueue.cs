@@ -25,7 +25,6 @@ namespace FS.Core.Infrastructure
         /// 当前生成的SQL
         /// </summary>
         StringBuilder Sql { get; set; }
-
         IQueryQueueList List { get; }
         IQueryQueueInfo Info { get; }
         IQueryQueueInsert Insert { get; }

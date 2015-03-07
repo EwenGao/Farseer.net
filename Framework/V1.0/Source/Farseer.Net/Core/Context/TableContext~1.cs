@@ -38,6 +38,7 @@ namespace FS.Core.Context
         /// <param name="tableName">表名称</param>
         public TableContext(DbExecutor database, string tableName = null) : base(database, tableName)
         {
+            if (string.IsNullOrWhiteSpace(tableName)) { TableName = TableMapCache.GetMap<TEntity>().ClassInfo.Name; }
             TableSet = new TableSet<TEntity>(this);
         }
 

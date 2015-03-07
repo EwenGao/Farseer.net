@@ -54,7 +54,7 @@ namespace FS.Mapping.Table
                                       CommandTimeout = 60,
                                       ConnectTimeout = 30,
                                       DataType = DataBaseType.SqlServer,
-                                      DataVer = "2005",
+                                      DataVer = "2008",
                                       PassWord = "123456",
                                       PoolMaxSize = 100,
                                       PoolMinSize = 16,

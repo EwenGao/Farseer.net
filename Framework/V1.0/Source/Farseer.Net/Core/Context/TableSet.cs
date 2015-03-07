@@ -20,14 +20,13 @@ namespace FS.Core.Context
         internal TableSet(TableContext<TEntity> dbContext) : this()
         {
             _dbContext = dbContext;
-            QueryProvider = DbFactory.CreateQuery(_dbContext.Database);
-            QueryProvider.TableName = _dbContext.TableName;
+            QueryProvider = DbFactory.CreateQuery(_dbContext);
         }
 
         /// <summary>
         /// 数据库查询支持
         /// </summary>
-        public IQuery QueryProvider { get; set; }
+        private IQuery QueryProvider { get; set; }
 
         /// <summary>
         ///     字段选择器
@@ -35,7 +34,7 @@ namespace FS.Core.Context
         /// <param name="select">字段选择器</param>
         public TableSet<TEntity> Select<T>(Expression<Func<TEntity, T>> select)
         {
-            QueryProvider.GroupQueryQueue.ExpSelect = QueryProvider.GroupQueryQueue.ExpSelect == null ? QueryProvider.GroupQueryQueue.ExpSelect = select : Expression.Add(QueryProvider.GroupQueryQueue.ExpSelect, select);
+            QueryProvider.QueryQueue.ExpSelect = QueryProvider.QueryQueue.ExpSelect == null ? QueryProvider.QueryQueue.ExpSelect = select : Expression.Add(QueryProvider.QueryQueue.ExpSelect, select);
             return this;
         }
 
@@ -45,42 +44,45 @@ namespace FS.Core.Context
         /// <param name="where">查询条件</param>
         public TableSet<TEntity> Where(Expression<Func<TEntity, bool>> where)
         {
-            QueryProvider.GroupQueryQueue.ExpWhere = QueryProvider.GroupQueryQueue.ExpWhere == null ? QueryProvider.GroupQueryQueue.ExpWhere = where : Expression.Add(QueryProvider.GroupQueryQueue.ExpWhere, where);
+            QueryProvider.QueryQueue.ExpWhere = QueryProvider.QueryQueue.ExpWhere == null ? QueryProvider.QueryQueue.ExpWhere = where : Expression.Add(QueryProvider.QueryQueue.ExpWhere, where);
             return this;
         }
 
         public TableSet<TEntity> Desc<TKey>(Expression<Func<TEntity, TKey>> desc)
         {
-            QueryProvider.GroupQueryQueue.ExpOrderBy = QueryProvider.GroupQueryQueue.ExpOrderBy == null ? QueryProvider.GroupQueryQueue.ExpOrderBy = desc : Expression.Add(QueryProvider.GroupQueryQueue.ExpOrderBy, desc);
+            QueryProvider.QueryQueue.ExpOrderBy = QueryProvider.QueryQueue.ExpOrderBy == null ? QueryProvider.QueryQueue.ExpOrderBy = desc : Expression.Add(QueryProvider.QueryQueue.ExpOrderBy, desc);
             return this;
         }
 
         public TableSet<TEntity> Asc<TKey>(Expression<Func<TEntity, TKey>> asc)
         {
-            QueryProvider.GroupQueryQueue.ExpOrderBy = QueryProvider.GroupQueryQueue.ExpOrderBy == null ? QueryProvider.GroupQueryQueue.ExpOrderBy = asc : Expression.Add(QueryProvider.GroupQueryQueue.ExpOrderBy, asc);
+            QueryProvider.QueryQueue.ExpOrderBy = QueryProvider.QueryQueue.ExpOrderBy == null ? QueryProvider.QueryQueue.ExpOrderBy = asc : Expression.Add(QueryProvider.QueryQueue.ExpOrderBy, asc);
             return this;
         }
         public List<TEntity> ToList()
         {
-            return QueryProvider.GroupQueryQueue.List.Query<TEntity>(QueryProvider);
+            return QueryProvider.QueryQueue.List.Query<TEntity>();
         }
 
         public TEntity ToInfo()
         {
-            return QueryProvider.GroupQueryQueue.Info.Query<TEntity>(QueryProvider);
+            return QueryProvider.QueryQueue.Info.Query<TEntity>();
         }
 
         public TEntity Update(TEntity entity)
         {
+            QueryProvider.QueryQueue.Update.Query(entity);
             return entity;
         }
 
-        public void Delete()
+        public int Delete()
         {
+            return QueryProvider.QueryQueue.Delete.Query<TEntity>();
         }
 
         public TEntity Insert(TEntity entity)
         {
+            QueryProvider.QueryQueue.Insert.Query(entity);
             return entity;
         }
 

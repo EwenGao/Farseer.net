@@ -4,7 +4,7 @@ using FS.Mapping.Table;
 
 namespace Demo.PO.Table.Members
 {
-    [DB(Name = "User")]
+    [DB(Name = "Members_User")]
     public class UserPO : TableContext<UserPO>
     {
         /// <summary>

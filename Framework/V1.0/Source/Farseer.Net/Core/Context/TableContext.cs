@@ -15,7 +15,7 @@ namespace FS.Core.Context
         /// </summary>
         /// <param name="dbIndex">数据库选项</param>
         /// <param name="tableName">表名称</param>
-        protected internal TableContext(int dbIndex, string tableName = null) : this(DbFactory.CreateConnString(dbIndex), DbConfigs.ConfigInfo.DbList[dbIndex].DataType, DbConfigs.ConfigInfo.DbList[dbIndex].CommandTimeout, tableName) { }
+        protected internal TableContext(int dbIndex = 0, string tableName = null) : this(DbFactory.CreateConnString(dbIndex), DbConfigs.ConfigInfo.DbList[dbIndex].DataType, DbConfigs.ConfigInfo.DbList[dbIndex].CommandTimeout, tableName) { }
 
         /// <summary>
         /// 通过自定义数据链接符，连接数据库
@@ -51,7 +51,7 @@ namespace FS.Core.Context
         /// <summary>
         /// 表名
         /// </summary>
-        internal string TableName { get; private set; }
+        internal protected string TableName { get; protected set; }
 
         /// <summary>
         /// 保存修改

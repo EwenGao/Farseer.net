@@ -7,23 +7,24 @@ using System.Text;
 using System.Web;
 using FS.Configs;
 using FS.Core.Client.SqlServer;
+using FS.Core.Context;
 using FS.Core.Data;
 using FS.Core.Infrastructure;
 
 namespace FS.Core
 {
-    public class DbFactory
+    public static class DbFactory
     {
-        public static IQuery CreateQuery(DbExecutor dataBase)
+        public static IQuery CreateQuery(TableContext tableContext)
         {
-            switch (dataBase.DataType)
+            switch (tableContext.Database.DataType)
             {
-                case DataBaseType.OleDb: return new SqlServerQuery(dataBase);
-                case DataBaseType.MySql: return new SqlServerQuery(dataBase);
-                case DataBaseType.Xml: return new SqlServerQuery(dataBase);
-                case DataBaseType.SQLite: return new SqlServerQuery(dataBase);
-                case DataBaseType.Oracle: return new SqlServerQuery(dataBase);
-                default: return new SqlServerQuery(dataBase);
+                case DataBaseType.OleDb: return new SqlServerQuery(tableContext);
+                case DataBaseType.MySql: return new SqlServerQuery(tableContext);
+                case DataBaseType.Xml: return new SqlServerQuery(tableContext);
+                case DataBaseType.SQLite: return new SqlServerQuery(tableContext);
+                case DataBaseType.Oracle: return new SqlServerQuery(tableContext);
+                default: return new SqlServerQuery(tableContext);
             }
         }
 
@@ -32,19 +33,18 @@ namespace FS.Core
         /// </summary>
         /// <param name="dbType">数据库类型</param>
         /// <returns></returns>
-        public static string GetDbTypeName(DataBaseType dbType)
+        public static DbProviderFactory GetDbProvider(DataBaseType dbType)
         {
-            var dbTypeName = string.Empty;
             switch (dbType)
             {
-                case DataBaseType.MySql: dbTypeName = "MySql.Data.MySqlClient"; break;
-                case DataBaseType.OleDb: dbTypeName = "System.Data.OleDb"; break;
-                case DataBaseType.Oracle: dbTypeName = "System.Data.OracleClient"; break;
-                case DataBaseType.SQLite: dbTypeName = "System.Data.SQLite"; break;
-                case DataBaseType.SqlServer: dbTypeName = "System.Data.SqlClient"; break;
-                case DataBaseType.Xml: dbTypeName = "System.Linq.Xml"; break;
+                case DataBaseType.MySql: return DbProviderFactories.GetFactory("MySql.Data.MySqlClient");
+                case DataBaseType.OleDb: return DbProviderFactories.GetFactory("System.Data.OleDb");
+                case DataBaseType.Oracle: return DbProviderFactories.GetFactory("System.Data.OracleClient");
+                case DataBaseType.SQLite: return DbProviderFactories.GetFactory("System.Data.SQLite");
+                case DataBaseType.SqlServer: return DbProviderFactories.GetFactory("System.Data.SqlClient");
+                case DataBaseType.Xml: return DbProviderFactories.GetFactory("System.Linq.Xml");
             }
-            return dbTypeName;
+            return DbProviderFactories.GetFactory("System.Data.SqlClient");
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace FS.Core
             switch (dbType)
             {
                 case DataBaseType.SqlServer: conn = new SqlConnection(connectionString); ; break;
-                default: conn = DbProviderFactories.GetFactory(GetDbTypeName(dbType)).CreateConnection(); break;
+                default: conn = GetDbProvider(dbType).CreateConnection(); break;
             }
             conn.ConnectionString = connectionString;
             return conn;

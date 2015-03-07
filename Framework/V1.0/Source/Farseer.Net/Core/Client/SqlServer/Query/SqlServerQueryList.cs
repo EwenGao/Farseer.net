@@ -13,57 +13,43 @@ namespace FS.Core.Client.SqlServer.Query
     /// </summary>
     public class SqlServerQueryList : IQueryQueueList
     {
-        private IQueryQueue _queryQueue;
+        private readonly IQuery _queryProvider;
 
-        public SqlServerQueryList(IQueryQueue queryQueue)
+        public SqlServerQueryList(IQuery queryProvider)
         {
-            _queryQueue = queryQueue;
+            _queryProvider = queryProvider;
         }
-
-        Expression ExpSelect { get; set; }
-        Expression ExpWhere { get; set; }
-        Expression ExpOrderBy { get; set; }
-        public StringBuilder Sql { get; private set; }
 
         public void Query()
         {
-            var strSelectSql = new SelectAssemble().Execute(_queryQueue.ExpSelect);
-            var strWhereSql = new WhereAssemble().Execute(_queryQueue.ExpWhere);
-            var strOrderBySql = new OrderByAssemble().Execute(_queryQueue.ExpOrderBy);
+            var strSelectSql = new SelectAssemble().Execute(_queryProvider.QueryQueue.ExpSelect);
+            var strWhereSql = new WhereAssemble().Execute(_queryProvider.QueryQueue.ExpWhere);
+            var strOrderBySql = new OrderByAssemble().Execute(_queryProvider.QueryQueue.ExpOrderBy);
 
-            Sql = new StringBuilder();
+            _queryProvider.QueryQueue.Sql = new StringBuilder();
 
             if (string.IsNullOrWhiteSpace(strSelectSql)) { strSelectSql = "*"; }
-            Sql.Append(string.Format("select {0} ", strSelectSql));
+            _queryProvider.QueryQueue.Sql.Append(string.Format("select {0} ", strSelectSql));
 
-            Sql.Append(string.Format("from {0} ", query.TableName));
+            _queryProvider.QueryQueue.Sql.Append(string.Format("from {0} ", _queryProvider.TableContext.TableName));
 
             if (!string.IsNullOrWhiteSpace(strWhereSql))
             {
-                Sql.Append(string.Format("where {0} ", strWhereSql));
+                _queryProvider.QueryQueue.Sql.Append(string.Format("where {0} ", strWhereSql));
             }
 
             if (!string.IsNullOrWhiteSpace(strOrderBySql))
             {
-                Sql.Append(string.Format("orderby {0} ", strOrderBySql));
+                _queryProvider.QueryQueue.Sql.Append(string.Format("orderby {0} ", strOrderBySql));
             }
-
-            _queryQueue.Execute();
         }
 
         public List<T> Query<T>()
         {
             Query();
-            return new Lazy<List<T>>().Value;
-        }
-
-        public void Dispose()
-        {
-            ExpSelect = null;
-            ExpWhere = null;
-            ExpOrderBy = null;
-            Sql.Clear();
-            Sql = null;
+            var result = new Lazy<List<T>>().Value;
+            _queryProvider.Init();
+            return result;
         }
     }
 }

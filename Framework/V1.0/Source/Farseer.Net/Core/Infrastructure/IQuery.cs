@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using FS.Core.Context;
 using FS.Core.Data;
 
 namespace FS.Core.Infrastructure
@@ -11,18 +12,14 @@ namespace FS.Core.Infrastructure
     public interface IQuery
     {
         /// <summary>
-        /// 数据库
+        /// 数据库上下文
         /// </summary>
-        DbExecutor Database { get; set; }
+        TableContext TableContext { get; }
+
         /// <summary>
         /// 当前组查询队列（支持批量提交SQL）
         /// </summary>
-        IQueryQueue GroupQueryQueue { get; set; }
-
-        /// <summary>
-        /// 表名
-        /// </summary>
-        string TableName { get; set; }
+        IQueryQueue QueryQueue { get; set; }
 
         /// <summary>
         /// 将GroupQueryQueue提交到组中，并创建新的GroupQueryQueue

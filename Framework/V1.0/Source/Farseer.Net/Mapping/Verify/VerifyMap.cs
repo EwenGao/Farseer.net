@@ -46,9 +46,9 @@ namespace FS.Mapping.Verify
                     // 字段描述
                     if (item is DisplayAttribute) { modelAtt.Display = (DisplayAttribute)item; continue; }
                     // 值的长度
-                    if (item is RangeAttribute) { modelAtt.Range = (RangeAttribute)item; continue; } 
+                    if (item is RangeAttribute) { modelAtt.Range = (RangeAttribute)item; continue; }
                     // 正则
-                    if (item is RegularExpressionAttribute) { modelAtt.RegularExpression = (RegularExpressionAttribute)item; continue; } 
+                    if (item is RegularExpressionAttribute) { modelAtt.RegularExpression = (RegularExpressionAttribute)item; continue; }
                 }
                 if (modelAtt.Display == null) { modelAtt.Display = new DisplayAttribute { Name = propertyInfo.Name }; }
                 if (string.IsNullOrEmpty(modelAtt.Display.Name)) { modelAtt.Display.Name = propertyInfo.Name; }
@@ -81,17 +81,20 @@ namespace FS.Mapping.Verify
                 // 值的长度
                 if (modelAtt.Range != null && string.IsNullOrEmpty(modelAtt.Range.ErrorMessage))
                 {
-                    if (modelAtt.Range.Minimum.ConvertType(0m) > 0 && modelAtt.Range.Maximum.ConvertType(0m) > 0)
+                    decimal minnum; decimal.TryParse(modelAtt.Range.Minimum.ToString(), out minnum);
+                    decimal maximum; decimal.TryParse(modelAtt.Range.Minimum.ToString(), out maximum);
+
+                    if (minnum > 0 && maximum > 0)
                     {
-                        modelAtt.Range.ErrorMessage = string.Format("{0}，的值范围必须为：{1} - {2} 之间！", modelAtt.Display.Name, modelAtt.Range.Minimum.ConvertType(0m), modelAtt.Range.Maximum.ConvertType(0m));
+                        modelAtt.Range.ErrorMessage = string.Format("{0}，的值范围必须为：{1} - {2} 之间！", modelAtt.Display.Name, minnum, maximum);
                     }
-                    else if (modelAtt.Range.Maximum.ConvertType(0m) > 0)
+                    else if (maximum > 0)
                     {
-                        modelAtt.Range.ErrorMessage = string.Format("{0}，的值不能大于{1}！", modelAtt.Display.Name, modelAtt.Range.Maximum.ConvertType(0m));
+                        modelAtt.Range.ErrorMessage = string.Format("{0}，的值不能大于{1}！", modelAtt.Display.Name, maximum);
                     }
                     else
                     {
-                        modelAtt.Range.ErrorMessage = string.Format("{0}，的值不能小于{1}！", modelAtt.Display.Name, modelAtt.Range.Minimum.ConvertType(0m));
+                        modelAtt.Range.ErrorMessage = string.Format("{0}，的值不能小于{1}！", modelAtt.Display.Name, minnum);
                     }
                 }
 
@@ -103,7 +106,7 @@ namespace FS.Mapping.Verify
             #endregion
 
             Type = type;
-        } 
+        }
 
         /// <summary>
         ///     自增ID
