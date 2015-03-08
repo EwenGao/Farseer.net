@@ -13,11 +13,11 @@ namespace FS.Core.Infrastructure
         /// <summary>
         /// 数据库提供者（不同数据库的特性）
         /// </summary>
-        protected DbProvider DbProvider { get; private set; }
+        protected IQuery QueryProvider { get; private set; }
 
-        protected SqlAssemble(DbProvider dbProvider)
+        protected SqlAssemble(IQuery queryProvider)
         {
-            DbProvider = dbProvider;
+            QueryProvider = queryProvider;
         }
     }
 }

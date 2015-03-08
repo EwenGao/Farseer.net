@@ -6,7 +6,7 @@ namespace FS.Core.Client.SqlServer.Assemble
 {
     public class SelectAssemble   : SqlAssemble
     {
-        public SelectAssemble(DbProvider dbProvider) : base(dbProvider) { }
+        public SelectAssemble(IQuery queryProvider) : base(queryProvider) { }
 
         public string Execute(Expression exp)
         {

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Data.Common;
 using FS.Core.Context;
 using FS.Core.Infrastructure;
+using System.Linq;
 
 namespace FS.Core.Client.SqlServer
 {
@@ -10,7 +12,9 @@ namespace FS.Core.Client.SqlServer
         /// 组列表
         /// </summary>
         private List<IQueryQueue> GroupQueryQueueList { get; set; }
-
+        public TableContext TableContext { get; private set; }
+        public IQueryQueue QueryQueue { get; set; }
+        public DbProvider DbProvider { get; set; }
         public SqlServerQuery(TableContext tableContext)
         {
             TableContext = tableContext;
@@ -18,14 +22,22 @@ namespace FS.Core.Client.SqlServer
             DbProvider = new SqlServerProvider();
             Init();
         }
-
-        public TableContext TableContext { get; private set; }
-        public IQueryQueue QueryQueue { get; set; }
         public IQueryQueue GetQueryQueue(int index)
         {
             return GroupQueryQueueList[index];
         }
-        public DbProvider DbProvider { get; set; }
+
+        public IList<DbParameter> Param
+        {
+            get
+            {
+                if (GroupQueryQueueList.Count == 0) { return null; }
+                var lst = new List<DbParameter>();
+                GroupQueryQueueList.Select(o => o.Param).ToList().ForEach(lst.AddRange);
+                return lst;
+            }
+        }
+
         public void Append()
         {
             if (QueryQueue != null) { GroupQueryQueueList.Add(QueryQueue); }

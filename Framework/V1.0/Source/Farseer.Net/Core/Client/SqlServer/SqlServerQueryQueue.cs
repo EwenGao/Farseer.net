@@ -46,8 +46,7 @@ namespace FS.Core.Client.SqlServer
 
         public int Execute()
         {
-            if (Sql.Length < 1) { return 0; }
-            return _queryProvider.TableContext.Database.ExecuteNonQuery(CommandType.Text, Sql.ToString(), Param == null ? null : ((List<DbParameter>)Param).ToArray());
+            return Sql.Length < 1 ? 0 : _queryProvider.TableContext.Database.ExecuteNonQuery(CommandType.Text, Sql.ToString(), Param == null ? null : ((List<DbParameter>)Param).ToArray());
         }
 
         public void Dispose()

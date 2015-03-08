@@ -23,9 +23,9 @@ namespace FS.Core.Client.SqlServer.Query
 
         public void Query()
         {
-            var strSelectSql = new SelectAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpSelect);
-            var strWhereSql = new WhereAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpWhere);
-            var strOrderBySql = new OrderByAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpOrderBy);
+            var strSelectSql = new SelectAssemble(_queryProvider).Execute(_queryProvider.QueryQueue.ExpSelect);
+            var strWhereSql = new WhereAssemble(_queryProvider).Execute(_queryProvider.QueryQueue.ExpWhere);
+            var strOrderBySql = new OrderByAssemble(_queryProvider).Execute(_queryProvider.QueryQueue.ExpOrderBy);
 
             _queryProvider.QueryQueue.Sql = new StringBuilder();
 

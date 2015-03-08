@@ -22,9 +22,9 @@ namespace FS.Core.Client.SqlServer.Query
         {
             _queryProvider.QueryQueue.Sql = new StringBuilder();
 
-            var strSelectSql = new SelectAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpSelect);
-            var strWhereSql = new WhereAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpWhere);
-            var strOrderBySql = new OrderByAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpOrderBy);
+            var strSelectSql = new SelectAssemble(_queryProvider).Execute(_queryProvider.QueryQueue.ExpSelect);
+            var strWhereSql = new WhereAssemble(_queryProvider).Execute(_queryProvider.QueryQueue.ExpWhere);
+            var strOrderBySql = new OrderByAssemble(_queryProvider).Execute(_queryProvider.QueryQueue.ExpOrderBy);
 
 
             if (string.IsNullOrWhiteSpace(strSelectSql)) { strSelectSql = "*"; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq.Expressions;
 using FS.Core.Context;
 using FS.Core.Data;
@@ -27,6 +28,11 @@ namespace FS.Core.Infrastructure
         /// <param name="index"></param>
         /// <returns></returns>
         IQueryQueue GetQueryQueue(int index);
+        /// <summary>
+        /// 返回所有组队列的参数Param
+        /// </summary>
+        /// <returns></returns>
+        IList<DbParameter> Param { get; }
         /// <summary>
         /// 数据库提供者
         /// </summary>

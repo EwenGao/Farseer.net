@@ -5,7 +5,7 @@ namespace FS.Core.Client.SqlServer.Assemble
 {
     public class OrderByAssemble  : SqlAssemble
     {
-        public OrderByAssemble(DbProvider dbProvider) : base(dbProvider) { }
+        public OrderByAssemble(IQuery queryProvider) : base(queryProvider) { }
 
         public string Execute(Expression exp)
         {

@@ -23,8 +23,8 @@ namespace FS.Core.Client.SqlServer.Query
         {
             _queryProvider.QueryQueue.Sql = new StringBuilder();
             IList<DbParameter> param;
-            var strWhereSql = new WhereAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpWhere);
-            var strAssemble = new AssignAssemble(_queryProvider.DbProvider).Execute(entity, out param);
+            var strWhereSql = new WhereAssemble(_queryProvider).Execute(_queryProvider.QueryQueue.ExpWhere);
+            var strAssemble = new AssignAssemble(_queryProvider).Execute(entity, out param);
 
             _queryProvider.QueryQueue.Sql.AppendFormat("UPDATE {0} SET ", _queryProvider.DbProvider.KeywordAegis(_queryProvider.TableContext.TableName));
             _queryProvider.QueryQueue.Sql.Append(strAssemble);
