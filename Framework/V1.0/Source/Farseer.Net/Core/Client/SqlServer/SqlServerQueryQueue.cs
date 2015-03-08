@@ -1,4 +1,6 @@
-﻿using System.Linq.Expressions;
+﻿using System.Collections.Generic;
+using System.Data.Common;
+using System.Linq.Expressions;
 using System.Text;
 using FS.Core.Client.SqlServer.Query;
 using FS.Core.Infrastructure;
@@ -13,9 +15,12 @@ namespace FS.Core.Client.SqlServer
         public Expression ExpSelect { get; set; }
         public Expression ExpWhere { get; set; }
         public StringBuilder Sql { get; set; }
+        public IEnumerable<DbParameter> Param { get; set; }
+
         public SqlServerQueryQueue(IQuery queryProvider)
         {
             _queryProvider = queryProvider;
+            Param = new List<DbParameter>();
         }
 
         private IQueryQueueList _list;

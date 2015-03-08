@@ -7,9 +7,5 @@ namespace FS.Core.Infrastructure
 {
     public interface IQueryQueueExecute
     {
-        /// <summary>
-        /// 生成SQL
-        /// </summary>
-        void Query();
     }
 }

@@ -15,10 +15,12 @@ namespace FS.Core.Client.SqlServer
         {
             TableContext = tableContext;
             Init();
+            DbProvider = new SqlServerProvider();
         }
 
         public TableContext TableContext { get; private set; }
         public IQueryQueue QueryQueue { get; set; }
+        public DbProvider DbProvider { get; set; }
 
         public void Execute()
         {

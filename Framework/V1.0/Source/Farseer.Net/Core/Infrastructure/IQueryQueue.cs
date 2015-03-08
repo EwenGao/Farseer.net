@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -25,10 +26,15 @@ namespace FS.Core.Infrastructure
         /// 当前生成的SQL
         /// </summary>
         StringBuilder Sql { get; set; }
+        /// <summary>
+        /// 当前生成的参数
+        /// </summary>
+        IEnumerable<DbParameter> Param { get; set; }
         IQueryQueueList List { get; }
         IQueryQueueInfo Info { get; }
         IQueryQueueInsert Insert { get; }
         IQueryQueueUpdate Update { get; }
         IQueryQueueDelete Delete { get; }
+
     }
 }

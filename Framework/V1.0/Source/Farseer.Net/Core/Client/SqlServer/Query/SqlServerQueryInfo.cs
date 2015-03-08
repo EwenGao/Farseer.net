@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 using System.Text;
-using FS.Core.Assemble;
+using FS.Core.Client.SqlServer.Assemble;
 using FS.Core.Infrastructure;
 using FS.Core.Infrastructure.Query;
 using FS.Extend;
@@ -30,9 +30,9 @@ namespace FS.Core.Client.SqlServer.Query
         {
             _queryProvider.QueryQueue.Sql = new StringBuilder();
 
-            var strSelectSql = new SelectAssemble().Execute(_queryProvider.QueryQueue.ExpSelect);
-            var strWhereSql = new WhereAssemble().Execute(_queryProvider.QueryQueue.ExpWhere);
-            var strOrderBySql = new OrderByAssemble().Execute(_queryProvider.QueryQueue.ExpOrderBy);
+            var strSelectSql = new SelectAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpSelect);
+            var strWhereSql = new WhereAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpWhere);
+            var strOrderBySql = new OrderByAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpOrderBy);
 
 
             if (string.IsNullOrWhiteSpace(strSelectSql)) { strSelectSql = "*"; }

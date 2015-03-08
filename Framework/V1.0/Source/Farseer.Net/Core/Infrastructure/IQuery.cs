@@ -22,6 +22,11 @@ namespace FS.Core.Infrastructure
         IQueryQueue QueryQueue { get; set; }
 
         /// <summary>
+        /// 数据库提供者
+        /// </summary>
+        DbProvider DbProvider { get; set; }
+
+        /// <summary>
         /// 将GroupQueryQueue提交到组中，并创建新的GroupQueryQueue
         /// </summary>
         void Execute();
