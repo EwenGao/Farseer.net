@@ -1,4 +1,5 @@
-﻿using Demo.Common;
+﻿using System.Data.Linq.Mapping;
+using Demo.Common;
 using FS.Core.Context;
 using FS.Mapping.Table;
 
@@ -10,6 +11,7 @@ namespace Demo.PO.Table.Members
         /// <summary>
         /// 用户ID
         /// </summary>
+        [Column(IsDbGenerated = true)]
         public int? ID { get; set; }
         /// <summary>
         /// 用户名

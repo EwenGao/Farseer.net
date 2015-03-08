@@ -64,9 +64,7 @@ namespace FS.Core.Context
         /// </summary>
         public int SaveChanges()
         {
-            var result = 0;
-            result += QueryProvider.QueryQueue.Execute();
-            return result;
+            return QueryProvider.Commit();
         }
 
         /// <summary>

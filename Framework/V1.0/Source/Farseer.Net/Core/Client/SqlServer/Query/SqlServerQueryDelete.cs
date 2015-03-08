@@ -47,7 +47,7 @@ namespace FS.Core.Client.SqlServer.Query
         {
             Query();
             var result = _queryProvider.TableContext.Database.ExecuteNonQuery(System.Data.CommandType.Text, _queryProvider.QueryQueue.Sql.ToString());
-            _queryProvider.Commit();
+            _queryProvider.Append();
             return result;
         }
     }

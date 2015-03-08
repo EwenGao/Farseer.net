@@ -26,11 +26,25 @@ namespace FS.Core.Client.SqlServer
             return GroupQueryQueueList[index];
         }
         public DbProvider DbProvider { get; set; }
-        public void Commit()
+        public void Append()
         {
             if (QueryQueue != null) { GroupQueryQueueList.Add(QueryQueue); }
             Init();
         }
+
+        public int Commit()
+        {
+            var result = 0;
+            foreach (var queryQueue in GroupQueryQueueList)
+            {
+                result += queryQueue.Execute();
+                queryQueue.Dispose();
+            }
+            GroupQueryQueueList.Clear();
+            Init();
+            return result;
+        }
+
         public void Init()
         {
             QueryQueue = new SqlServerQueryQueue(GroupQueryQueueList.Count, this);
