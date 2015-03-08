@@ -34,7 +34,7 @@ namespace FS.Core.Context
         /// <param name="select">字段选择器</param>
         public TableSet<TEntity> Select<T>(Expression<Func<TEntity, T>> select)
         {
-            QueryProvider.QueryQueue.ExpSelect = QueryProvider.QueryQueue.ExpSelect == null ? QueryProvider.QueryQueue.ExpSelect = select : Expression.Add(QueryProvider.QueryQueue.ExpSelect, select);
+            //QueryProvider.QueryQueue.ExpSelect = QueryProvider.QueryQueue.ExpSelect == null ? QueryProvider.QueryQueue.ExpSelect = select : Expression.Add(QueryProvider.QueryQueue.ExpSelect, select);
             return this;
         }
 
@@ -44,19 +44,19 @@ namespace FS.Core.Context
         /// <param name="where">查询条件</param>
         public TableSet<TEntity> Where(Expression<Func<TEntity, bool>> where)
         {
-            QueryProvider.QueryQueue.ExpWhere = QueryProvider.QueryQueue.ExpWhere == null ? QueryProvider.QueryQueue.ExpWhere = where : Expression.Add(QueryProvider.QueryQueue.ExpWhere, where);
+            //QueryProvider.QueryQueue.ExpWhere = QueryProvider.QueryQueue.ExpWhere == null ? QueryProvider.QueryQueue.ExpWhere = where : Expression.Add(QueryProvider.QueryQueue.ExpWhere, where);
             return this;
         }
 
         public TableSet<TEntity> Desc<TKey>(Expression<Func<TEntity, TKey>> desc)
         {
-            QueryProvider.QueryQueue.ExpOrderBy = QueryProvider.QueryQueue.ExpOrderBy == null ? QueryProvider.QueryQueue.ExpOrderBy = desc : Expression.Add(QueryProvider.QueryQueue.ExpOrderBy, desc);
+            //QueryProvider.QueryQueue.ExpOrderBy = QueryProvider.QueryQueue.ExpOrderBy == null ? QueryProvider.QueryQueue.ExpOrderBy = desc : Expression.Add(QueryProvider.QueryQueue.ExpOrderBy, desc);
             return this;
         }
 
         public TableSet<TEntity> Asc<TKey>(Expression<Func<TEntity, TKey>> asc)
         {
-            QueryProvider.QueryQueue.ExpOrderBy = QueryProvider.QueryQueue.ExpOrderBy == null ? QueryProvider.QueryQueue.ExpOrderBy = asc : Expression.Add(QueryProvider.QueryQueue.ExpOrderBy, asc);
+            //QueryProvider.QueryQueue.ExpOrderBy = QueryProvider.QueryQueue.ExpOrderBy == null ? QueryProvider.QueryQueue.ExpOrderBy = asc : Expression.Add(QueryProvider.QueryQueue.ExpOrderBy, asc);
             return this;
         }
         public List<TEntity> ToList()

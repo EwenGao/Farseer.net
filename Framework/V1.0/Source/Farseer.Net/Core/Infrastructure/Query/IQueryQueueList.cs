@@ -7,6 +7,6 @@ namespace FS.Core.Infrastructure.Query
         /// <summary>
         /// 生成SQL
         /// </summary>
-        List<T> Query<T>();
+        List<T> Query<T>() where T : class, new();
     }
 }

@@ -7,7 +7,7 @@ using FS.Core.Data;
 namespace FS.Core.Infrastructure
 {
     /// <summary>
-    /// 数据库查询持久化
+    /// 数据库持久化
     /// </summary>
     public interface IQuery
     {

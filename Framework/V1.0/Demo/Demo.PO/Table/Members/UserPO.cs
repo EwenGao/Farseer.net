@@ -10,7 +10,7 @@ namespace Demo.PO.Table.Members
         /// <summary>
         /// 用户ID
         /// </summary>
-        public int ID { get; set; }
+        public int? ID { get; set; }
         /// <summary>
         /// 用户名
         /// </summary>
@@ -29,7 +29,7 @@ namespace Demo.PO.Table.Members
         /// <summary>
         /// 登陆次数
         /// </summary>
-        public int LoginCount { get; set; }
+        public int? LoginCount { get; set; }
 
         /// <summary>
         /// 登陆IP

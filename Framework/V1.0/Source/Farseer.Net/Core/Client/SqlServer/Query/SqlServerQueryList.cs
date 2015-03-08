@@ -5,6 +5,7 @@ using System.Text;
 using FS.Core.Assemble;
 using FS.Core.Infrastructure;
 using FS.Core.Infrastructure.Query;
+using FS.Extend;
 
 namespace FS.Core.Client.SqlServer.Query
 {
@@ -44,10 +45,10 @@ namespace FS.Core.Client.SqlServer.Query
             }
         }
 
-        public List<T> Query<T>()
+        public List<T> Query<T>() where T : class, new()
         {
             Query();
-            var result = new Lazy<List<T>>().Value;
+            var result = _queryProvider.TableContext.Database.GetReader(System.Data.CommandType.Text, _queryProvider.QueryQueue.Sql.ToString()).ToList<T>();
             _queryProvider.Init();
             return result;
         }

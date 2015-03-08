@@ -41,12 +41,12 @@ namespace FS.Core.Context
         /// <summary>
         /// 数据库
         /// </summary>
-        public DbExecutor Database { get; private set; }
+        internal protected DbExecutor Database { get; private set; }
 
         /// <summary>
         /// 合并执行命令
         /// </summary>
-        protected bool IsMergeCommand { get; set; }
+        internal protected bool IsMergeCommand { get; set; }
 
         /// <summary>
         /// 表名

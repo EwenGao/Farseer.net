@@ -73,6 +73,38 @@ namespace FS.Extend
         }
 
         /// <summary>
+        /// 得到 IDataReader 的Hash
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
+        static int GetColumnHash(IDataReader reader)
+        {
+            unchecked
+            {
+                int colCount = reader.FieldCount, hash = colCount;
+                for (int i = 0; i < colCount; i++)
+                {   // binding code is only interested in names - not types
+                    object tmp = reader.GetName(i);
+                    hash = (hash * 31) + (tmp == null ? 0 : tmp.GetHashCode());
+                }
+                return hash;
+            }
+        }
+
+
+        struct DeserializerState
+        {
+            public readonly int Hash;
+            public readonly Func<IDataReader, object> Func;
+
+            public DeserializerState(int hash, Func<IDataReader, object> func)
+            {
+                Hash = hash;
+                Func = func;
+            }
+        }
+
+        /// <summary>
         ///     判断IDataReader是否存在某列
         /// </summary>
         /// <param name="reader"></param>

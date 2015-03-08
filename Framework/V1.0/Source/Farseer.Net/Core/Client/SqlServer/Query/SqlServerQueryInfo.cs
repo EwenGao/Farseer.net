@@ -3,6 +3,7 @@ using System.Text;
 using FS.Core.Assemble;
 using FS.Core.Infrastructure;
 using FS.Core.Infrastructure.Query;
+using FS.Extend;
 
 namespace FS.Core.Client.SqlServer.Query
 {
@@ -11,8 +12,15 @@ namespace FS.Core.Client.SqlServer.Query
     /// </summary>
     public class SqlServerQueryInfo : IQueryQueueInfo
     {
+        /// <summary>
+        /// 当前数据库持久化
+        /// </summary>
         private readonly IQuery _queryProvider;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="queryProvider">当前数据库持久化</param>
         public SqlServerQueryInfo(IQuery queryProvider)
         {
             _queryProvider = queryProvider;
@@ -43,12 +51,12 @@ namespace FS.Core.Client.SqlServer.Query
             }
         }
 
-        public T Query<T>() where T : class
+        public T Query<T>() where T : class, new()
         {
             Query();
-            var result = _queryProvider.TableContext.Database.GetReader(System.Data.CommandType.Text, _queryProvider.QueryQueue.Sql.ToString());
+            var result = _queryProvider.TableContext.Database.GetReader(System.Data.CommandType.Text, _queryProvider.QueryQueue.Sql.ToString()).ToInfo<T>();
             _queryProvider.Init();
-            return null;
+            return result;
         }
     }
 }

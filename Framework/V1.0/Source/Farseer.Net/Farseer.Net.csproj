@@ -79,6 +79,7 @@
     <Compile Include="Core\Infrastructure\Query\IQueryQueueUpdate.cs" />
     <Compile Include="Core\Infrastructure\Query\IQueryQueueInfo.cs" />
     <Compile Include="Core\Infrastructure\Query\IQueryQueueList.cs" />
+    <Compile Include="Extend\DataReaderExtensions.cs" />
     <Compile Include="Interface\IAuditInfo.cs" />
     <Compile Include="Interface\ICreateInfo.cs" />
     <Compile Include="Interface\IEntity.cs" />
