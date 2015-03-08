@@ -1,6 +1,7 @@
 ﻿using System;
 using FS.Configs;
 using FS.Core.Data;
+using FS.Core.Infrastructure;
 
 namespace FS.Core.Context
 {
@@ -43,9 +44,14 @@ namespace FS.Core.Context
         internal protected DbExecutor Database { get; private set; }
 
         /// <summary>
+        /// 数据库查询支持
+        /// </summary>
+        internal protected IQuery QueryProvider { get; set; }
+
+        /// <summary>
         /// 合并执行命令
         /// </summary>
-        internal protected bool IsMergeCommand { get; set; }
+        internal protected bool IsMergeCommand { get; protected set; }
 
         /// <summary>
         /// 表名
@@ -58,7 +64,9 @@ namespace FS.Core.Context
         /// </summary>
         public int SaveChanges()
         {
-            return -1;
+            var result = 0;
+            result += QueryProvider.QueryQueue.Execute();
+            return result;
         }
 
         /// <summary>

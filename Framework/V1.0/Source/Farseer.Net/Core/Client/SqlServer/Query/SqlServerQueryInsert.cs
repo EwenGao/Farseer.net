@@ -30,7 +30,7 @@ namespace FS.Core.Client.SqlServer.Query
             if (string.IsNullOrWhiteSpace(strSelectSql)) { strSelectSql = "*"; }
             _queryProvider.QueryQueue.Sql.Append(string.Format("select top 1 {0} ", strSelectSql));
 
-            _queryProvider.QueryQueue.Sql.Append(string.Format("from {0} ", _queryProvider.TableContext.TableName));
+            _queryProvider.QueryQueue.Sql.Append(string.Format("from {0} ", _queryProvider.DbProvider.KeywordAegis(_queryProvider.TableContext.TableName)));
 
             if (!string.IsNullOrWhiteSpace(strWhereSql))
             {
@@ -47,7 +47,7 @@ namespace FS.Core.Client.SqlServer.Query
         {
             Query();
             var result = _queryProvider.TableContext.Database.ExecuteNonQuery(System.Data.CommandType.Text, _queryProvider.QueryQueue.Sql.ToString());
-            _queryProvider.Execute();
+            _queryProvider.Commit();
             return result;
         }
     }

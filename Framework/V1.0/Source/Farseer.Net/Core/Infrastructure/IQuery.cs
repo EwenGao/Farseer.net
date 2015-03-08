@@ -22,6 +22,12 @@ namespace FS.Core.Infrastructure
         IQueryQueue QueryQueue { get; set; }
 
         /// <summary>
+        /// 根据索引，返回IQueryQueue
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        IQueryQueue GetQueryQueue(int index);
+        /// <summary>
         /// 数据库提供者
         /// </summary>
         DbProvider DbProvider { get; set; }
@@ -29,7 +35,7 @@ namespace FS.Core.Infrastructure
         /// <summary>
         /// 将GroupQueryQueue提交到组中，并创建新的GroupQueryQueue
         /// </summary>
-        void Execute();
+        void Commit();
 
         /// <summary>
         /// 初始化当前查询队列

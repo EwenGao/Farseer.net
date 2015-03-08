@@ -22,17 +22,17 @@ namespace FS.Core.Client.SqlServer.Query
         public void Query<T>(T entity) where T : class,new()
         {
             _queryProvider.QueryQueue.Sql = new StringBuilder();
-            IEnumerable<DbParameter> param;
+            IList<DbParameter> param;
             var strWhereSql = new WhereAssemble(_queryProvider.DbProvider).Execute(_queryProvider.QueryQueue.ExpWhere);
             var strAssemble = new AssignAssemble(_queryProvider.DbProvider).Execute(entity, out param);
 
-            _queryProvider.QueryQueue.Sql.AppendFormat("UPDATE {0} SET ", _queryProvider.TableContext.TableName);
+            _queryProvider.QueryQueue.Sql.AppendFormat("UPDATE {0} SET ", _queryProvider.DbProvider.KeywordAegis(_queryProvider.TableContext.TableName));
             _queryProvider.QueryQueue.Sql.Append(strAssemble);
             if (!string.IsNullOrWhiteSpace(strWhereSql)) { _queryProvider.QueryQueue.Sql.Append(string.Format(" where {0} ", strWhereSql)); }
 
             //var result = _queryProvider.TableContext.Database.ExecuteNonQuery(System.Data.CommandType.Text, _queryProvider.QueryQueue.Sql.ToString());
             _queryProvider.QueryQueue.Param = param;
-            _queryProvider.Execute();
+            _queryProvider.Commit();
         }
     }
 }

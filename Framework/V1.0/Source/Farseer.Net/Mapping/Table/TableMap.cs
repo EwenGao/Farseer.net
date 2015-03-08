@@ -127,7 +127,7 @@ namespace FS.Mapping.Table
         /// <summary>
         ///     自增ID
         /// </summary>
-        private string IndexName { get; set; }
+        public string IndexName { get; set; }
 
         /// <summary>
         ///     类型

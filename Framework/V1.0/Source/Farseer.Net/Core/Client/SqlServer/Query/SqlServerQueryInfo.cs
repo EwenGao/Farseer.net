@@ -38,7 +38,7 @@ namespace FS.Core.Client.SqlServer.Query
             if (string.IsNullOrWhiteSpace(strSelectSql)) { strSelectSql = "*"; }
             _queryProvider.QueryQueue.Sql.Append(string.Format("select top 1 {0} ", strSelectSql));
 
-            _queryProvider.QueryQueue.Sql.Append(string.Format("from {0} ", _queryProvider.TableContext.TableName));
+            _queryProvider.QueryQueue.Sql.Append(string.Format("from {0} ", _queryProvider.DbProvider.KeywordAegis(_queryProvider.TableContext.TableName)));
 
             if (!string.IsNullOrWhiteSpace(strWhereSql))
             {

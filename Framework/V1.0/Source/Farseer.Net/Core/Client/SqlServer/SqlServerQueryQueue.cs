@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Linq.Expressions;
 using System.Text;
@@ -12,15 +13,16 @@ namespace FS.Core.Client.SqlServer
     {
         private readonly IQuery _queryProvider;
         public Expression ExpOrderBy { get; set; }
+        public int Index { get; set; }
         public Expression ExpSelect { get; set; }
         public Expression ExpWhere { get; set; }
         public StringBuilder Sql { get; set; }
-        public IEnumerable<DbParameter> Param { get; set; }
+        public IList<DbParameter> Param { get; set; }
 
-        public SqlServerQueryQueue(IQuery queryProvider)
+        public SqlServerQueryQueue(int index, IQuery queryProvider)
         {
+            Index = index;
             _queryProvider = queryProvider;
-            Param = new List<DbParameter>();
         }
 
         private IQueryQueueList _list;
@@ -41,6 +43,12 @@ namespace FS.Core.Client.SqlServer
 
         private IQueryQueueDelete _delete;
         public IQueryQueueDelete Delete { get { return _delete ?? (_delete = new SqlServerQueryDelete(_queryProvider)); } }
+
+        public int Execute()
+        {
+            if (Sql.Length < 1) { return 0; }
+            return _queryProvider.TableContext.Database.ExecuteNonQuery(CommandType.Text, Sql.ToString(), Param == null ? null : ((List<DbParameter>)Param).ToArray());
+        }
 
         public void Dispose()
         {

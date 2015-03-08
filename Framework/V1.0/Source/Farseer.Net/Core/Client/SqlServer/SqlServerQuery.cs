@@ -14,24 +14,26 @@ namespace FS.Core.Client.SqlServer
         public SqlServerQuery(TableContext tableContext)
         {
             TableContext = tableContext;
-            Init();
+            GroupQueryQueueList = new List<IQueryQueue>();
             DbProvider = new SqlServerProvider();
+            Init();
         }
 
         public TableContext TableContext { get; private set; }
         public IQueryQueue QueryQueue { get; set; }
-        public DbProvider DbProvider { get; set; }
-
-        public void Execute()
+        public IQueryQueue GetQueryQueue(int index)
         {
-            GroupQueryQueueList.Add(QueryQueue);
+            return GroupQueryQueueList[index];
+        }
+        public DbProvider DbProvider { get; set; }
+        public void Commit()
+        {
+            if (QueryQueue != null) { GroupQueryQueueList.Add(QueryQueue); }
             Init();
         }
-
         public void Init()
         {
-            QueryQueue = new SqlServerQueryQueue(this);
-            if (GroupQueryQueueList == null) { GroupQueryQueueList = new List<IQueryQueue>(); }
+            QueryQueue = new SqlServerQueryQueue(GroupQueryQueueList.Count, this);
         }
     }
 }

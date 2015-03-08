@@ -132,15 +132,15 @@ namespace FS.Core.Infrastructure
         /// <summary>
         ///     获取该实体类的参数
         /// </summary>
-        /// <param name="info">实体类</param>
-        public virtual IEnumerable<DbParameter> GetParameter<TEntity>(TEntity info) where TEntity : class,new()
+        /// <param name="entity">实体类</param>
+        public virtual IList<DbParameter> GetParameter<TEntity>(TEntity entity) where TEntity : class,new()
         {
-            var map = TableMapCache.GetMap(info);
+            var map = TableMapCache.GetMap(entity);
             var lst = new List<DbParameter>();
 
             foreach (var kic in map.ModelList.Where(o => o.Value.IsDbField))
             {
-                var obj = kic.Key.GetValue(info, null);
+                var obj = kic.Key.GetValue(entity, null);
                 if (obj == null || obj is TableSet<TEntity>) { continue; }
 
                 lst.Add(CreateDbParam(kic.Value.Column.Name, obj));

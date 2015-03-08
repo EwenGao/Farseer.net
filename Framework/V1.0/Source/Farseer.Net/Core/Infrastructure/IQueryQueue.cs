@@ -11,6 +11,10 @@ namespace FS.Core.Infrastructure
     public interface IQueryQueue : IDisposable
     {
         /// <summary>
+        /// 当前组索引
+        /// </summary>
+        int Index { get; set; }
+        /// <summary>
         /// 查询字段的表达式树
         /// </summary>
         Expression ExpSelect { get; set; }
@@ -29,12 +33,17 @@ namespace FS.Core.Infrastructure
         /// <summary>
         /// 当前生成的参数
         /// </summary>
-        IEnumerable<DbParameter> Param { get; set; }
+        IList<DbParameter> Param { get; set; }
         IQueryQueueList List { get; }
         IQueryQueueInfo Info { get; }
         IQueryQueueInsert Insert { get; }
         IQueryQueueUpdate Update { get; }
         IQueryQueueDelete Delete { get; }
 
+        /// <summary>
+        /// 非合并SQL下，立即执行
+        /// </summary>
+        /// <returns></returns>
+        int Execute();
     }
 }
