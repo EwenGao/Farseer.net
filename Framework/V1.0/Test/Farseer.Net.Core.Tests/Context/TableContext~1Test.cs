@@ -16,7 +16,8 @@ namespace Farseer.Net.Core.Tests.Context
                 var info = context.TableSet.Where(o => o.ID > 0).Desc(o => new { o.ID, o.LoginCount }).Asc(o => o.GenderType).ToInfo();
                 info.PassWord = "123456";
 
-                context.TableSet.Update(info);
+                context.TableSet.Where(o => o.ID == 1).Update(info);
+
                 context.TableSet.Insert(info);
 
 

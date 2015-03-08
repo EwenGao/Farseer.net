@@ -1,7 +1,6 @@
 ﻿using System;
 using FS.Configs;
 using FS.Core.Data;
-using FS.Mapping.Table;
 
 namespace FS.Core.Context
 {

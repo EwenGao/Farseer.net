@@ -54,9 +54,14 @@ namespace FS.Core.Client.SqlServer.Query
         public T Query<T>() where T : class, new()
         {
             Query();
-            var result = _queryProvider.TableContext.Database.GetReader(System.Data.CommandType.Text, _queryProvider.QueryQueue.Sql.ToString()).ToInfo<T>();
+            T t;
+            using (var reader = _queryProvider.TableContext.Database.GetReader(System.Data.CommandType.Text, _queryProvider.QueryQueue.Sql.ToString()))
+            {
+                t = reader.ToInfo<T>();
+                reader.Close();
+            }
             _queryProvider.Init();
-            return result;
+            return t;
         }
     }
 }

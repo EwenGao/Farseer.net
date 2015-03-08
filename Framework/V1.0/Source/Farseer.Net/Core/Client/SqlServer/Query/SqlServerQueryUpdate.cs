@@ -12,6 +12,7 @@ namespace FS.Core.Client.SqlServer.Query
     public class SqlServerQueryUpdate : IQueryQueueUpdate
     {
         private readonly IQuery _queryProvider;
+        private string strAssign;
 
         public SqlServerQueryUpdate(IQuery queryProvider)
         {
@@ -27,10 +28,9 @@ namespace FS.Core.Client.SqlServer.Query
             var strOrderBySql = new OrderByAssemble().Execute(_queryProvider.QueryQueue.ExpOrderBy);
 
 
-            if (string.IsNullOrWhiteSpace(strSelectSql)) { strSelectSql = "*"; }
-            _queryProvider.QueryQueue.Sql.Append(string.Format("select top 1 {0} ", strSelectSql));
+            if (string.IsNullOrWhiteSpace(strSelectSql)) { strSelectSql = "*"; } 
 
-            _queryProvider.QueryQueue.Sql.Append(string.Format("from {0} ", _queryProvider.TableContext.TableName));
+            _queryProvider.QueryQueue.Sql.Append(string.Format("update {0} ", _queryProvider.TableContext.TableName));
 
             if (!string.IsNullOrWhiteSpace(strWhereSql))
             {
@@ -45,6 +45,7 @@ namespace FS.Core.Client.SqlServer.Query
 
         public int Query<T>(T entity) where T : class
         {
+            strAssign = new AssignAssemble().Execute(entity,out DbParam);
             Query();
             var result = _queryProvider.TableContext.Database.ExecuteNonQuery(System.Data.CommandType.Text, _queryProvider.QueryQueue.Sql.ToString());
             _queryProvider.Execute();

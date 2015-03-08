@@ -11,7 +11,10 @@ namespace Farseer.Net.Core.Tests.Context
         [TestMethod]
         public void TestMethod1()
         {
-            TableContext<UserPO>.Data.Select(o => o.ID).Where(o => o.ID > 0).ToList();
+            for (var i = 0; i < 100; i++)
+            {
+                TableContext<UserPO>.Data.Select(o => o.ID).Where(o => o.ID > 0).ToList();
+            }
         }
     }
 }

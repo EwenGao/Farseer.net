@@ -9,7 +9,7 @@ namespace FS.Core.Assemble
 {
     public class AssignAssemble : IAssemble
     {
-        public string Execute(Expression exp)
+        public string Execute<T>(T entity) where T : class
         {
             return "";
         }

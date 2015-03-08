@@ -57,6 +57,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Demo\Demo.Common\Demo.Common.csproj">
+      <Project>{0be98637-0885-4ed8-b2b2-bf4a8f3a1eef}</Project>
+      <Name>Demo.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Demo\Demo.PO\Demo.PO.csproj">
       <Project>{1e717783-d834-4a1b-a3fe-1d426e76cd97}</Project>
       <Name>Demo.PO</Name>
